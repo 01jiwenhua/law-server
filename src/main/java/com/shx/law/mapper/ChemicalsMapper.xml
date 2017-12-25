@@ -1363,4 +1363,35 @@
       disposition_num = #{dispositionNum,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByName" parameterType="com.shx.law.vo.request.KnownRequest" resultMap="BaseResultMap">
+    SELECT c.id,c.name_cn,c.name_en,c.cas,c.molecular_formula from t_chemicals c
+    WHERE  1=1
+    <if test="request.name != null">
+
+      AND c.name_cn LIKE concat(concat('%',#{request.name}),'%')
+    </if>
+
+  </select>
+  <select id="selectDetails" resultType="java.util.Map">
+    SELECT
+	c.smell AS 01气味,
+	c.saturated AS 01饱和蒸气压／温度,
+	c.taste AS 01味道,
+	c.color AS 01颜色,
+	c.explosion_u AS 01爆炸上限,
+	c.explosion_d as 01爆炸下限,
+	c.dangerous_type as 02危险源类别,
+	c.health_hazards as 02健康危害,
+	c.eye_contact as 02眼睛接触,
+	c.suction as 02食入,
+	c.skin_contact as 02皮肤接触,
+	c.inspiroation as 02吸入,
+	c.dangerous_characteristics as 03危险特性,
+	c.outfire as 03灭火方法,
+	c.leakage as 04泄漏处置,
+	c.storage_attention as 05储存注意事项
+FROM
+	t_chemicals c
+	WHERE id=${id}
+  </select>
 </mapper>

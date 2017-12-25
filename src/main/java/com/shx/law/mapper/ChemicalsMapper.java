@@ -3,6 +3,10 @@ package com.shx.law.mapper;
 import com.shx.law.entity.Chemicals;
 import com.shx.law.entity.ChemicalsExample;
 import java.util.List;
+import java.util.Map;
+
+import com.shx.law.vo.request.KnownRequest;
+import com.shx.law.vo.request.LawRequest;
 import org.apache.ibatis.annotations.Param;
 
 public interface ChemicalsMapper {
@@ -27,4 +31,6 @@ public interface ChemicalsMapper {
     int updateByPrimaryKeySelective(Chemicals record);
 
     int updateByPrimaryKey(Chemicals record);
+    List<Chemicals> selectByName(@Param("request") KnownRequest request);
+    Map<String,Object> selectDetails(@Param("id") String id);
 }

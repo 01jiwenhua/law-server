@@ -19,6 +19,13 @@ public class ResultUtil {
         response.setMessageCode("10000");
         return response;
     }
+    public static Response buidSuccess(Map<String,Object> result){
+        Response response=new Response();
+        response.setData(result);
+        response.setMessage("请求成功");
+        response.setMessageCode("10000");
+        return response;
+    }
     public static Response buidFail(String message,String messageCode){
         Response response=new Response();
         response.setMessage("请求失败");

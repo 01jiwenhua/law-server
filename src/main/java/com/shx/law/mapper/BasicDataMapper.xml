@@ -1,111 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shx.law.mapper.BasicDataMapper">
-  <resultMap id="BaseResultMap" type="com.shx.law.entity.BasicData">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="code" jdbcType="VARCHAR" property="code" />
-    <result column="category_code" jdbcType="VARCHAR" property="categoryCode" />
-    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="create_user" jdbcType="INTEGER" property="createUser" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+    <resultMap id="BaseResultMap" type="com.shx.law.entity.BasicData">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="category_code" jdbcType="VARCHAR" property="categoryCode"/>
+        <result column="category_name" jdbcType="VARCHAR" property="categoryName"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user" jdbcType="INTEGER" property="createUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_user" jdbcType="INTEGER" property="updateUser"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
     id, name, code, category_code, category_name, create_time, create_user, update_time, 
     update_user, status
   </sql>
-  <select id="selectByExample" parameterType="com.shx.law.entity.BasicDataExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from t_basic_data
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_basic_data
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <select id="selectByExample" parameterType="com.shx.law.entity.BasicDataExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from t_basic_data
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_basic_data
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_basic_data
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.shx.law.entity.BasicDataExample">
-    delete from t_basic_data
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.shx.law.entity.BasicData">
+    <delete id="deleteByExample" parameterType="com.shx.law.entity.BasicDataExample">
+        delete from t_basic_data
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.shx.law.entity.BasicData">
     insert into t_basic_data (id, name, code, 
       category_code, category_name, create_time, 
       create_user, update_time, update_user, 
@@ -115,167 +117,167 @@
       #{createUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=INTEGER}, 
       #{status,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.shx.law.entity.BasicData">
-    insert into t_basic_data
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="name != null">
-        name,
-      </if>
-      <if test="code != null">
-        code,
-      </if>
-      <if test="categoryCode != null">
-        category_code,
-      </if>
-      <if test="categoryName != null">
-        category_name,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="createUser != null">
-        create_user,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-      <if test="updateUser != null">
-        update_user,
-      </if>
-      <if test="status != null">
-        status,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="code != null">
-        #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryCode != null">
-        #{categoryCode,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryName != null">
-        #{categoryName,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createUser != null">
-        #{createUser,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateUser != null">
-        #{updateUser,jdbcType=INTEGER},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.shx.law.entity.BasicDataExample" resultType="java.lang.Long">
-    select count(*) from t_basic_data
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update t_basic_data
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
-      <if test="record.name != null">
+    <insert id="insertSelective" parameterType="com.shx.law.entity.BasicData">
+        insert into t_basic_data
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="categoryCode != null">
+                category_code,
+            </if>
+            <if test="categoryName != null">
+                category_name,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateUser != null">
+                update_user,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="categoryCode != null">
+                #{categoryCode,jdbcType=VARCHAR},
+            </if>
+            <if test="categoryName != null">
+                #{categoryName,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=INTEGER},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                #{updateUser,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.shx.law.entity.BasicDataExample" resultType="java.lang.Long">
+        select count(*) from t_basic_data
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update t_basic_data
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.name != null">
+                name = #{record.name,jdbcType=VARCHAR},
+            </if>
+            <if test="record.code != null">
+                code = #{record.code,jdbcType=VARCHAR},
+            </if>
+            <if test="record.categoryCode != null">
+                category_code = #{record.categoryCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.categoryName != null">
+                category_name = #{record.categoryName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.createTime != null">
+                create_time = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.createUser != null">
+                create_user = #{record.createUser,jdbcType=INTEGER},
+            </if>
+            <if test="record.updateTime != null">
+                update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.updateUser != null">
+                update_user = #{record.updateUser,jdbcType=INTEGER},
+            </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update t_basic_data
+        set id = #{record.id,jdbcType=INTEGER},
         name = #{record.name,jdbcType=VARCHAR},
-      </if>
-      <if test="record.code != null">
         code = #{record.code,jdbcType=VARCHAR},
-      </if>
-      <if test="record.categoryCode != null">
         category_code = #{record.categoryCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.categoryName != null">
         category_name = #{record.categoryName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.createUser != null">
         create_user = #{record.createUser,jdbcType=INTEGER},
-      </if>
-      <if test="record.updateTime != null">
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.updateUser != null">
         update_user = #{record.updateUser,jdbcType=INTEGER},
-      </if>
-      <if test="record.status != null">
-        status = #{record.status,jdbcType=INTEGER},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update t_basic_data
-    set id = #{record.id,jdbcType=INTEGER},
-      name = #{record.name,jdbcType=VARCHAR},
-      code = #{record.code,jdbcType=VARCHAR},
-      category_code = #{record.categoryCode,jdbcType=VARCHAR},
-      category_name = #{record.categoryName,jdbcType=VARCHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      create_user = #{record.createUser,jdbcType=INTEGER},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      update_user = #{record.updateUser,jdbcType=INTEGER},
-      status = #{record.status,jdbcType=INTEGER}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.shx.law.entity.BasicData">
-    update t_basic_data
-    <set>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="code != null">
-        code = #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryCode != null">
-        category_code = #{categoryCode,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryName != null">
-        category_name = #{categoryName,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createUser != null">
-        create_user = #{createUser,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateUser != null">
-        update_user = #{updateUser,jdbcType=INTEGER},
-      </if>
-      <if test="status != null">
-        status = #{status,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.shx.law.entity.BasicData">
+        status = #{record.status,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.shx.law.entity.BasicData">
+        update t_basic_data
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="categoryCode != null">
+                category_code = #{categoryCode,jdbcType=VARCHAR},
+            </if>
+            <if test="categoryName != null">
+                category_name = #{categoryName,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=INTEGER},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                update_user = #{updateUser,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.shx.law.entity.BasicData">
     update t_basic_data
     set name = #{name,jdbcType=VARCHAR},
       code = #{code,jdbcType=VARCHAR},
@@ -288,4 +290,51 @@
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+    <select id="selectLH" resultMap="BaseResultMap">
+        SELECT
+        id,
+        category_name,
+        category_code
+        FROM
+            t_basic_data
+        WHERE
+            category_code IN(
+                "B_STATUS",
+                "B_COLOR",
+                "B_SMELL",
+                "B_TASTE",
+                "B_SPECIFIC_AIR",
+                "B_SPECIFIC_WATER",
+                "B_PH",
+                "B_TRANSPARENCY"
+            )
+        GROUP BY
+            category_code
+        ORDER BY
+            id
+      </select>
+    <select id="selectJkWH" resultMap="BaseResultMap">
+       SELECT
+            id,
+            category_name,
+            category_code
+        FROM
+            t_basic_data
+        WHERE
+            category_code IN(
+                "B_NERVOUS",
+                "B_EYE",
+                "B_EAR",
+                "B_TASTE",
+                "B_MOUTH_THROAT",
+                "B_CARDIOVASCULAR",
+                "B_RESPIRATORY",
+                "B_GASTRO_URINARY",
+                "B_SKIN"
+            )
+        GROUP BY
+            category_code
+        ORDER BY
+            id
+    </select>
 </mapper>

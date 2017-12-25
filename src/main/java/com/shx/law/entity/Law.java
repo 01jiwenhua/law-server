@@ -9,6 +9,8 @@ public class Law {
 
     private String issueNo;
 
+    private String level;
+
     private String typeName;
 
     private String typeCode;
@@ -45,6 +47,14 @@ public class Law {
 
     public void setIssueNo(String issueNo) {
         this.issueNo = issueNo == null ? null : issueNo.trim();
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level == null ? null : level.trim();
     }
 
     public String getTypeName() {

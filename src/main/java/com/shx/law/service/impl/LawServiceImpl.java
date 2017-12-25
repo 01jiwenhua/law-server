@@ -9,6 +9,7 @@ import com.shx.law.vo.request.LawRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,10 +21,26 @@ import java.util.Map;
 public class LawServiceImpl implements LawService {
     @Autowired
     private LawMapper lawMapper;
+
     public PageInfo<Law> getLawList(LawRequest request) {
         PageHelper.startPage(request.getPage(), request.getPageSize());
-        List<Law> lawList=lawMapper.selectByParams(request);
-        PageInfo<Law> PageInfo=new PageInfo<Law>(lawList);
+        List<String> levelList = new ArrayList<String>();
+        if ("law".equals(request.getLevel())) {
+            levelList.add("国家标准");
+
+        } else if ("regulation".equals(request.getLevel())) {
+            levelList.add("法规性文件");
+            levelList.add("行政法规");
+            levelList.add("规范性文件");
+            levelList.add("部门规章");
+        }else if("standard".equals(request.getLevel())){
+            levelList.add("国家标准");
+            levelList.add("安全标准");
+            levelList.add("行业标准");
+
+        }
+        List<Law> lawList = lawMapper.selectByParams(request, levelList);
+        PageInfo<Law> PageInfo = new PageInfo<Law>(lawList);
 
         return PageInfo;
     }

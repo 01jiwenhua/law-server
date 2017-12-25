@@ -338,19 +338,34 @@
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectByParams" parameterType="com.shx.law.vo.request.LawRequest" resultMap="BaseResultMap">
+  <select id="selectByParams" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_law l
     WHERE 1=1
+    AND file_path !=""  AND description!=""
 
     <if test="lawRequest.name != null">
 
       AND l.law_name LIKE concat(concat('%',#{lawRequest.name}),'%')
     </if>
-    <if test="lawRequest.name != null">
+    <if test="lawRequest.issoNo != null">
 
-      AND l.law_name LIKE concat(concat('%',#{lawRequest.name}),'%')
+      AND l.issue_no LIKE concat(concat('%',#{lawRequest.issoNo}),'%')
+    </if>
+    <if test="lawRequest.typeName != null">
+
+      AND l.type_name LIKE concat(concat('%',#{lawRequest.typeName}),'%')
+    </if>
+    <if test="lawRequest.typeCode != null">
+
+      AND l.type_code LIKE concat(concat('%',#{lawRequest.typeCode}),'%')
+    </if>
+    <if test="lawRequest.level != null">
+      AND l.level IN
+      <foreach close=")" collection="levelList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
     </if>
 
   </select>
