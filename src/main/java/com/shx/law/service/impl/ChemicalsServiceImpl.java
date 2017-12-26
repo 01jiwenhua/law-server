@@ -1,10 +1,8 @@
 package com.shx.law.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.shx.law.entity.Chemicals;
-import com.shx.law.entity.Law;
 import com.shx.law.mapper.ChemicalsMapper;
 import com.shx.law.service.ChemicalsService;
 import com.shx.law.vo.request.KnownRequest;

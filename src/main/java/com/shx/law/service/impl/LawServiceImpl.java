@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by xuan on 2017/12/23.
@@ -38,6 +36,12 @@ public class LawServiceImpl implements LawService {
             levelList.add("安全标准");
             levelList.add("行业标准");
 
+        }else{
+            if(request.getLevel().equals("全部")){
+                request.setLevel(null);
+            }else{
+                levelList.add(request.getLevel());
+            }
         }
         List<Law> lawList = lawMapper.selectByParams(request, levelList);
         PageInfo<Law> PageInfo = new PageInfo<Law>(lawList);

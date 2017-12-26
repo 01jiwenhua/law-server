@@ -4,8 +4,6 @@ import com.github.pagehelper.PageInfo;
 import com.shx.law.entity.Law;
 import com.shx.law.vo.request.LawRequest;
 
-import java.util.List;
-
 /**
  * Created by xuan on 2017/12/23.
  */

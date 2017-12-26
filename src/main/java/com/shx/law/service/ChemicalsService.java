@@ -2,7 +2,6 @@ package com.shx.law.service;
 
 import com.github.pagehelper.PageInfo;
 import com.shx.law.entity.Chemicals;
-import com.shx.law.entity.Law;
 import com.shx.law.vo.request.KnownRequest;
 
 import java.util.List;

@@ -5,18 +5,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import com.shx.law.entity.BasicData;
 import com.shx.law.entity.Chemicals;
-import com.shx.law.entity.Law;
 import com.shx.law.service.BasicDataService;
 import com.shx.law.service.ChemicalsService;
-import com.shx.law.service.LawService;
 import com.shx.law.utils.ResultUtil;
 import com.shx.law.vo.request.KnownRequest;
-import com.shx.law.vo.request.LawRequest;
 import com.shx.law.vo.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;

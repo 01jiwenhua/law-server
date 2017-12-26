@@ -15,6 +15,8 @@ public class Law {
 
     private String typeCode;
 
+    private String filePath;
+
     private Date createTime;
 
     private Date updateTime;
@@ -22,8 +24,6 @@ public class Law {
     private String description;
 
     private Integer status;
-
-    private byte[] filePath;
 
     public Integer getId() {
         return id;
@@ -73,6 +73,14 @@ public class Law {
         this.typeCode = typeCode == null ? null : typeCode.trim();
     }
 
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath == null ? null : filePath.trim();
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -103,13 +111,5 @@ public class Law {
 
     public void setStatus(Integer status) {
         this.status = status;
-    }
-
-    public byte[] getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(byte[] filePath) {
-        this.filePath = filePath;
     }
 }
