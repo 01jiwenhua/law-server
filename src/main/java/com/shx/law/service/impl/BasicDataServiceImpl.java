@@ -1,6 +1,7 @@
 package com.shx.law.service.impl;
 
 import com.shx.law.entity.BasicData;
+import com.shx.law.entity.BasicDataExample;
 import com.shx.law.mapper.BasicDataMapper;
 import com.shx.law.service.BasicDataService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,11 @@ public class BasicDataServiceImpl implements BasicDataService {
         return map;
     }
 
-    public void getParamsDetails(String code) {
-
+    public List<BasicData> getParamsDetails(String code) {
+//        BasicDataExample example=new BasicDataExample();
+//        BasicDataExample.Criteria criteria=example.createCriteria();
+//        criteria.andCategoryCodeEqualTo(code);
+        List<BasicData> list=basicDataMapper.selectDetails(code);
+        return list;
     }
 }

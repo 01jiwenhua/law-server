@@ -27,7 +27,7 @@ public class ChemicalsServiceImpl implements ChemicalsService {
 
     public PageInfo<Chemicals> getKnownChemicals(KnownRequest request) {
         PageHelper.startPage(request.getPage(), request.getPageSize());
-        List<Chemicals> list = chemicalsMapper.selectByName(request);
+        List<Chemicals> list = chemicalsMapper.selectByParams(request);
         PageInfo<Chemicals> PageInfo = new PageInfo<Chemicals>(list);
 
         return PageInfo;

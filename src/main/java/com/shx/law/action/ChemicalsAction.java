@@ -68,4 +68,14 @@ public class ChemicalsAction {
 
         return ResultUtil.buidSuccess(result);
     }
+    @RequestMapping("/getUnknowParamsDetails")
+    public @ResponseBody
+    Response paramsDetails(HttpServletRequest httpServletRequest) {
+        String request = httpServletRequest.getParameter("data");
+        JSONObject object = JSON.parseObject(request);
+        List<BasicData> list=basicDataService.getParamsDetails(object.getString("code"));
+        HashMap result = new HashMap();
+        result.put("list",JSONObject.toJSONString(list));
+        return ResultUtil.buidSuccess(result);
+    }
 }

@@ -29,4 +29,6 @@ public interface BasicDataMapper {
     int updateByPrimaryKey(BasicData record);
     List<BasicData> selectLH();
     List<BasicData> selectJkWH();
+    List<BasicData> selectDetails(@Param("code") String code);
+
 }
