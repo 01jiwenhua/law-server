@@ -3,6 +3,7 @@ package com.shx.law.action;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
+import com.shx.law.Exception.SystemException;
 import com.shx.law.entity.*;
 import com.shx.law.service.UserService;
 import com.shx.law.utils.ResultUtil;
@@ -81,5 +82,27 @@ public class UserAction {
         userService.getVerifyCode(phone);
         HashMap result=new HashMap();
         return ResultUtil.buidSuccess(result);
+    }
+
+    /**
+     * 验证用户是否已注册以及验证码是否正确
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/checkRegist")
+    public @ResponseBody Response checkRegist(HttpServletRequest httpServletRequest) {
+        try {
+            String request=httpServletRequest.getParameter("data");
+            JSONObject requestObject=JSON.parseObject(request);
+            String phone=requestObject.getString("phone");
+            String verifyCode=requestObject.getString("verifyCode");
+            userService.checkRegist(phone,verifyCode);
+            HashMap result=new HashMap();
+            return ResultUtil.buidSuccess(result);
+        } catch (SystemException e) {
+            e.printStackTrace();
+            return ResultUtil.buidFail(e.getMessage(),e.getCode());
+        }
+
     }
 }

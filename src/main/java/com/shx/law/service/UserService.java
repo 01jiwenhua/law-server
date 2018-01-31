@@ -1,6 +1,7 @@
 package com.shx.law.service;
 
 import com.github.pagehelper.PageInfo;
+import com.shx.law.Exception.SystemException;
 import com.shx.law.entity.Company;
 import com.shx.law.entity.Department;
 import com.shx.law.entity.Job;
@@ -49,4 +50,10 @@ public interface UserService {
      */
      void getVerifyCode(String phone);
 
+    /**
+     * 验证注册验证码是否正确
+     * @param phone
+     * @param verifyCode
+     */
+    void checkRegist(String phone,String verifyCode) throws SystemException;
 }

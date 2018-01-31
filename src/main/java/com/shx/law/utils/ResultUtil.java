@@ -28,8 +28,8 @@ public class ResultUtil {
     }
     public static Response buidFail(String message,String messageCode){
         Response response=new Response();
-        response.setMessage("请求失败");
-        response.setMessageCode("10001");
+        response.setMessage(message);
+        response.setMessageCode(messageCode);
         return response;
     }
 }

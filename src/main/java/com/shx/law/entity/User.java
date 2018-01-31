@@ -35,6 +35,12 @@ public class User {
 
     private Integer jobId;
 
+    private String phone;
+
+    private Integer sex;
+
+    private String userType;
+
     public Integer getId() {
         return id;
     }
@@ -161,5 +167,29 @@ public class User {
 
     public void setJobId(Integer jobId) {
         this.jobId = jobId;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType == null ? null : userType.trim();
     }
 }

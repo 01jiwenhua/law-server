@@ -1,0 +1,1493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shx.law.mapper.ChemicalsMapper">
+  <resultMap id="BaseResultMap" type="com.shx.law.entity.Chemicals">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name_cn" jdbcType="VARCHAR" property="nameCn" />
+    <result column="name_en" jdbcType="VARCHAR" property="nameEn" />
+    <result column="alias_cn" jdbcType="VARCHAR" property="aliasCn" />
+    <result column="alias_en" jdbcType="VARCHAR" property="aliasEn" />
+    <result column="cas" jdbcType="VARCHAR" property="cas" />
+    <result column="molecular_formula" jdbcType="VARCHAR" property="molecularFormula" />
+    <result column="molecular_weight" jdbcType="VARCHAR" property="molecularWeight" />
+    <result column="appearance" jdbcType="VARCHAR" property="appearance" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="color" jdbcType="VARCHAR" property="color" />
+    <result column="transparency" jdbcType="VARCHAR" property="transparency" />
+    <result column="smell" jdbcType="VARCHAR" property="smell" />
+    <result column="taste" jdbcType="VARCHAR" property="taste" />
+    <result column="ph" jdbcType="VARCHAR" property="ph" />
+    <result column="proportion_water" jdbcType="VARCHAR" property="proportionWater" />
+    <result column="proportion_air" jdbcType="VARCHAR" property="proportionAir" />
+    <result column="melting_point" jdbcType="VARCHAR" property="meltingPoint" />
+    <result column="boiling_point" jdbcType="VARCHAR" property="boilingPoint" />
+    <result column="relative_density" jdbcType="VARCHAR" property="relativeDensity" />
+    <result column="relative_air" jdbcType="VARCHAR" property="relativeAir" />
+    <result column="saturated" jdbcType="VARCHAR" property="saturated" />
+    <result column="burning_heat" jdbcType="VARCHAR" property="burningHeat" />
+    <result column="critical_temperature" jdbcType="VARCHAR" property="criticalTemperature" />
+    <result column="critical_pressure" jdbcType="VARCHAR" property="criticalPressure" />
+    <result column="flash_point" jdbcType="VARCHAR" property="flashPoint" />
+    <result column="natural_temperature" jdbcType="VARCHAR" property="naturalTemperature" />
+    <result column="explosion_u" jdbcType="VARCHAR" property="explosionU" />
+    <result column="explosion_d" jdbcType="VARCHAR" property="explosionD" />
+    <result column="solubility" jdbcType="VARCHAR" property="solubility" />
+    <result column="operational" jdbcType="VARCHAR" property="operational" />
+    <result column="dangerous_type" jdbcType="VARCHAR" property="dangerousType" />
+    <result column="QRTJ" jdbcType="VARCHAR" property="qrtj" />
+    <result column="health_hazards" jdbcType="VARCHAR" property="healthHazards" />
+    <result column="temperature" jdbcType="VARCHAR" property="temperature" />
+    <result column="nervous_system" jdbcType="VARCHAR" property="nervousSystem" />
+    <result column="ears" jdbcType="VARCHAR" property="ears" />
+    <result column="eyes" jdbcType="VARCHAR" property="eyes" />
+    <result column="nose" jdbcType="VARCHAR" property="nose" />
+    <result column="mouth" jdbcType="VARCHAR" property="mouth" />
+    <result column="cardiovascular" jdbcType="VARCHAR" property="cardiovascular" />
+    <result column="respiratory_system" jdbcType="VARCHAR" property="respiratorySystem" />
+    <result column="gastric_system" jdbcType="VARCHAR" property="gastricSystem" />
+    <result column="skin" jdbcType="VARCHAR" property="skin" />
+    <result column="combustibility" jdbcType="VARCHAR" property="combustibility" />
+    <result column="product" jdbcType="VARCHAR" property="product" />
+    <result column="skin_contact" jdbcType="VARCHAR" property="skinContact" />
+    <result column="eye_contact" jdbcType="VARCHAR" property="eyeContact" />
+    <result column="inspiroation" jdbcType="VARCHAR" property="inspiroation" />
+    <result column="suction" jdbcType="VARCHAR" property="suction" />
+    <result column="dangerous_characteristics" jdbcType="VARCHAR" property="dangerousCharacteristics" />
+    <result column="outfire" jdbcType="VARCHAR" property="outfire" />
+    <result column="leakage" jdbcType="VARCHAR" property="leakage" />
+    <result column="storage_attention" jdbcType="VARCHAR" property="storageAttention" />
+    <result column="contact_limit" jdbcType="VARCHAR" property="contactLimit" />
+    <result column="JCXZS" jdbcType="VARCHAR" property="jcxzs" />
+    <result column="JCXZTWA" jdbcType="VARCHAR" property="jcxztwa" />
+    <result column="JCXZSTEL" jdbcType="VARCHAR" property="jcxzstel" />
+    <result column="IDLH" jdbcType="VARCHAR" property="idlh" />
+    <result column="engineering_control" jdbcType="VARCHAR" property="engineeringControl" />
+    <result column="respiratory_protection" jdbcType="VARCHAR" property="respiratoryProtection" />
+    <result column="eye_protection" jdbcType="VARCHAR" property="eyeProtection" />
+    <result column="body_protection" jdbcType="VARCHAR" property="bodyProtection" />
+    <result column="hand_protection" jdbcType="VARCHAR" property="handProtection" />
+    <result column="other" jdbcType="VARCHAR" property="other" />
+    <result column="stability" jdbcType="VARCHAR" property="stability" />
+    <result column="taboo" jdbcType="VARCHAR" property="taboo" />
+    <result column="out_touch" jdbcType="VARCHAR" property="outTouch" />
+    <result column="polymerization_hazards" jdbcType="VARCHAR" property="polymerizationHazards" />
+    <result column="trecs" jdbcType="VARCHAR" property="trecs" />
+    <result column="toxicity" jdbcType="VARCHAR" property="toxicity" />
+    <result column="dangerous_num" jdbcType="VARCHAR" property="dangerousNum" />
+    <result column="un_num" jdbcType="VARCHAR" property="unNum" />
+    <result column="dangerous_package" jdbcType="VARCHAR" property="dangerousPackage" />
+    <result column="package_type" jdbcType="VARCHAR" property="packageType" />
+    <result column="iso" jdbcType="VARCHAR" property="iso" />
+    <result column="disposition_num" jdbcType="VARCHAR" property="dispositionNum" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, code, name_cn, name_en, alias_cn, alias_en, cas, molecular_formula, molecular_weight, 
+    appearance, status, color, transparency, smell, taste, ph, proportion_water, proportion_air, 
+    melting_point, boiling_point, relative_density, relative_air, saturated, burning_heat, 
+    critical_temperature, critical_pressure, flash_point, natural_temperature, explosion_u, 
+    explosion_d, solubility, operational, dangerous_type, QRTJ, health_hazards, temperature, 
+    nervous_system, ears, eyes, nose, mouth, cardiovascular, respiratory_system, gastric_system, 
+    skin, combustibility, product, skin_contact, eye_contact, inspiroation, suction, 
+    dangerous_characteristics, outfire, leakage, storage_attention, contact_limit, JCXZS, 
+    JCXZTWA, JCXZSTEL, IDLH, engineering_control, respiratory_protection, eye_protection, 
+    body_protection, hand_protection, other, stability, taboo, out_touch, polymerization_hazards, 
+    trecs, toxicity, dangerous_num, un_num, dangerous_package, package_type, iso, disposition_num
+  </sql>
+  <select id="selectByExample" parameterType="com.shx.law.entity.ChemicalsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_chemicals
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_chemicals
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_chemicals
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shx.law.entity.ChemicalsExample">
+    delete from t_chemicals
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shx.law.entity.Chemicals">
+    insert into t_chemicals (id, code, name_cn, 
+      name_en, alias_cn, alias_en, 
+      cas, molecular_formula, molecular_weight, 
+      appearance, status, color, 
+      transparency, smell, taste, 
+      ph, proportion_water, proportion_air, 
+      melting_point, boiling_point, relative_density, 
+      relative_air, saturated, burning_heat, 
+      critical_temperature, critical_pressure, 
+      flash_point, natural_temperature, explosion_u, 
+      explosion_d, solubility, operational, 
+      dangerous_type, QRTJ, health_hazards, 
+      temperature, nervous_system, ears, 
+      eyes, nose, mouth, 
+      cardiovascular, respiratory_system, gastric_system, 
+      skin, combustibility, product, 
+      skin_contact, eye_contact, inspiroation, 
+      suction, dangerous_characteristics, outfire, 
+      leakage, storage_attention, contact_limit, 
+      JCXZS, JCXZTWA, JCXZSTEL, 
+      IDLH, engineering_control, respiratory_protection, 
+      eye_protection, body_protection, hand_protection, 
+      other, stability, taboo, 
+      out_touch, polymerization_hazards, trecs, 
+      toxicity, dangerous_num, un_num, 
+      dangerous_package, package_type, iso, 
+      disposition_num)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{nameCn,jdbcType=VARCHAR}, 
+      #{nameEn,jdbcType=VARCHAR}, #{aliasCn,jdbcType=VARCHAR}, #{aliasEn,jdbcType=VARCHAR}, 
+      #{cas,jdbcType=VARCHAR}, #{molecularFormula,jdbcType=VARCHAR}, #{molecularWeight,jdbcType=VARCHAR}, 
+      #{appearance,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, 
+      #{transparency,jdbcType=VARCHAR}, #{smell,jdbcType=VARCHAR}, #{taste,jdbcType=VARCHAR}, 
+      #{ph,jdbcType=VARCHAR}, #{proportionWater,jdbcType=VARCHAR}, #{proportionAir,jdbcType=VARCHAR}, 
+      #{meltingPoint,jdbcType=VARCHAR}, #{boilingPoint,jdbcType=VARCHAR}, #{relativeDensity,jdbcType=VARCHAR}, 
+      #{relativeAir,jdbcType=VARCHAR}, #{saturated,jdbcType=VARCHAR}, #{burningHeat,jdbcType=VARCHAR}, 
+      #{criticalTemperature,jdbcType=VARCHAR}, #{criticalPressure,jdbcType=VARCHAR}, 
+      #{flashPoint,jdbcType=VARCHAR}, #{naturalTemperature,jdbcType=VARCHAR}, #{explosionU,jdbcType=VARCHAR}, 
+      #{explosionD,jdbcType=VARCHAR}, #{solubility,jdbcType=VARCHAR}, #{operational,jdbcType=VARCHAR}, 
+      #{dangerousType,jdbcType=VARCHAR}, #{qrtj,jdbcType=VARCHAR}, #{healthHazards,jdbcType=VARCHAR}, 
+      #{temperature,jdbcType=VARCHAR}, #{nervousSystem,jdbcType=VARCHAR}, #{ears,jdbcType=VARCHAR}, 
+      #{eyes,jdbcType=VARCHAR}, #{nose,jdbcType=VARCHAR}, #{mouth,jdbcType=VARCHAR}, 
+      #{cardiovascular,jdbcType=VARCHAR}, #{respiratorySystem,jdbcType=VARCHAR}, #{gastricSystem,jdbcType=VARCHAR}, 
+      #{skin,jdbcType=VARCHAR}, #{combustibility,jdbcType=VARCHAR}, #{product,jdbcType=VARCHAR}, 
+      #{skinContact,jdbcType=VARCHAR}, #{eyeContact,jdbcType=VARCHAR}, #{inspiroation,jdbcType=VARCHAR}, 
+      #{suction,jdbcType=VARCHAR}, #{dangerousCharacteristics,jdbcType=VARCHAR}, #{outfire,jdbcType=VARCHAR}, 
+      #{leakage,jdbcType=VARCHAR}, #{storageAttention,jdbcType=VARCHAR}, #{contactLimit,jdbcType=VARCHAR}, 
+      #{jcxzs,jdbcType=VARCHAR}, #{jcxztwa,jdbcType=VARCHAR}, #{jcxzstel,jdbcType=VARCHAR}, 
+      #{idlh,jdbcType=VARCHAR}, #{engineeringControl,jdbcType=VARCHAR}, #{respiratoryProtection,jdbcType=VARCHAR}, 
+      #{eyeProtection,jdbcType=VARCHAR}, #{bodyProtection,jdbcType=VARCHAR}, #{handProtection,jdbcType=VARCHAR}, 
+      #{other,jdbcType=VARCHAR}, #{stability,jdbcType=VARCHAR}, #{taboo,jdbcType=VARCHAR}, 
+      #{outTouch,jdbcType=VARCHAR}, #{polymerizationHazards,jdbcType=VARCHAR}, #{trecs,jdbcType=VARCHAR}, 
+      #{toxicity,jdbcType=VARCHAR}, #{dangerousNum,jdbcType=VARCHAR}, #{unNum,jdbcType=VARCHAR}, 
+      #{dangerousPackage,jdbcType=VARCHAR}, #{packageType,jdbcType=VARCHAR}, #{iso,jdbcType=VARCHAR}, 
+      #{dispositionNum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shx.law.entity.Chemicals">
+    insert into t_chemicals
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="nameCn != null">
+        name_cn,
+      </if>
+      <if test="nameEn != null">
+        name_en,
+      </if>
+      <if test="aliasCn != null">
+        alias_cn,
+      </if>
+      <if test="aliasEn != null">
+        alias_en,
+      </if>
+      <if test="cas != null">
+        cas,
+      </if>
+      <if test="molecularFormula != null">
+        molecular_formula,
+      </if>
+      <if test="molecularWeight != null">
+        molecular_weight,
+      </if>
+      <if test="appearance != null">
+        appearance,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="color != null">
+        color,
+      </if>
+      <if test="transparency != null">
+        transparency,
+      </if>
+      <if test="smell != null">
+        smell,
+      </if>
+      <if test="taste != null">
+        taste,
+      </if>
+      <if test="ph != null">
+        ph,
+      </if>
+      <if test="proportionWater != null">
+        proportion_water,
+      </if>
+      <if test="proportionAir != null">
+        proportion_air,
+      </if>
+      <if test="meltingPoint != null">
+        melting_point,
+      </if>
+      <if test="boilingPoint != null">
+        boiling_point,
+      </if>
+      <if test="relativeDensity != null">
+        relative_density,
+      </if>
+      <if test="relativeAir != null">
+        relative_air,
+      </if>
+      <if test="saturated != null">
+        saturated,
+      </if>
+      <if test="burningHeat != null">
+        burning_heat,
+      </if>
+      <if test="criticalTemperature != null">
+        critical_temperature,
+      </if>
+      <if test="criticalPressure != null">
+        critical_pressure,
+      </if>
+      <if test="flashPoint != null">
+        flash_point,
+      </if>
+      <if test="naturalTemperature != null">
+        natural_temperature,
+      </if>
+      <if test="explosionU != null">
+        explosion_u,
+      </if>
+      <if test="explosionD != null">
+        explosion_d,
+      </if>
+      <if test="solubility != null">
+        solubility,
+      </if>
+      <if test="operational != null">
+        operational,
+      </if>
+      <if test="dangerousType != null">
+        dangerous_type,
+      </if>
+      <if test="qrtj != null">
+        QRTJ,
+      </if>
+      <if test="healthHazards != null">
+        health_hazards,
+      </if>
+      <if test="temperature != null">
+        temperature,
+      </if>
+      <if test="nervousSystem != null">
+        nervous_system,
+      </if>
+      <if test="ears != null">
+        ears,
+      </if>
+      <if test="eyes != null">
+        eyes,
+      </if>
+      <if test="nose != null">
+        nose,
+      </if>
+      <if test="mouth != null">
+        mouth,
+      </if>
+      <if test="cardiovascular != null">
+        cardiovascular,
+      </if>
+      <if test="respiratorySystem != null">
+        respiratory_system,
+      </if>
+      <if test="gastricSystem != null">
+        gastric_system,
+      </if>
+      <if test="skin != null">
+        skin,
+      </if>
+      <if test="combustibility != null">
+        combustibility,
+      </if>
+      <if test="product != null">
+        product,
+      </if>
+      <if test="skinContact != null">
+        skin_contact,
+      </if>
+      <if test="eyeContact != null">
+        eye_contact,
+      </if>
+      <if test="inspiroation != null">
+        inspiroation,
+      </if>
+      <if test="suction != null">
+        suction,
+      </if>
+      <if test="dangerousCharacteristics != null">
+        dangerous_characteristics,
+      </if>
+      <if test="outfire != null">
+        outfire,
+      </if>
+      <if test="leakage != null">
+        leakage,
+      </if>
+      <if test="storageAttention != null">
+        storage_attention,
+      </if>
+      <if test="contactLimit != null">
+        contact_limit,
+      </if>
+      <if test="jcxzs != null">
+        JCXZS,
+      </if>
+      <if test="jcxztwa != null">
+        JCXZTWA,
+      </if>
+      <if test="jcxzstel != null">
+        JCXZSTEL,
+      </if>
+      <if test="idlh != null">
+        IDLH,
+      </if>
+      <if test="engineeringControl != null">
+        engineering_control,
+      </if>
+      <if test="respiratoryProtection != null">
+        respiratory_protection,
+      </if>
+      <if test="eyeProtection != null">
+        eye_protection,
+      </if>
+      <if test="bodyProtection != null">
+        body_protection,
+      </if>
+      <if test="handProtection != null">
+        hand_protection,
+      </if>
+      <if test="other != null">
+        other,
+      </if>
+      <if test="stability != null">
+        stability,
+      </if>
+      <if test="taboo != null">
+        taboo,
+      </if>
+      <if test="outTouch != null">
+        out_touch,
+      </if>
+      <if test="polymerizationHazards != null">
+        polymerization_hazards,
+      </if>
+      <if test="trecs != null">
+        trecs,
+      </if>
+      <if test="toxicity != null">
+        toxicity,
+      </if>
+      <if test="dangerousNum != null">
+        dangerous_num,
+      </if>
+      <if test="unNum != null">
+        un_num,
+      </if>
+      <if test="dangerousPackage != null">
+        dangerous_package,
+      </if>
+      <if test="packageType != null">
+        package_type,
+      </if>
+      <if test="iso != null">
+        iso,
+      </if>
+      <if test="dispositionNum != null">
+        disposition_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="nameEn != null">
+        #{nameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="aliasCn != null">
+        #{aliasCn,jdbcType=VARCHAR},
+      </if>
+      <if test="aliasEn != null">
+        #{aliasEn,jdbcType=VARCHAR},
+      </if>
+      <if test="cas != null">
+        #{cas,jdbcType=VARCHAR},
+      </if>
+      <if test="molecularFormula != null">
+        #{molecularFormula,jdbcType=VARCHAR},
+      </if>
+      <if test="molecularWeight != null">
+        #{molecularWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="appearance != null">
+        #{appearance,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="transparency != null">
+        #{transparency,jdbcType=VARCHAR},
+      </if>
+      <if test="smell != null">
+        #{smell,jdbcType=VARCHAR},
+      </if>
+      <if test="taste != null">
+        #{taste,jdbcType=VARCHAR},
+      </if>
+      <if test="ph != null">
+        #{ph,jdbcType=VARCHAR},
+      </if>
+      <if test="proportionWater != null">
+        #{proportionWater,jdbcType=VARCHAR},
+      </if>
+      <if test="proportionAir != null">
+        #{proportionAir,jdbcType=VARCHAR},
+      </if>
+      <if test="meltingPoint != null">
+        #{meltingPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="boilingPoint != null">
+        #{boilingPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeDensity != null">
+        #{relativeDensity,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeAir != null">
+        #{relativeAir,jdbcType=VARCHAR},
+      </if>
+      <if test="saturated != null">
+        #{saturated,jdbcType=VARCHAR},
+      </if>
+      <if test="burningHeat != null">
+        #{burningHeat,jdbcType=VARCHAR},
+      </if>
+      <if test="criticalTemperature != null">
+        #{criticalTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="criticalPressure != null">
+        #{criticalPressure,jdbcType=VARCHAR},
+      </if>
+      <if test="flashPoint != null">
+        #{flashPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="naturalTemperature != null">
+        #{naturalTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="explosionU != null">
+        #{explosionU,jdbcType=VARCHAR},
+      </if>
+      <if test="explosionD != null">
+        #{explosionD,jdbcType=VARCHAR},
+      </if>
+      <if test="solubility != null">
+        #{solubility,jdbcType=VARCHAR},
+      </if>
+      <if test="operational != null">
+        #{operational,jdbcType=VARCHAR},
+      </if>
+      <if test="dangerousType != null">
+        #{dangerousType,jdbcType=VARCHAR},
+      </if>
+      <if test="qrtj != null">
+        #{qrtj,jdbcType=VARCHAR},
+      </if>
+      <if test="healthHazards != null">
+        #{healthHazards,jdbcType=VARCHAR},
+      </if>
+      <if test="temperature != null">
+        #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="nervousSystem != null">
+        #{nervousSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="ears != null">
+        #{ears,jdbcType=VARCHAR},
+      </if>
+      <if test="eyes != null">
+        #{eyes,jdbcType=VARCHAR},
+      </if>
+      <if test="nose != null">
+        #{nose,jdbcType=VARCHAR},
+      </if>
+      <if test="mouth != null">
+        #{mouth,jdbcType=VARCHAR},
+      </if>
+      <if test="cardiovascular != null">
+        #{cardiovascular,jdbcType=VARCHAR},
+      </if>
+      <if test="respiratorySystem != null">
+        #{respiratorySystem,jdbcType=VARCHAR},
+      </if>
+      <if test="gastricSystem != null">
+        #{gastricSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="skin != null">
+        #{skin,jdbcType=VARCHAR},
+      </if>
+      <if test="combustibility != null">
+        #{combustibility,jdbcType=VARCHAR},
+      </if>
+      <if test="product != null">
+        #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="skinContact != null">
+        #{skinContact,jdbcType=VARCHAR},
+      </if>
+      <if test="eyeContact != null">
+        #{eyeContact,jdbcType=VARCHAR},
+      </if>
+      <if test="inspiroation != null">
+        #{inspiroation,jdbcType=VARCHAR},
+      </if>
+      <if test="suction != null">
+        #{suction,jdbcType=VARCHAR},
+      </if>
+      <if test="dangerousCharacteristics != null">
+        #{dangerousCharacteristics,jdbcType=VARCHAR},
+      </if>
+      <if test="outfire != null">
+        #{outfire,jdbcType=VARCHAR},
+      </if>
+      <if test="leakage != null">
+        #{leakage,jdbcType=VARCHAR},
+      </if>
+      <if test="storageAttention != null">
+        #{storageAttention,jdbcType=VARCHAR},
+      </if>
+      <if test="contactLimit != null">
+        #{contactLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="jcxzs != null">
+        #{jcxzs,jdbcType=VARCHAR},
+      </if>
+      <if test="jcxztwa != null">
+        #{jcxztwa,jdbcType=VARCHAR},
+      </if>
+      <if test="jcxzstel != null">
+        #{jcxzstel,jdbcType=VARCHAR},
+      </if>
+      <if test="idlh != null">
+        #{idlh,jdbcType=VARCHAR},
+      </if>
+      <if test="engineeringControl != null">
+        #{engineeringControl,jdbcType=VARCHAR},
+      </if>
+      <if test="respiratoryProtection != null">
+        #{respiratoryProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="eyeProtection != null">
+        #{eyeProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="bodyProtection != null">
+        #{bodyProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="handProtection != null">
+        #{handProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        #{other,jdbcType=VARCHAR},
+      </if>
+      <if test="stability != null">
+        #{stability,jdbcType=VARCHAR},
+      </if>
+      <if test="taboo != null">
+        #{taboo,jdbcType=VARCHAR},
+      </if>
+      <if test="outTouch != null">
+        #{outTouch,jdbcType=VARCHAR},
+      </if>
+      <if test="polymerizationHazards != null">
+        #{polymerizationHazards,jdbcType=VARCHAR},
+      </if>
+      <if test="trecs != null">
+        #{trecs,jdbcType=VARCHAR},
+      </if>
+      <if test="toxicity != null">
+        #{toxicity,jdbcType=VARCHAR},
+      </if>
+      <if test="dangerousNum != null">
+        #{dangerousNum,jdbcType=VARCHAR},
+      </if>
+      <if test="unNum != null">
+        #{unNum,jdbcType=VARCHAR},
+      </if>
+      <if test="dangerousPackage != null">
+        #{dangerousPackage,jdbcType=VARCHAR},
+      </if>
+      <if test="packageType != null">
+        #{packageType,jdbcType=VARCHAR},
+      </if>
+      <if test="iso != null">
+        #{iso,jdbcType=VARCHAR},
+      </if>
+      <if test="dispositionNum != null">
+        #{dispositionNum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shx.law.entity.ChemicalsExample" resultType="java.lang.Long">
+    select count(*) from t_chemicals
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_chemicals
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.code != null">
+        code = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nameCn != null">
+        name_cn = #{record.nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nameEn != null">
+        name_en = #{record.nameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aliasCn != null">
+        alias_cn = #{record.aliasCn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aliasEn != null">
+        alias_en = #{record.aliasEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cas != null">
+        cas = #{record.cas,jdbcType=VARCHAR},
+      </if>
+      <if test="record.molecularFormula != null">
+        molecular_formula = #{record.molecularFormula,jdbcType=VARCHAR},
+      </if>
+      <if test="record.molecularWeight != null">
+        molecular_weight = #{record.molecularWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appearance != null">
+        appearance = #{record.appearance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.color != null">
+        color = #{record.color,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transparency != null">
+        transparency = #{record.transparency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.smell != null">
+        smell = #{record.smell,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taste != null">
+        taste = #{record.taste,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ph != null">
+        ph = #{record.ph,jdbcType=VARCHAR},
+      </if>
+      <if test="record.proportionWater != null">
+        proportion_water = #{record.proportionWater,jdbcType=VARCHAR},
+      </if>
+      <if test="record.proportionAir != null">
+        proportion_air = #{record.proportionAir,jdbcType=VARCHAR},
+      </if>
+      <if test="record.meltingPoint != null">
+        melting_point = #{record.meltingPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.boilingPoint != null">
+        boiling_point = #{record.boilingPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relativeDensity != null">
+        relative_density = #{record.relativeDensity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relativeAir != null">
+        relative_air = #{record.relativeAir,jdbcType=VARCHAR},
+      </if>
+      <if test="record.saturated != null">
+        saturated = #{record.saturated,jdbcType=VARCHAR},
+      </if>
+      <if test="record.burningHeat != null">
+        burning_heat = #{record.burningHeat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.criticalTemperature != null">
+        critical_temperature = #{record.criticalTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.criticalPressure != null">
+        critical_pressure = #{record.criticalPressure,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flashPoint != null">
+        flash_point = #{record.flashPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.naturalTemperature != null">
+        natural_temperature = #{record.naturalTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.explosionU != null">
+        explosion_u = #{record.explosionU,jdbcType=VARCHAR},
+      </if>
+      <if test="record.explosionD != null">
+        explosion_d = #{record.explosionD,jdbcType=VARCHAR},
+      </if>
+      <if test="record.solubility != null">
+        solubility = #{record.solubility,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operational != null">
+        operational = #{record.operational,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dangerousType != null">
+        dangerous_type = #{record.dangerousType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qrtj != null">
+        QRTJ = #{record.qrtj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.healthHazards != null">
+        health_hazards = #{record.healthHazards,jdbcType=VARCHAR},
+      </if>
+      <if test="record.temperature != null">
+        temperature = #{record.temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nervousSystem != null">
+        nervous_system = #{record.nervousSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ears != null">
+        ears = #{record.ears,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eyes != null">
+        eyes = #{record.eyes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nose != null">
+        nose = #{record.nose,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mouth != null">
+        mouth = #{record.mouth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardiovascular != null">
+        cardiovascular = #{record.cardiovascular,jdbcType=VARCHAR},
+      </if>
+      <if test="record.respiratorySystem != null">
+        respiratory_system = #{record.respiratorySystem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gastricSystem != null">
+        gastric_system = #{record.gastricSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skin != null">
+        skin = #{record.skin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.combustibility != null">
+        combustibility = #{record.combustibility,jdbcType=VARCHAR},
+      </if>
+      <if test="record.product != null">
+        product = #{record.product,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skinContact != null">
+        skin_contact = #{record.skinContact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eyeContact != null">
+        eye_contact = #{record.eyeContact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inspiroation != null">
+        inspiroation = #{record.inspiroation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.suction != null">
+        suction = #{record.suction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dangerousCharacteristics != null">
+        dangerous_characteristics = #{record.dangerousCharacteristics,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outfire != null">
+        outfire = #{record.outfire,jdbcType=VARCHAR},
+      </if>
+      <if test="record.leakage != null">
+        leakage = #{record.leakage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.storageAttention != null">
+        storage_attention = #{record.storageAttention,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contactLimit != null">
+        contact_limit = #{record.contactLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jcxzs != null">
+        JCXZS = #{record.jcxzs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jcxztwa != null">
+        JCXZTWA = #{record.jcxztwa,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jcxzstel != null">
+        JCXZSTEL = #{record.jcxzstel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idlh != null">
+        IDLH = #{record.idlh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engineeringControl != null">
+        engineering_control = #{record.engineeringControl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.respiratoryProtection != null">
+        respiratory_protection = #{record.respiratoryProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eyeProtection != null">
+        eye_protection = #{record.eyeProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bodyProtection != null">
+        body_protection = #{record.bodyProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="record.handProtection != null">
+        hand_protection = #{record.handProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="record.other != null">
+        other = #{record.other,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stability != null">
+        stability = #{record.stability,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taboo != null">
+        taboo = #{record.taboo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outTouch != null">
+        out_touch = #{record.outTouch,jdbcType=VARCHAR},
+      </if>
+      <if test="record.polymerizationHazards != null">
+        polymerization_hazards = #{record.polymerizationHazards,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trecs != null">
+        trecs = #{record.trecs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.toxicity != null">
+        toxicity = #{record.toxicity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dangerousNum != null">
+        dangerous_num = #{record.dangerousNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unNum != null">
+        un_num = #{record.unNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dangerousPackage != null">
+        dangerous_package = #{record.dangerousPackage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packageType != null">
+        package_type = #{record.packageType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.iso != null">
+        iso = #{record.iso,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dispositionNum != null">
+        disposition_num = #{record.dispositionNum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_chemicals
+    set id = #{record.id,jdbcType=INTEGER},
+      code = #{record.code,jdbcType=VARCHAR},
+      name_cn = #{record.nameCn,jdbcType=VARCHAR},
+      name_en = #{record.nameEn,jdbcType=VARCHAR},
+      alias_cn = #{record.aliasCn,jdbcType=VARCHAR},
+      alias_en = #{record.aliasEn,jdbcType=VARCHAR},
+      cas = #{record.cas,jdbcType=VARCHAR},
+      molecular_formula = #{record.molecularFormula,jdbcType=VARCHAR},
+      molecular_weight = #{record.molecularWeight,jdbcType=VARCHAR},
+      appearance = #{record.appearance,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR},
+      color = #{record.color,jdbcType=VARCHAR},
+      transparency = #{record.transparency,jdbcType=VARCHAR},
+      smell = #{record.smell,jdbcType=VARCHAR},
+      taste = #{record.taste,jdbcType=VARCHAR},
+      ph = #{record.ph,jdbcType=VARCHAR},
+      proportion_water = #{record.proportionWater,jdbcType=VARCHAR},
+      proportion_air = #{record.proportionAir,jdbcType=VARCHAR},
+      melting_point = #{record.meltingPoint,jdbcType=VARCHAR},
+      boiling_point = #{record.boilingPoint,jdbcType=VARCHAR},
+      relative_density = #{record.relativeDensity,jdbcType=VARCHAR},
+      relative_air = #{record.relativeAir,jdbcType=VARCHAR},
+      saturated = #{record.saturated,jdbcType=VARCHAR},
+      burning_heat = #{record.burningHeat,jdbcType=VARCHAR},
+      critical_temperature = #{record.criticalTemperature,jdbcType=VARCHAR},
+      critical_pressure = #{record.criticalPressure,jdbcType=VARCHAR},
+      flash_point = #{record.flashPoint,jdbcType=VARCHAR},
+      natural_temperature = #{record.naturalTemperature,jdbcType=VARCHAR},
+      explosion_u = #{record.explosionU,jdbcType=VARCHAR},
+      explosion_d = #{record.explosionD,jdbcType=VARCHAR},
+      solubility = #{record.solubility,jdbcType=VARCHAR},
+      operational = #{record.operational,jdbcType=VARCHAR},
+      dangerous_type = #{record.dangerousType,jdbcType=VARCHAR},
+      QRTJ = #{record.qrtj,jdbcType=VARCHAR},
+      health_hazards = #{record.healthHazards,jdbcType=VARCHAR},
+      temperature = #{record.temperature,jdbcType=VARCHAR},
+      nervous_system = #{record.nervousSystem,jdbcType=VARCHAR},
+      ears = #{record.ears,jdbcType=VARCHAR},
+      eyes = #{record.eyes,jdbcType=VARCHAR},
+      nose = #{record.nose,jdbcType=VARCHAR},
+      mouth = #{record.mouth,jdbcType=VARCHAR},
+      cardiovascular = #{record.cardiovascular,jdbcType=VARCHAR},
+      respiratory_system = #{record.respiratorySystem,jdbcType=VARCHAR},
+      gastric_system = #{record.gastricSystem,jdbcType=VARCHAR},
+      skin = #{record.skin,jdbcType=VARCHAR},
+      combustibility = #{record.combustibility,jdbcType=VARCHAR},
+      product = #{record.product,jdbcType=VARCHAR},
+      skin_contact = #{record.skinContact,jdbcType=VARCHAR},
+      eye_contact = #{record.eyeContact,jdbcType=VARCHAR},
+      inspiroation = #{record.inspiroation,jdbcType=VARCHAR},
+      suction = #{record.suction,jdbcType=VARCHAR},
+      dangerous_characteristics = #{record.dangerousCharacteristics,jdbcType=VARCHAR},
+      outfire = #{record.outfire,jdbcType=VARCHAR},
+      leakage = #{record.leakage,jdbcType=VARCHAR},
+      storage_attention = #{record.storageAttention,jdbcType=VARCHAR},
+      contact_limit = #{record.contactLimit,jdbcType=VARCHAR},
+      JCXZS = #{record.jcxzs,jdbcType=VARCHAR},
+      JCXZTWA = #{record.jcxztwa,jdbcType=VARCHAR},
+      JCXZSTEL = #{record.jcxzstel,jdbcType=VARCHAR},
+      IDLH = #{record.idlh,jdbcType=VARCHAR},
+      engineering_control = #{record.engineeringControl,jdbcType=VARCHAR},
+      respiratory_protection = #{record.respiratoryProtection,jdbcType=VARCHAR},
+      eye_protection = #{record.eyeProtection,jdbcType=VARCHAR},
+      body_protection = #{record.bodyProtection,jdbcType=VARCHAR},
+      hand_protection = #{record.handProtection,jdbcType=VARCHAR},
+      other = #{record.other,jdbcType=VARCHAR},
+      stability = #{record.stability,jdbcType=VARCHAR},
+      taboo = #{record.taboo,jdbcType=VARCHAR},
+      out_touch = #{record.outTouch,jdbcType=VARCHAR},
+      polymerization_hazards = #{record.polymerizationHazards,jdbcType=VARCHAR},
+      trecs = #{record.trecs,jdbcType=VARCHAR},
+      toxicity = #{record.toxicity,jdbcType=VARCHAR},
+      dangerous_num = #{record.dangerousNum,jdbcType=VARCHAR},
+      un_num = #{record.unNum,jdbcType=VARCHAR},
+      dangerous_package = #{record.dangerousPackage,jdbcType=VARCHAR},
+      package_type = #{record.packageType,jdbcType=VARCHAR},
+      iso = #{record.iso,jdbcType=VARCHAR},
+      disposition_num = #{record.dispositionNum,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shx.law.entity.Chemicals">
+    update t_chemicals
+    <set>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        name_cn = #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="nameEn != null">
+        name_en = #{nameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="aliasCn != null">
+        alias_cn = #{aliasCn,jdbcType=VARCHAR},
+      </if>
+      <if test="aliasEn != null">
+        alias_en = #{aliasEn,jdbcType=VARCHAR},
+      </if>
+      <if test="cas != null">
+        cas = #{cas,jdbcType=VARCHAR},
+      </if>
+      <if test="molecularFormula != null">
+        molecular_formula = #{molecularFormula,jdbcType=VARCHAR},
+      </if>
+      <if test="molecularWeight != null">
+        molecular_weight = #{molecularWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="appearance != null">
+        appearance = #{appearance,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="transparency != null">
+        transparency = #{transparency,jdbcType=VARCHAR},
+      </if>
+      <if test="smell != null">
+        smell = #{smell,jdbcType=VARCHAR},
+      </if>
+      <if test="taste != null">
+        taste = #{taste,jdbcType=VARCHAR},
+      </if>
+      <if test="ph != null">
+        ph = #{ph,jdbcType=VARCHAR},
+      </if>
+      <if test="proportionWater != null">
+        proportion_water = #{proportionWater,jdbcType=VARCHAR},
+      </if>
+      <if test="proportionAir != null">
+        proportion_air = #{proportionAir,jdbcType=VARCHAR},
+      </if>
+      <if test="meltingPoint != null">
+        melting_point = #{meltingPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="boilingPoint != null">
+        boiling_point = #{boilingPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeDensity != null">
+        relative_density = #{relativeDensity,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeAir != null">
+        relative_air = #{relativeAir,jdbcType=VARCHAR},
+      </if>
+      <if test="saturated != null">
+        saturated = #{saturated,jdbcType=VARCHAR},
+      </if>
+      <if test="burningHeat != null">
+        burning_heat = #{burningHeat,jdbcType=VARCHAR},
+      </if>
+      <if test="criticalTemperature != null">
+        critical_temperature = #{criticalTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="criticalPressure != null">
+        critical_pressure = #{criticalPressure,jdbcType=VARCHAR},
+      </if>
+      <if test="flashPoint != null">
+        flash_point = #{flashPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="naturalTemperature != null">
+        natural_temperature = #{naturalTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="explosionU != null">
+        explosion_u = #{explosionU,jdbcType=VARCHAR},
+      </if>
+      <if test="explosionD != null">
+        explosion_d = #{explosionD,jdbcType=VARCHAR},
+      </if>
+      <if test="solubility != null">
+        solubility = #{solubility,jdbcType=VARCHAR},
+      </if>
+      <if test="operational != null">
+        operational = #{operational,jdbcType=VARCHAR},
+      </if>
+      <if test="dangerousType != null">
+        dangerous_type = #{dangerousType,jdbcType=VARCHAR},
+      </if>
+      <if test="qrtj != null">
+        QRTJ = #{qrtj,jdbcType=VARCHAR},
+      </if>
+      <if test="healthHazards != null">
+        health_hazards = #{healthHazards,jdbcType=VARCHAR},
+      </if>
+      <if test="temperature != null">
+        temperature = #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="nervousSystem != null">
+        nervous_system = #{nervousSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="ears != null">
+        ears = #{ears,jdbcType=VARCHAR},
+      </if>
+      <if test="eyes != null">
+        eyes = #{eyes,jdbcType=VARCHAR},
+      </if>
+      <if test="nose != null">
+        nose = #{nose,jdbcType=VARCHAR},
+      </if>
+      <if test="mouth != null">
+        mouth = #{mouth,jdbcType=VARCHAR},
+      </if>
+      <if test="cardiovascular != null">
+        cardiovascular = #{cardiovascular,jdbcType=VARCHAR},
+      </if>
+      <if test="respiratorySystem != null">
+        respiratory_system = #{respiratorySystem,jdbcType=VARCHAR},
+      </if>
+      <if test="gastricSystem != null">
+        gastric_system = #{gastricSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="skin != null">
+        skin = #{skin,jdbcType=VARCHAR},
+      </if>
+      <if test="combustibility != null">
+        combustibility = #{combustibility,jdbcType=VARCHAR},
+      </if>
+      <if test="product != null">
+        product = #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="skinContact != null">
+        skin_contact = #{skinContact,jdbcType=VARCHAR},
+      </if>
+      <if test="eyeContact != null">
+        eye_contact = #{eyeContact,jdbcType=VARCHAR},
+      </if>
+      <if test="inspiroation != null">
+        inspiroation = #{inspiroation,jdbcType=VARCHAR},
+      </if>
+      <if test="suction != null">
+        suction = #{suction,jdbcType=VARCHAR},
+      </if>
+      <if test="dangerousCharacteristics != null">
+        dangerous_characteristics = #{dangerousCharacteristics,jdbcType=VARCHAR},
+      </if>
+      <if test="outfire != null">
+        outfire = #{outfire,jdbcType=VARCHAR},
+      </if>
+      <if test="leakage != null">
+        leakage = #{leakage,jdbcType=VARCHAR},
+      </if>
+      <if test="storageAttention != null">
+        storage_attention = #{storageAttention,jdbcType=VARCHAR},
+      </if>
+      <if test="contactLimit != null">
+        contact_limit = #{contactLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="jcxzs != null">
+        JCXZS = #{jcxzs,jdbcType=VARCHAR},
+      </if>
+      <if test="jcxztwa != null">
+        JCXZTWA = #{jcxztwa,jdbcType=VARCHAR},
+      </if>
+      <if test="jcxzstel != null">
+        JCXZSTEL = #{jcxzstel,jdbcType=VARCHAR},
+      </if>
+      <if test="idlh != null">
+        IDLH = #{idlh,jdbcType=VARCHAR},
+      </if>
+      <if test="engineeringControl != null">
+        engineering_control = #{engineeringControl,jdbcType=VARCHAR},
+      </if>
+      <if test="respiratoryProtection != null">
+        respiratory_protection = #{respiratoryProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="eyeProtection != null">
+        eye_protection = #{eyeProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="bodyProtection != null">
+        body_protection = #{bodyProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="handProtection != null">
+        hand_protection = #{handProtection,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        other = #{other,jdbcType=VARCHAR},
+      </if>
+      <if test="stability != null">
+        stability = #{stability,jdbcType=VARCHAR},
+      </if>
+      <if test="taboo != null">
+        taboo = #{taboo,jdbcType=VARCHAR},
+      </if>
+      <if test="outTouch != null">
+        out_touch = #{outTouch,jdbcType=VARCHAR},
+      </if>
+      <if test="polymerizationHazards != null">
+        polymerization_hazards = #{polymerizationHazards,jdbcType=VARCHAR},
+      </if>
+      <if test="trecs != null">
+        trecs = #{trecs,jdbcType=VARCHAR},
+      </if>
+      <if test="toxicity != null">
+        toxicity = #{toxicity,jdbcType=VARCHAR},
+      </if>
+      <if test="dangerousNum != null">
+        dangerous_num = #{dangerousNum,jdbcType=VARCHAR},
+      </if>
+      <if test="unNum != null">
+        un_num = #{unNum,jdbcType=VARCHAR},
+      </if>
+      <if test="dangerousPackage != null">
+        dangerous_package = #{dangerousPackage,jdbcType=VARCHAR},
+      </if>
+      <if test="packageType != null">
+        package_type = #{packageType,jdbcType=VARCHAR},
+      </if>
+      <if test="iso != null">
+        iso = #{iso,jdbcType=VARCHAR},
+      </if>
+      <if test="dispositionNum != null">
+        disposition_num = #{dispositionNum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shx.law.entity.Chemicals">
+    update t_chemicals
+    set code = #{code,jdbcType=VARCHAR},
+      name_cn = #{nameCn,jdbcType=VARCHAR},
+      name_en = #{nameEn,jdbcType=VARCHAR},
+      alias_cn = #{aliasCn,jdbcType=VARCHAR},
+      alias_en = #{aliasEn,jdbcType=VARCHAR},
+      cas = #{cas,jdbcType=VARCHAR},
+      molecular_formula = #{molecularFormula,jdbcType=VARCHAR},
+      molecular_weight = #{molecularWeight,jdbcType=VARCHAR},
+      appearance = #{appearance,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      color = #{color,jdbcType=VARCHAR},
+      transparency = #{transparency,jdbcType=VARCHAR},
+      smell = #{smell,jdbcType=VARCHAR},
+      taste = #{taste,jdbcType=VARCHAR},
+      ph = #{ph,jdbcType=VARCHAR},
+      proportion_water = #{proportionWater,jdbcType=VARCHAR},
+      proportion_air = #{proportionAir,jdbcType=VARCHAR},
+      melting_point = #{meltingPoint,jdbcType=VARCHAR},
+      boiling_point = #{boilingPoint,jdbcType=VARCHAR},
+      relative_density = #{relativeDensity,jdbcType=VARCHAR},
+      relative_air = #{relativeAir,jdbcType=VARCHAR},
+      saturated = #{saturated,jdbcType=VARCHAR},
+      burning_heat = #{burningHeat,jdbcType=VARCHAR},
+      critical_temperature = #{criticalTemperature,jdbcType=VARCHAR},
+      critical_pressure = #{criticalPressure,jdbcType=VARCHAR},
+      flash_point = #{flashPoint,jdbcType=VARCHAR},
+      natural_temperature = #{naturalTemperature,jdbcType=VARCHAR},
+      explosion_u = #{explosionU,jdbcType=VARCHAR},
+      explosion_d = #{explosionD,jdbcType=VARCHAR},
+      solubility = #{solubility,jdbcType=VARCHAR},
+      operational = #{operational,jdbcType=VARCHAR},
+      dangerous_type = #{dangerousType,jdbcType=VARCHAR},
+      QRTJ = #{qrtj,jdbcType=VARCHAR},
+      health_hazards = #{healthHazards,jdbcType=VARCHAR},
+      temperature = #{temperature,jdbcType=VARCHAR},
+      nervous_system = #{nervousSystem,jdbcType=VARCHAR},
+      ears = #{ears,jdbcType=VARCHAR},
+      eyes = #{eyes,jdbcType=VARCHAR},
+      nose = #{nose,jdbcType=VARCHAR},
+      mouth = #{mouth,jdbcType=VARCHAR},
+      cardiovascular = #{cardiovascular,jdbcType=VARCHAR},
+      respiratory_system = #{respiratorySystem,jdbcType=VARCHAR},
+      gastric_system = #{gastricSystem,jdbcType=VARCHAR},
+      skin = #{skin,jdbcType=VARCHAR},
+      combustibility = #{combustibility,jdbcType=VARCHAR},
+      product = #{product,jdbcType=VARCHAR},
+      skin_contact = #{skinContact,jdbcType=VARCHAR},
+      eye_contact = #{eyeContact,jdbcType=VARCHAR},
+      inspiroation = #{inspiroation,jdbcType=VARCHAR},
+      suction = #{suction,jdbcType=VARCHAR},
+      dangerous_characteristics = #{dangerousCharacteristics,jdbcType=VARCHAR},
+      outfire = #{outfire,jdbcType=VARCHAR},
+      leakage = #{leakage,jdbcType=VARCHAR},
+      storage_attention = #{storageAttention,jdbcType=VARCHAR},
+      contact_limit = #{contactLimit,jdbcType=VARCHAR},
+      JCXZS = #{jcxzs,jdbcType=VARCHAR},
+      JCXZTWA = #{jcxztwa,jdbcType=VARCHAR},
+      JCXZSTEL = #{jcxzstel,jdbcType=VARCHAR},
+      IDLH = #{idlh,jdbcType=VARCHAR},
+      engineering_control = #{engineeringControl,jdbcType=VARCHAR},
+      respiratory_protection = #{respiratoryProtection,jdbcType=VARCHAR},
+      eye_protection = #{eyeProtection,jdbcType=VARCHAR},
+      body_protection = #{bodyProtection,jdbcType=VARCHAR},
+      hand_protection = #{handProtection,jdbcType=VARCHAR},
+      other = #{other,jdbcType=VARCHAR},
+      stability = #{stability,jdbcType=VARCHAR},
+      taboo = #{taboo,jdbcType=VARCHAR},
+      out_touch = #{outTouch,jdbcType=VARCHAR},
+      polymerization_hazards = #{polymerizationHazards,jdbcType=VARCHAR},
+      trecs = #{trecs,jdbcType=VARCHAR},
+      toxicity = #{toxicity,jdbcType=VARCHAR},
+      dangerous_num = #{dangerousNum,jdbcType=VARCHAR},
+      un_num = #{unNum,jdbcType=VARCHAR},
+      dangerous_package = #{dangerousPackage,jdbcType=VARCHAR},
+      package_type = #{packageType,jdbcType=VARCHAR},
+      iso = #{iso,jdbcType=VARCHAR},
+      disposition_num = #{dispositionNum,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByParams" parameterType="com.shx.law.vo.request.KnownRequest" resultMap="BaseResultMap">
+    SELECT c.id,c.name_cn,c.name_en,c.cas,c.molecular_formula from t_chemicals c
+    WHERE  1=1
+    <if test="request.name != null">
+
+      AND c.name_cn LIKE concat(concat('%',#{request.name}),'%')
+    </if>
+    <if test="request.status != null">
+
+      AND c.status LIKE concat(concat('%',#{request.status}),'%')
+    </if>
+    <if test="request.color != null">
+
+      AND c.color LIKE concat(concat('%',#{request.color}),'%')
+    </if>
+    <if test="request.smell != null">
+
+      AND c.smell LIKE concat(concat('%',#{request.smell}),'%')
+    </if>
+    <if test="request.taste != null">
+
+      AND c.taste LIKE concat(concat('%',#{request.taste}),'%')
+    </if>
+    <if test="request.specific_air != null">
+
+      AND c.proportion_air LIKE concat(concat('%',#{request.specific_air}),'%')
+    </if>
+    <if test="request.specific_water != null">
+
+      AND c.proportion_water LIKE concat(concat('%',#{request.specific_water}),'%')
+    </if>
+    <if test="request.ph != null">
+
+      AND c.ph LIKE concat(concat('%',#{request.ph}),'%')
+    </if>
+    <if test="request.transparency != null">
+
+      AND c.transparency LIKE concat(concat('%',#{request.transparency}),'%')
+    </if>
+    <if test="request.nervous != null">
+
+      AND c.nervous_system LIKE concat(concat('%',#{request.nervous}),'%')
+    </if>
+    <if test="request.eye != null">
+
+      AND c.eyes LIKE concat(concat('%',#{request.eye}),'%')
+    </if>
+    <if test="request.ear != null">
+
+      AND c.ears LIKE concat(concat('%',#{request.ear}),'%')
+    </if>
+    <if test="request.mouth_throat != null">
+
+      AND c.mouth LIKE concat(concat('%',#{request.mouth_throat}),'%')
+    </if>
+    <if test="request.cardiovascular != null">
+
+      AND c.cardiovascular LIKE concat(concat('%',#{request.cardiovascular}),'%')
+    </if>
+    <if test="request.respiratory != null">
+
+      AND c.respiratory_system LIKE concat(concat('%',#{request.respiratory}),'%')
+    </if>
+    <if test="request.gastro_urinary != null">
+
+      AND c.gastric_system LIKE concat(concat('%',#{request.gastro_urinary}),'%')
+    </if>
+    <if test="request.skin != null">
+
+      AND c.skin LIKE concat(concat('%',#{request.skin}),'%')
+    </if>
+
+
+  </select>
+  <select id="selectDetails" resultType="java.util.Map">
+    SELECT
+    c.smell AS 01气味,
+	c.saturated AS 01饱和蒸气压／温度,
+	c.taste AS 01味道,
+	c.color AS 01颜色,
+	c.explosion_u AS 01爆炸上限,
+	c.explosion_d as 01爆炸下限,
+	c.critical_pressure AS 01临界压力,
+	c.critical_temperature as 01临界温度,
+	c.transparency as 01透明度,
+	c.relative_air as '01相对气度(空气=1)',
+	c.relative_density as '01相对密度(水=1)',
+	c.natural_temperature as 01自然温度,
+	c.appearance as 01外观于形状,
+	c.boiling_point as 01沸点,
+	c.proportion_air as 01比重,
+	c.ph as 01PH值,
+	c.melting_point as 01熔点,
+	c.`status` as 01状态,
+	c.explosion_u as 01爆炸上限,
+	c.flash_point as 01闪点,
+	c.dangerous_type as 02危险源类别,
+	c.health_hazards as 02健康危害,
+	c.eye_contact as 03眼睛接触,
+	c.suction as 03食入,
+	c.skin_contact as 03皮肤接触,
+	c.inspiroation as 03吸入,
+	c.dangerous_characteristics as 04危险特性,
+	c.outfire as 04灭火方法,
+	c.leakage as 05泄漏处置,
+	c.storage_attention as 06储运注意事项,
+	c.hand_protection as 07手防护,
+	c.engineering_control as 07工程控制,
+	c.respiratory_protection as 07呼吸系统防护,
+	c.other as 07其它,
+	c.body_protection as 07身体防护,
+	c.eye_protection as 07眼睛防护,
+	c.contact_limit as 07健康接触限值,
+	c.stability as 08稳定性和反应活性,
+	c.toxicity as 09毒性,
+	c.trecs as 09RTECS编号,
+	c.dangerous_num as 10危险货物编号,
+	c.package_type as 11包装类别,
+	c.un_num as 11UN编号,
+	c.dangerous_package as 11危险货物包装标志,
+	c.iso as 11ISO,
+	c.disposition_num as 11处置方案编号
+
+FROM
+	t_chemicals c
+	WHERE id=${id}
+  </select>
+</mapper>
