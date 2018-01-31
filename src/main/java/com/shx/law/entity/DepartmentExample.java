@@ -165,563 +165,563 @@ public class DepartmentExample {
             return (Criteria) this;
         }
 
-        public Criteria and名称IsNull() {
-            addCriterion("名称 is null");
+        public Criteria andNameIsNull() {
+            addCriterion("name is null");
             return (Criteria) this;
         }
 
-        public Criteria and名称IsNotNull() {
-            addCriterion("名称 is not null");
+        public Criteria andNameIsNotNull() {
+            addCriterion("name is not null");
             return (Criteria) this;
         }
 
-        public Criteria and名称EqualTo(String value) {
-            addCriterion("名称 =", value, "名称");
+        public Criteria andNameEqualTo(String value) {
+            addCriterion("name =", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria and名称NotEqualTo(String value) {
-            addCriterion("名称 <>", value, "名称");
+        public Criteria andNameNotEqualTo(String value) {
+            addCriterion("name <>", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria and名称GreaterThan(String value) {
-            addCriterion("名称 >", value, "名称");
+        public Criteria andNameGreaterThan(String value) {
+            addCriterion("name >", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria and名称GreaterThanOrEqualTo(String value) {
-            addCriterion("名称 >=", value, "名称");
+        public Criteria andNameGreaterThanOrEqualTo(String value) {
+            addCriterion("name >=", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria and名称LessThan(String value) {
-            addCriterion("名称 <", value, "名称");
+        public Criteria andNameLessThan(String value) {
+            addCriterion("name <", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria and名称LessThanOrEqualTo(String value) {
-            addCriterion("名称 <=", value, "名称");
+        public Criteria andNameLessThanOrEqualTo(String value) {
+            addCriterion("name <=", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria and名称Like(String value) {
-            addCriterion("名称 like", value, "名称");
+        public Criteria andNameLike(String value) {
+            addCriterion("name like", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria and名称NotLike(String value) {
-            addCriterion("名称 not like", value, "名称");
+        public Criteria andNameNotLike(String value) {
+            addCriterion("name not like", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria and名称In(List<String> values) {
-            addCriterion("名称 in", values, "名称");
+        public Criteria andNameIn(List<String> values) {
+            addCriterion("name in", values, "name");
             return (Criteria) this;
         }
 
-        public Criteria and名称NotIn(List<String> values) {
-            addCriterion("名称 not in", values, "名称");
+        public Criteria andNameNotIn(List<String> values) {
+            addCriterion("name not in", values, "name");
             return (Criteria) this;
         }
 
-        public Criteria and名称Between(String value1, String value2) {
-            addCriterion("名称 between", value1, value2, "名称");
+        public Criteria andNameBetween(String value1, String value2) {
+            addCriterion("name between", value1, value2, "name");
             return (Criteria) this;
         }
 
-        public Criteria and名称NotBetween(String value1, String value2) {
-            addCriterion("名称 not between", value1, value2, "名称");
+        public Criteria andNameNotBetween(String value1, String value2) {
+            addCriterion("name not between", value1, value2, "name");
             return (Criteria) this;
         }
 
-        public Criteria and编号IsNull() {
-            addCriterion("编号 is null");
+        public Criteria andCodeIsNull() {
+            addCriterion("code is null");
             return (Criteria) this;
         }
 
-        public Criteria and编号IsNotNull() {
-            addCriterion("编号 is not null");
+        public Criteria andCodeIsNotNull() {
+            addCriterion("code is not null");
             return (Criteria) this;
         }
 
-        public Criteria and编号EqualTo(String value) {
-            addCriterion("编号 =", value, "编号");
+        public Criteria andCodeEqualTo(String value) {
+            addCriterion("code =", value, "code");
             return (Criteria) this;
         }
 
-        public Criteria and编号NotEqualTo(String value) {
-            addCriterion("编号 <>", value, "编号");
+        public Criteria andCodeNotEqualTo(String value) {
+            addCriterion("code <>", value, "code");
             return (Criteria) this;
         }
 
-        public Criteria and编号GreaterThan(String value) {
-            addCriterion("编号 >", value, "编号");
+        public Criteria andCodeGreaterThan(String value) {
+            addCriterion("code >", value, "code");
             return (Criteria) this;
         }
 
-        public Criteria and编号GreaterThanOrEqualTo(String value) {
-            addCriterion("编号 >=", value, "编号");
+        public Criteria andCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("code >=", value, "code");
             return (Criteria) this;
         }
 
-        public Criteria and编号LessThan(String value) {
-            addCriterion("编号 <", value, "编号");
+        public Criteria andCodeLessThan(String value) {
+            addCriterion("code <", value, "code");
             return (Criteria) this;
         }
 
-        public Criteria and编号LessThanOrEqualTo(String value) {
-            addCriterion("编号 <=", value, "编号");
+        public Criteria andCodeLessThanOrEqualTo(String value) {
+            addCriterion("code <=", value, "code");
             return (Criteria) this;
         }
 
-        public Criteria and编号Like(String value) {
-            addCriterion("编号 like", value, "编号");
+        public Criteria andCodeLike(String value) {
+            addCriterion("code like", value, "code");
             return (Criteria) this;
         }
 
-        public Criteria and编号NotLike(String value) {
-            addCriterion("编号 not like", value, "编号");
+        public Criteria andCodeNotLike(String value) {
+            addCriterion("code not like", value, "code");
             return (Criteria) this;
         }
 
-        public Criteria and编号In(List<String> values) {
-            addCriterion("编号 in", values, "编号");
+        public Criteria andCodeIn(List<String> values) {
+            addCriterion("code in", values, "code");
             return (Criteria) this;
         }
 
-        public Criteria and编号NotIn(List<String> values) {
-            addCriterion("编号 not in", values, "编号");
+        public Criteria andCodeNotIn(List<String> values) {
+            addCriterion("code not in", values, "code");
             return (Criteria) this;
         }
 
-        public Criteria and编号Between(String value1, String value2) {
-            addCriterion("编号 between", value1, value2, "编号");
+        public Criteria andCodeBetween(String value1, String value2) {
+            addCriterion("code between", value1, value2, "code");
             return (Criteria) this;
         }
 
-        public Criteria and编号NotBetween(String value1, String value2) {
-            addCriterion("编号 not between", value1, value2, "编号");
+        public Criteria andCodeNotBetween(String value1, String value2) {
+            addCriterion("code not between", value1, value2, "code");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idIsNull() {
-            addCriterion("父级部门id is null");
+        public Criteria andParentIdIsNull() {
+            addCriterion("parent_id is null");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idIsNotNull() {
-            addCriterion("父级部门id is not null");
+        public Criteria andParentIdIsNotNull() {
+            addCriterion("parent_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idEqualTo(Integer value) {
-            addCriterion("父级部门id =", value, "父级部门id");
+        public Criteria andParentIdEqualTo(Integer value) {
+            addCriterion("parent_id =", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idNotEqualTo(Integer value) {
-            addCriterion("父级部门id <>", value, "父级部门id");
+        public Criteria andParentIdNotEqualTo(Integer value) {
+            addCriterion("parent_id <>", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idGreaterThan(Integer value) {
-            addCriterion("父级部门id >", value, "父级部门id");
+        public Criteria andParentIdGreaterThan(Integer value) {
+            addCriterion("parent_id >", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idGreaterThanOrEqualTo(Integer value) {
-            addCriterion("父级部门id >=", value, "父级部门id");
+        public Criteria andParentIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("parent_id >=", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idLessThan(Integer value) {
-            addCriterion("父级部门id <", value, "父级部门id");
+        public Criteria andParentIdLessThan(Integer value) {
+            addCriterion("parent_id <", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idLessThanOrEqualTo(Integer value) {
-            addCriterion("父级部门id <=", value, "父级部门id");
+        public Criteria andParentIdLessThanOrEqualTo(Integer value) {
+            addCriterion("parent_id <=", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idIn(List<Integer> values) {
-            addCriterion("父级部门id in", values, "父级部门id");
+        public Criteria andParentIdIn(List<Integer> values) {
+            addCriterion("parent_id in", values, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idNotIn(List<Integer> values) {
-            addCriterion("父级部门id not in", values, "父级部门id");
+        public Criteria andParentIdNotIn(List<Integer> values) {
+            addCriterion("parent_id not in", values, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idBetween(Integer value1, Integer value2) {
-            addCriterion("父级部门id between", value1, value2, "父级部门id");
+        public Criteria andParentIdBetween(Integer value1, Integer value2) {
+            addCriterion("parent_id between", value1, value2, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria and父级部门idNotBetween(Integer value1, Integer value2) {
-            addCriterion("父级部门id not between", value1, value2, "父级部门id");
+        public Criteria andParentIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("parent_id not between", value1, value2, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司IsNull() {
-            addCriterion("所属公司 is null");
+        public Criteria andCompanyIdIsNull() {
+            addCriterion("company_id is null");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司IsNotNull() {
-            addCriterion("所属公司 is not null");
+        public Criteria andCompanyIdIsNotNull() {
+            addCriterion("company_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司EqualTo(Integer value) {
-            addCriterion("所属公司 =", value, "所属公司");
+        public Criteria andCompanyIdEqualTo(Integer value) {
+            addCriterion("company_id =", value, "companyId");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司NotEqualTo(Integer value) {
-            addCriterion("所属公司 <>", value, "所属公司");
+        public Criteria andCompanyIdNotEqualTo(Integer value) {
+            addCriterion("company_id <>", value, "companyId");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司GreaterThan(Integer value) {
-            addCriterion("所属公司 >", value, "所属公司");
+        public Criteria andCompanyIdGreaterThan(Integer value) {
+            addCriterion("company_id >", value, "companyId");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司GreaterThanOrEqualTo(Integer value) {
-            addCriterion("所属公司 >=", value, "所属公司");
+        public Criteria andCompanyIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("company_id >=", value, "companyId");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司LessThan(Integer value) {
-            addCriterion("所属公司 <", value, "所属公司");
+        public Criteria andCompanyIdLessThan(Integer value) {
+            addCriterion("company_id <", value, "companyId");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司LessThanOrEqualTo(Integer value) {
-            addCriterion("所属公司 <=", value, "所属公司");
+        public Criteria andCompanyIdLessThanOrEqualTo(Integer value) {
+            addCriterion("company_id <=", value, "companyId");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司In(List<Integer> values) {
-            addCriterion("所属公司 in", values, "所属公司");
+        public Criteria andCompanyIdIn(List<Integer> values) {
+            addCriterion("company_id in", values, "companyId");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司NotIn(List<Integer> values) {
-            addCriterion("所属公司 not in", values, "所属公司");
+        public Criteria andCompanyIdNotIn(List<Integer> values) {
+            addCriterion("company_id not in", values, "companyId");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司Between(Integer value1, Integer value2) {
-            addCriterion("所属公司 between", value1, value2, "所属公司");
+        public Criteria andCompanyIdBetween(Integer value1, Integer value2) {
+            addCriterion("company_id between", value1, value2, "companyId");
             return (Criteria) this;
         }
 
-        public Criteria and所属公司NotBetween(Integer value1, Integer value2) {
-            addCriterion("所属公司 not between", value1, value2, "所属公司");
+        public Criteria andCompanyIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("company_id not between", value1, value2, "companyId");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间IsNull() {
-            addCriterion("创建时间 is null");
+        public Criteria andCreateTimeIsNull() {
+            addCriterion("create_time is null");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间IsNotNull() {
-            addCriterion("创建时间 is not null");
+        public Criteria andCreateTimeIsNotNull() {
+            addCriterion("create_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间EqualTo(Date value) {
-            addCriterion("创建时间 =", value, "创建时间");
+        public Criteria andCreateTimeEqualTo(Date value) {
+            addCriterion("create_time =", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间NotEqualTo(Date value) {
-            addCriterion("创建时间 <>", value, "创建时间");
+        public Criteria andCreateTimeNotEqualTo(Date value) {
+            addCriterion("create_time <>", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间GreaterThan(Date value) {
-            addCriterion("创建时间 >", value, "创建时间");
+        public Criteria andCreateTimeGreaterThan(Date value) {
+            addCriterion("create_time >", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间GreaterThanOrEqualTo(Date value) {
-            addCriterion("创建时间 >=", value, "创建时间");
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_time >=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间LessThan(Date value) {
-            addCriterion("创建时间 <", value, "创建时间");
+        public Criteria andCreateTimeLessThan(Date value) {
+            addCriterion("create_time <", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间LessThanOrEqualTo(Date value) {
-            addCriterion("创建时间 <=", value, "创建时间");
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("create_time <=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间In(List<Date> values) {
-            addCriterion("创建时间 in", values, "创建时间");
+        public Criteria andCreateTimeIn(List<Date> values) {
+            addCriterion("create_time in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间NotIn(List<Date> values) {
-            addCriterion("创建时间 not in", values, "创建时间");
+        public Criteria andCreateTimeNotIn(List<Date> values) {
+            addCriterion("create_time not in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间Between(Date value1, Date value2) {
-            addCriterion("创建时间 between", value1, value2, "创建时间");
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+            addCriterion("create_time between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria and创建时间NotBetween(Date value1, Date value2) {
-            addCriterion("创建时间 not between", value1, value2, "创建时间");
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("create_time not between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间IsNull() {
-            addCriterion("更新时间 is null");
+        public Criteria andUpdateTimeIsNull() {
+            addCriterion("update_time is null");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间IsNotNull() {
-            addCriterion("更新时间 is not null");
+        public Criteria andUpdateTimeIsNotNull() {
+            addCriterion("update_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间EqualTo(Date value) {
-            addCriterion("更新时间 =", value, "更新时间");
+        public Criteria andUpdateTimeEqualTo(Date value) {
+            addCriterion("update_time =", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间NotEqualTo(Date value) {
-            addCriterion("更新时间 <>", value, "更新时间");
+        public Criteria andUpdateTimeNotEqualTo(Date value) {
+            addCriterion("update_time <>", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间GreaterThan(Date value) {
-            addCriterion("更新时间 >", value, "更新时间");
+        public Criteria andUpdateTimeGreaterThan(Date value) {
+            addCriterion("update_time >", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间GreaterThanOrEqualTo(Date value) {
-            addCriterion("更新时间 >=", value, "更新时间");
+        public Criteria andUpdateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("update_time >=", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间LessThan(Date value) {
-            addCriterion("更新时间 <", value, "更新时间");
+        public Criteria andUpdateTimeLessThan(Date value) {
+            addCriterion("update_time <", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间LessThanOrEqualTo(Date value) {
-            addCriterion("更新时间 <=", value, "更新时间");
+        public Criteria andUpdateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("update_time <=", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间In(List<Date> values) {
-            addCriterion("更新时间 in", values, "更新时间");
+        public Criteria andUpdateTimeIn(List<Date> values) {
+            addCriterion("update_time in", values, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间NotIn(List<Date> values) {
-            addCriterion("更新时间 not in", values, "更新时间");
+        public Criteria andUpdateTimeNotIn(List<Date> values) {
+            addCriterion("update_time not in", values, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间Between(Date value1, Date value2) {
-            addCriterion("更新时间 between", value1, value2, "更新时间");
+        public Criteria andUpdateTimeBetween(Date value1, Date value2) {
+            addCriterion("update_time between", value1, value2, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria and更新时间NotBetween(Date value1, Date value2) {
-            addCriterion("更新时间 not between", value1, value2, "更新时间");
+        public Criteria andUpdateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria and创建人IsNull() {
-            addCriterion("创建人 is null");
+        public Criteria andCreateUserIsNull() {
+            addCriterion("create_user is null");
             return (Criteria) this;
         }
 
-        public Criteria and创建人IsNotNull() {
-            addCriterion("创建人 is not null");
+        public Criteria andCreateUserIsNotNull() {
+            addCriterion("create_user is not null");
             return (Criteria) this;
         }
 
-        public Criteria and创建人EqualTo(Integer value) {
-            addCriterion("创建人 =", value, "创建人");
+        public Criteria andCreateUserEqualTo(Integer value) {
+            addCriterion("create_user =", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria and创建人NotEqualTo(Integer value) {
-            addCriterion("创建人 <>", value, "创建人");
+        public Criteria andCreateUserNotEqualTo(Integer value) {
+            addCriterion("create_user <>", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria and创建人GreaterThan(Integer value) {
-            addCriterion("创建人 >", value, "创建人");
+        public Criteria andCreateUserGreaterThan(Integer value) {
+            addCriterion("create_user >", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria and创建人GreaterThanOrEqualTo(Integer value) {
-            addCriterion("创建人 >=", value, "创建人");
+        public Criteria andCreateUserGreaterThanOrEqualTo(Integer value) {
+            addCriterion("create_user >=", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria and创建人LessThan(Integer value) {
-            addCriterion("创建人 <", value, "创建人");
+        public Criteria andCreateUserLessThan(Integer value) {
+            addCriterion("create_user <", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria and创建人LessThanOrEqualTo(Integer value) {
-            addCriterion("创建人 <=", value, "创建人");
+        public Criteria andCreateUserLessThanOrEqualTo(Integer value) {
+            addCriterion("create_user <=", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria and创建人In(List<Integer> values) {
-            addCriterion("创建人 in", values, "创建人");
+        public Criteria andCreateUserIn(List<Integer> values) {
+            addCriterion("create_user in", values, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria and创建人NotIn(List<Integer> values) {
-            addCriterion("创建人 not in", values, "创建人");
+        public Criteria andCreateUserNotIn(List<Integer> values) {
+            addCriterion("create_user not in", values, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria and创建人Between(Integer value1, Integer value2) {
-            addCriterion("创建人 between", value1, value2, "创建人");
+        public Criteria andCreateUserBetween(Integer value1, Integer value2) {
+            addCriterion("create_user between", value1, value2, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria and创建人NotBetween(Integer value1, Integer value2) {
-            addCriterion("创建人 not between", value1, value2, "创建人");
+        public Criteria andCreateUserNotBetween(Integer value1, Integer value2) {
+            addCriterion("create_user not between", value1, value2, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria and更新人IsNull() {
-            addCriterion("更新人 is null");
+        public Criteria andUpdateUserIsNull() {
+            addCriterion("update_user is null");
             return (Criteria) this;
         }
 
-        public Criteria and更新人IsNotNull() {
-            addCriterion("更新人 is not null");
+        public Criteria andUpdateUserIsNotNull() {
+            addCriterion("update_user is not null");
             return (Criteria) this;
         }
 
-        public Criteria and更新人EqualTo(Integer value) {
-            addCriterion("更新人 =", value, "更新人");
+        public Criteria andUpdateUserEqualTo(Integer value) {
+            addCriterion("update_user =", value, "updateUser");
             return (Criteria) this;
         }
 
-        public Criteria and更新人NotEqualTo(Integer value) {
-            addCriterion("更新人 <>", value, "更新人");
+        public Criteria andUpdateUserNotEqualTo(Integer value) {
+            addCriterion("update_user <>", value, "updateUser");
             return (Criteria) this;
         }
 
-        public Criteria and更新人GreaterThan(Integer value) {
-            addCriterion("更新人 >", value, "更新人");
+        public Criteria andUpdateUserGreaterThan(Integer value) {
+            addCriterion("update_user >", value, "updateUser");
             return (Criteria) this;
         }
 
-        public Criteria and更新人GreaterThanOrEqualTo(Integer value) {
-            addCriterion("更新人 >=", value, "更新人");
+        public Criteria andUpdateUserGreaterThanOrEqualTo(Integer value) {
+            addCriterion("update_user >=", value, "updateUser");
             return (Criteria) this;
         }
 
-        public Criteria and更新人LessThan(Integer value) {
-            addCriterion("更新人 <", value, "更新人");
+        public Criteria andUpdateUserLessThan(Integer value) {
+            addCriterion("update_user <", value, "updateUser");
             return (Criteria) this;
         }
 
-        public Criteria and更新人LessThanOrEqualTo(Integer value) {
-            addCriterion("更新人 <=", value, "更新人");
+        public Criteria andUpdateUserLessThanOrEqualTo(Integer value) {
+            addCriterion("update_user <=", value, "updateUser");
             return (Criteria) this;
         }
 
-        public Criteria and更新人In(List<Integer> values) {
-            addCriterion("更新人 in", values, "更新人");
+        public Criteria andUpdateUserIn(List<Integer> values) {
+            addCriterion("update_user in", values, "updateUser");
             return (Criteria) this;
         }
 
-        public Criteria and更新人NotIn(List<Integer> values) {
-            addCriterion("更新人 not in", values, "更新人");
+        public Criteria andUpdateUserNotIn(List<Integer> values) {
+            addCriterion("update_user not in", values, "updateUser");
             return (Criteria) this;
         }
 
-        public Criteria and更新人Between(Integer value1, Integer value2) {
-            addCriterion("更新人 between", value1, value2, "更新人");
+        public Criteria andUpdateUserBetween(Integer value1, Integer value2) {
+            addCriterion("update_user between", value1, value2, "updateUser");
             return (Criteria) this;
         }
 
-        public Criteria and更新人NotBetween(Integer value1, Integer value2) {
-            addCriterion("更新人 not between", value1, value2, "更新人");
+        public Criteria andUpdateUserNotBetween(Integer value1, Integer value2) {
+            addCriterion("update_user not between", value1, value2, "updateUser");
             return (Criteria) this;
         }
 
-        public Criteria and状态IsNull() {
-            addCriterion("状态 is null");
+        public Criteria andStatusIsNull() {
+            addCriterion("status is null");
             return (Criteria) this;
         }
 
-        public Criteria and状态IsNotNull() {
-            addCriterion("状态 is not null");
+        public Criteria andStatusIsNotNull() {
+            addCriterion("status is not null");
             return (Criteria) this;
         }
 
-        public Criteria and状态EqualTo(Integer value) {
-            addCriterion("状态 =", value, "状态");
+        public Criteria andStatusEqualTo(Integer value) {
+            addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria and状态NotEqualTo(Integer value) {
-            addCriterion("状态 <>", value, "状态");
+        public Criteria andStatusNotEqualTo(Integer value) {
+            addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria and状态GreaterThan(Integer value) {
-            addCriterion("状态 >", value, "状态");
+        public Criteria andStatusGreaterThan(Integer value) {
+            addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria and状态GreaterThanOrEqualTo(Integer value) {
-            addCriterion("状态 >=", value, "状态");
+        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria and状态LessThan(Integer value) {
-            addCriterion("状态 <", value, "状态");
+        public Criteria andStatusLessThan(Integer value) {
+            addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria and状态LessThanOrEqualTo(Integer value) {
-            addCriterion("状态 <=", value, "状态");
+        public Criteria andStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria and状态In(List<Integer> values) {
-            addCriterion("状态 in", values, "状态");
+        public Criteria andStatusIn(List<Integer> values) {
+            addCriterion("status in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria and状态NotIn(List<Integer> values) {
-            addCriterion("状态 not in", values, "状态");
+        public Criteria andStatusNotIn(List<Integer> values) {
+            addCriterion("status not in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria and状态Between(Integer value1, Integer value2) {
-            addCriterion("状态 between", value1, value2, "状态");
+        public Criteria andStatusBetween(Integer value1, Integer value2) {
+            addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
-        public Criteria and状态NotBetween(Integer value1, Integer value2) {
-            addCriterion("状态 not between", value1, value2, "状态");
+        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
     }

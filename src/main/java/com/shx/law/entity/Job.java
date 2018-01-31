@@ -7,8 +7,6 @@ public class Job {
 
     private String code;
 
-    private Integer userId;
-
     private Integer status;
 
     public Integer getId() {
@@ -33,14 +31,6 @@ public class Job {
 
     public void setCode(String code) {
         this.code = code == null ? null : code.trim();
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public Integer getStatus() {

@@ -8,16 +8,16 @@ public class SystemException extends RuntimeException {
     private String message;
 
 
-    public SystemException(String message, String code, String message1) {
+    public SystemException(String message, String code) {
         super(message);
         this.code = code;
-        this.message = message1;
+        this.message = message;
     }
 
-    public SystemException(String message, Throwable cause, String code, String message1) {
+    public SystemException(String message, Throwable cause, String code) {
         super(message, cause);
         this.code = code;
-        this.message = message1;
+        this.message = message;
     }
 
     public SystemException(Throwable cause, String code, String message) {
@@ -26,10 +26,10 @@ public class SystemException extends RuntimeException {
         this.message = message;
     }
 
-    public SystemException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, String code, String message1) {
+    public SystemException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, String code) {
         super(message, cause, enableSuppression, writableStackTrace);
         this.code = code;
-        this.message = message1;
+        this.message = message;
     }
 
     public String getCode() {

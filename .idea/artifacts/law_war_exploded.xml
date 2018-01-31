@@ -42,6 +42,14 @@
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.9" />
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:4.1.2" />
           <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:0.9.4" />
+          <element id="archive" name="sms-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="sms" />
+          </element>
+          <element id="library" level="project" name="Maven: zhongche.sms:taobao-sdk:1.0" />
+          <element id="library" level="project" name="Maven: org.mongodb:mongo-java-driver:2.14.3" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-mongodb:1.5.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:1.8.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.7" />
         </element>
       </element>
       <element id="directory" name="META-INF">
