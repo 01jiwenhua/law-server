@@ -8,6 +8,7 @@ import com.shx.law.entity.*;
 import com.shx.law.service.UserService;
 import com.shx.law.utils.ResultUtil;
 import com.shx.law.vo.request.LawRequest;
+import com.shx.law.vo.request.UserRequest;
 import com.shx.law.vo.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -103,6 +104,22 @@ public class UserAction {
             e.printStackTrace();
             return ResultUtil.buidFail(e.getMessage(),e.getCode());
         }
+
+    }
+
+    @RequestMapping("/regist")
+    public @ResponseBody Response list(HttpServletRequest httpServletRequest) {
+        try {
+            String request=httpServletRequest.getParameter("data");
+            UserRequest userRequest=JSON.parseObject(request,UserRequest.class);
+            userService.regist(userRequest);
+            HashMap result=new HashMap();
+            return ResultUtil.buidSuccess(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultUtil.buidFail(e.getMessage(),"10010");
+        }
+
 
     }
 }

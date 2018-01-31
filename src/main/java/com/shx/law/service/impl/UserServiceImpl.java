@@ -100,8 +100,8 @@ public class UserServiceImpl implements UserService {
     }
 
     public void getVerifyCode(String phone) {
-        smsMessageService.sendAuthCode(phone, "中车互联运力", "SMS_16580048",
-                "互联运力派商城");
+        smsMessageService.sendAuthCode(phone, "北京市安全生产监督管理局", "SMS_16580048",
+                "危化品安全检查智能化查询系统");
     }
 
     public void checkRegist(String phone, String verifyCode) {
