@@ -5,14 +5,20 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="law_name" jdbcType="VARCHAR" property="lawName" />
     <result column="issue_no" jdbcType="VARCHAR" property="issueNo" />
-    <result column="level" jdbcType="VARCHAR" property="level" />
-    <result column="type_name" jdbcType="VARCHAR" property="typeName" />
     <result column="type_code" jdbcType="VARCHAR" property="typeCode" />
+    <result column="publish_org" jdbcType="VARCHAR" property="publishOrg" />
+    <result column="levle_code" jdbcType="VARCHAR" property="levleCode" />
     <result column="file_path" jdbcType="VARCHAR" property="filePath" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="effective_time" jdbcType="TIMESTAMP" property="effectiveTime" />
+    <result column="abate_time" jdbcType="TIMESTAMP" property="abateTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.shx.law.entity.Law">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -73,9 +79,28 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, law_name, issue_no, level, type_name, type_code, file_path, create_time, update_time, 
-    description, status
+    id, law_name, issue_no, type_code, publish_org, levle_code, file_path, create_time, 
+    update_time, description, status, publish_time, effective_time, abate_time
   </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.shx.law.entity.LawExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_law
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" parameterType="com.shx.law.entity.LawExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -90,9 +115,11 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from t_law
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -108,13 +135,17 @@
   </delete>
   <insert id="insert" parameterType="com.shx.law.entity.Law">
     insert into t_law (id, law_name, issue_no, 
-      level, type_name, type_code, 
+      type_code, publish_org, levle_code, 
       file_path, create_time, update_time, 
-      description, status)
+      description, status, publish_time, 
+      effective_time, abate_time, content
+      )
     values (#{id,jdbcType=INTEGER}, #{lawName,jdbcType=VARCHAR}, #{issueNo,jdbcType=VARCHAR}, 
-      #{level,jdbcType=VARCHAR}, #{typeName,jdbcType=VARCHAR}, #{typeCode,jdbcType=VARCHAR}, 
+      #{typeCode,jdbcType=VARCHAR}, #{publishOrg,jdbcType=VARCHAR}, #{levleCode,jdbcType=VARCHAR}, 
       #{filePath,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{description,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER})
+      #{description,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{publishTime,jdbcType=TIMESTAMP}, 
+      #{effectiveTime,jdbcType=TIMESTAMP}, #{abateTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.shx.law.entity.Law">
     insert into t_law
@@ -128,14 +159,14 @@
       <if test="issueNo != null">
         issue_no,
       </if>
-      <if test="level != null">
-        level,
-      </if>
-      <if test="typeName != null">
-        type_name,
-      </if>
       <if test="typeCode != null">
         type_code,
+      </if>
+      <if test="publishOrg != null">
+        publish_org,
+      </if>
+      <if test="levleCode != null">
+        levle_code,
       </if>
       <if test="filePath != null">
         file_path,
@@ -152,6 +183,18 @@
       <if test="status != null">
         status,
       </if>
+      <if test="publishTime != null">
+        publish_time,
+      </if>
+      <if test="effectiveTime != null">
+        effective_time,
+      </if>
+      <if test="abateTime != null">
+        abate_time,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -163,14 +206,14 @@
       <if test="issueNo != null">
         #{issueNo,jdbcType=VARCHAR},
       </if>
-      <if test="level != null">
-        #{level,jdbcType=VARCHAR},
-      </if>
-      <if test="typeName != null">
-        #{typeName,jdbcType=VARCHAR},
-      </if>
       <if test="typeCode != null">
         #{typeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="publishOrg != null">
+        #{publishOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="levleCode != null">
+        #{levleCode,jdbcType=VARCHAR},
       </if>
       <if test="filePath != null">
         #{filePath,jdbcType=VARCHAR},
@@ -186,6 +229,18 @@
       </if>
       <if test="status != null">
         #{status,jdbcType=INTEGER},
+      </if>
+      <if test="publishTime != null">
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectiveTime != null">
+        #{effectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="abateTime != null">
+        #{abateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -207,14 +262,14 @@
       <if test="record.issueNo != null">
         issue_no = #{record.issueNo,jdbcType=VARCHAR},
       </if>
-      <if test="record.level != null">
-        level = #{record.level,jdbcType=VARCHAR},
-      </if>
-      <if test="record.typeName != null">
-        type_name = #{record.typeName,jdbcType=VARCHAR},
-      </if>
       <if test="record.typeCode != null">
         type_code = #{record.typeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publishOrg != null">
+        publish_org = #{record.publishOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.levleCode != null">
+        levle_code = #{record.levleCode,jdbcType=VARCHAR},
       </if>
       <if test="record.filePath != null">
         file_path = #{record.filePath,jdbcType=VARCHAR},
@@ -231,7 +286,40 @@
       <if test="record.status != null">
         status = #{record.status,jdbcType=INTEGER},
       </if>
+      <if test="record.publishTime != null">
+        publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.effectiveTime != null">
+        effective_time = #{record.effectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.abateTime != null">
+        abate_time = #{record.abateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update t_law
+    set id = #{record.id,jdbcType=INTEGER},
+      law_name = #{record.lawName,jdbcType=VARCHAR},
+      issue_no = #{record.issueNo,jdbcType=VARCHAR},
+      type_code = #{record.typeCode,jdbcType=VARCHAR},
+      publish_org = #{record.publishOrg,jdbcType=VARCHAR},
+      levle_code = #{record.levleCode,jdbcType=VARCHAR},
+      file_path = #{record.filePath,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      description = #{record.description,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
+      effective_time = #{record.effectiveTime,jdbcType=TIMESTAMP},
+      abate_time = #{record.abateTime,jdbcType=TIMESTAMP},
+      content = #{record.content,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -241,14 +329,17 @@
     set id = #{record.id,jdbcType=INTEGER},
       law_name = #{record.lawName,jdbcType=VARCHAR},
       issue_no = #{record.issueNo,jdbcType=VARCHAR},
-      level = #{record.level,jdbcType=VARCHAR},
-      type_name = #{record.typeName,jdbcType=VARCHAR},
       type_code = #{record.typeCode,jdbcType=VARCHAR},
+      publish_org = #{record.publishOrg,jdbcType=VARCHAR},
+      levle_code = #{record.levleCode,jdbcType=VARCHAR},
       file_path = #{record.filePath,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       description = #{record.description,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=INTEGER}
+      status = #{record.status,jdbcType=INTEGER},
+      publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
+      effective_time = #{record.effectiveTime,jdbcType=TIMESTAMP},
+      abate_time = #{record.abateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -262,14 +353,14 @@
       <if test="issueNo != null">
         issue_no = #{issueNo,jdbcType=VARCHAR},
       </if>
-      <if test="level != null">
-        level = #{level,jdbcType=VARCHAR},
-      </if>
-      <if test="typeName != null">
-        type_name = #{typeName,jdbcType=VARCHAR},
-      </if>
       <if test="typeCode != null">
         type_code = #{typeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="publishOrg != null">
+        publish_org = #{publishOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="levleCode != null">
+        levle_code = #{levleCode,jdbcType=VARCHAR},
       </if>
       <if test="filePath != null">
         file_path = #{filePath,jdbcType=VARCHAR},
@@ -286,53 +377,63 @@
       <if test="status != null">
         status = #{status,jdbcType=INTEGER},
       </if>
+      <if test="publishTime != null">
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectiveTime != null">
+        effective_time = #{effectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="abateTime != null">
+        abate_time = #{abateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.shx.law.entity.Law">
+    update t_law
+    set law_name = #{lawName,jdbcType=VARCHAR},
+      issue_no = #{issueNo,jdbcType=VARCHAR},
+      type_code = #{typeCode,jdbcType=VARCHAR},
+      publish_org = #{publishOrg,jdbcType=VARCHAR},
+      levle_code = #{levleCode,jdbcType=VARCHAR},
+      file_path = #{filePath,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      description = #{description,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      effective_time = #{effectiveTime,jdbcType=TIMESTAMP},
+      abate_time = #{abateTime,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.shx.law.entity.Law">
     update t_law
     set law_name = #{lawName,jdbcType=VARCHAR},
       issue_no = #{issueNo,jdbcType=VARCHAR},
-      level = #{level,jdbcType=VARCHAR},
-      type_name = #{typeName,jdbcType=VARCHAR},
       type_code = #{typeCode,jdbcType=VARCHAR},
+      publish_org = #{publishOrg,jdbcType=VARCHAR},
+      levle_code = #{levleCode,jdbcType=VARCHAR},
       file_path = #{filePath,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       description = #{description,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER}
+      status = #{status,jdbcType=INTEGER},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      effective_time = #{effectiveTime,jdbcType=TIMESTAMP},
+      abate_time = #{abateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
   <select id="selectByParams" resultMap="BaseResultMap">
-  select
-  *
-  from t_law l
-  WHERE 1=1
-
-
-  <if test="lawRequest.name != null">
-
-    AND l.law_name LIKE concat(concat('%',#{lawRequest.name}),'%')
-  </if>
-  <if test="lawRequest.issoNo != null">
-
-    AND l.issue_no LIKE concat(concat('%',#{lawRequest.issoNo}),'%')
-  </if>
-  <if test="lawRequest.typeName != null">
-
-    AND l.type_name LIKE concat(concat('%',#{lawRequest.typeName}),'%')
-  </if>
-  <if test="lawRequest.typeCode != null">
-
-    AND l.type_code LIKE concat(concat('%',#{lawRequest.typeCode}),'%')
-  </if>
-  <if test="lawRequest.level != null">
-    AND l.level IN
-    <foreach close=")" collection="levelList" index="index" item="item" open="(" separator=",">
-      #{item}
-    </foreach>
-  </if>
-  AND file_path !=""
-
+  select  *
+    from t_law l
+    WHERE
+    l.type_code = #{lawRequest.typeCode}
+    and
+    l.levle_code= #{lawRequest.level}
   </select>
 </mapper>

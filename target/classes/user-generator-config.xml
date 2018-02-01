@@ -4,7 +4,7 @@
 
 <generatorConfiguration>
 	<!-- 数据库驱动包位置 -->
-	<classPathEntry location="C:\Users\admin\.m2\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
+	<classPathEntry location="C:\Users\xuan\.m2\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
 
 	<context id="DB2Tables" targetRuntime="MyBatis3"> 
 	
@@ -13,8 +13,8 @@
 		</commentGenerator>
 		<!-- 数据库链接URL、用户名、密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://127.0.0.1:3306/law-db(2)" userId="root"
-			password="tiger">
+			connectionURL="jdbc:mysql://60.210.40.196:25008/law-db-2.0" userId="root"
+			password="Root@123!">
 		</jdbcConnection>
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
@@ -41,7 +41,7 @@
 
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
  
-		<table tableName="t_chemicals" domainObjectName="Chemicals"></table>
+		<table tableName="t_law" domainObjectName="Law"></table>
 		 
 	</context>
 </generatorConfiguration>

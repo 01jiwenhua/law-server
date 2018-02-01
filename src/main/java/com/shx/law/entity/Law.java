@@ -9,11 +9,11 @@ public class Law {
 
     private String issueNo;
 
-    private String level;
-
-    private String typeName;
-
     private String typeCode;
+
+    private String publishOrg;
+
+    private String levleCode;
 
     private String filePath;
 
@@ -24,6 +24,14 @@ public class Law {
     private String description;
 
     private Integer status;
+
+    private Date publishTime;
+
+    private Date effectiveTime;
+
+    private Date abateTime;
+
+    private String content;
 
     public Integer getId() {
         return id;
@@ -49,28 +57,28 @@ public class Law {
         this.issueNo = issueNo == null ? null : issueNo.trim();
     }
 
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level == null ? null : level.trim();
-    }
-
-    public String getTypeName() {
-        return typeName;
-    }
-
-    public void setTypeName(String typeName) {
-        this.typeName = typeName == null ? null : typeName.trim();
-    }
-
     public String getTypeCode() {
         return typeCode;
     }
 
     public void setTypeCode(String typeCode) {
         this.typeCode = typeCode == null ? null : typeCode.trim();
+    }
+
+    public String getPublishOrg() {
+        return publishOrg;
+    }
+
+    public void setPublishOrg(String publishOrg) {
+        this.publishOrg = publishOrg == null ? null : publishOrg.trim();
+    }
+
+    public String getLevleCode() {
+        return levleCode;
+    }
+
+    public void setLevleCode(String levleCode) {
+        this.levleCode = levleCode == null ? null : levleCode.trim();
     }
 
     public String getFilePath() {
@@ -111,5 +119,37 @@ public class Law {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Date getPublishTime() {
+        return publishTime;
+    }
+
+    public void setPublishTime(Date publishTime) {
+        this.publishTime = publishTime;
+    }
+
+    public Date getEffectiveTime() {
+        return effectiveTime;
+    }
+
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime = effectiveTime;
+    }
+
+    public Date getAbateTime() {
+        return abateTime;
+    }
+
+    public void setAbateTime(Date abateTime) {
+        this.abateTime = abateTime;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
     }
 }

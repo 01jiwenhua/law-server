@@ -7,11 +7,7 @@ public class Chemicals {
 
     private String nameCn;
 
-    private String nameEn;
-
     private String aliasCn;
-
-    private String aliasEn;
 
     private String cas;
 
@@ -61,12 +57,6 @@ public class Chemicals {
 
     private String explosionD;
 
-    private String solubility;
-
-    private String operational;
-
-    private String dangerousType;
-
     private String qrtj;
 
     private String healthHazards;
@@ -95,8 +85,6 @@ public class Chemicals {
 
     private String product;
 
-    private String skinContact;
-
     private String eyeContact;
 
     private String inspiroation;
@@ -104,8 +92,6 @@ public class Chemicals {
     private String suction;
 
     private String dangerousCharacteristics;
-
-    private String outfire;
 
     private String leakage;
 
@@ -128,12 +114,6 @@ public class Chemicals {
     private String eyeProtection;
 
     private String bodyProtection;
-
-    private String handProtection;
-
-    private String other;
-
-    private String stability;
 
     private String taboo;
 
@@ -181,28 +161,12 @@ public class Chemicals {
         this.nameCn = nameCn == null ? null : nameCn.trim();
     }
 
-    public String getNameEn() {
-        return nameEn;
-    }
-
-    public void setNameEn(String nameEn) {
-        this.nameEn = nameEn == null ? null : nameEn.trim();
-    }
-
     public String getAliasCn() {
         return aliasCn;
     }
 
     public void setAliasCn(String aliasCn) {
         this.aliasCn = aliasCn == null ? null : aliasCn.trim();
-    }
-
-    public String getAliasEn() {
-        return aliasEn;
-    }
-
-    public void setAliasEn(String aliasEn) {
-        this.aliasEn = aliasEn == null ? null : aliasEn.trim();
     }
 
     public String getCas() {
@@ -397,30 +361,6 @@ public class Chemicals {
         this.explosionD = explosionD == null ? null : explosionD.trim();
     }
 
-    public String getSolubility() {
-        return solubility;
-    }
-
-    public void setSolubility(String solubility) {
-        this.solubility = solubility == null ? null : solubility.trim();
-    }
-
-    public String getOperational() {
-        return operational;
-    }
-
-    public void setOperational(String operational) {
-        this.operational = operational == null ? null : operational.trim();
-    }
-
-    public String getDangerousType() {
-        return dangerousType;
-    }
-
-    public void setDangerousType(String dangerousType) {
-        this.dangerousType = dangerousType == null ? null : dangerousType.trim();
-    }
-
     public String getQrtj() {
         return qrtj;
     }
@@ -533,14 +473,6 @@ public class Chemicals {
         this.product = product == null ? null : product.trim();
     }
 
-    public String getSkinContact() {
-        return skinContact;
-    }
-
-    public void setSkinContact(String skinContact) {
-        this.skinContact = skinContact == null ? null : skinContact.trim();
-    }
-
     public String getEyeContact() {
         return eyeContact;
     }
@@ -571,14 +503,6 @@ public class Chemicals {
 
     public void setDangerousCharacteristics(String dangerousCharacteristics) {
         this.dangerousCharacteristics = dangerousCharacteristics == null ? null : dangerousCharacteristics.trim();
-    }
-
-    public String getOutfire() {
-        return outfire;
-    }
-
-    public void setOutfire(String outfire) {
-        this.outfire = outfire == null ? null : outfire.trim();
     }
 
     public String getLeakage() {
@@ -667,30 +591,6 @@ public class Chemicals {
 
     public void setBodyProtection(String bodyProtection) {
         this.bodyProtection = bodyProtection == null ? null : bodyProtection.trim();
-    }
-
-    public String getHandProtection() {
-        return handProtection;
-    }
-
-    public void setHandProtection(String handProtection) {
-        this.handProtection = handProtection == null ? null : handProtection.trim();
-    }
-
-    public String getOther() {
-        return other;
-    }
-
-    public void setOther(String other) {
-        this.other = other == null ? null : other.trim();
-    }
-
-    public String getStability() {
-        return stability;
-    }
-
-    public void setStability(String stability) {
-        this.stability = stability == null ? null : stability.trim();
     }
 
     public String getTaboo() {
