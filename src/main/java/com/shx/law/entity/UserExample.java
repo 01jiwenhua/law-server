@@ -1205,6 +1205,66 @@ public class UserExample {
             return (Criteria) this;
         }
 
+        public Criteria andLicenseTypeIsNull() {
+            addCriterion("license_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLicenseTypeIsNotNull() {
+            addCriterion("license_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLicenseTypeEqualTo(Integer value) {
+            addCriterion("license_type =", value, "licenseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLicenseTypeNotEqualTo(Integer value) {
+            addCriterion("license_type <>", value, "licenseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLicenseTypeGreaterThan(Integer value) {
+            addCriterion("license_type >", value, "licenseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLicenseTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("license_type >=", value, "licenseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLicenseTypeLessThan(Integer value) {
+            addCriterion("license_type <", value, "licenseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLicenseTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("license_type <=", value, "licenseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLicenseTypeIn(List<Integer> values) {
+            addCriterion("license_type in", values, "licenseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLicenseTypeNotIn(List<Integer> values) {
+            addCriterion("license_type not in", values, "licenseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLicenseTypeBetween(Integer value1, Integer value2) {
+            addCriterion("license_type between", value1, value2, "licenseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLicenseTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("license_type not between", value1, value2, "licenseType");
+            return (Criteria) this;
+        }
+
         public Criteria andSexIsNull() {
             addCriterion("sex is null");
             return (Criteria) this;

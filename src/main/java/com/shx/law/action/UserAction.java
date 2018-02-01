@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
@@ -119,7 +120,28 @@ public class UserAction {
             e.printStackTrace();
             return ResultUtil.buidFail(e.getMessage(),"10010");
         }
-
+    }
+    /**
+     * 登录
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/login")
+    public @ResponseBody Response login(HttpServletRequest httpServletRequest) {
+        try {
+            String request=httpServletRequest.getParameter("data");
+            JSONObject requestObject=JSON.parseObject(request);
+            String phone=requestObject.getString("phone");
+            String verifyCode=requestObject.getString("verifyCode");
+            Map userInfo=userService.login(phone,verifyCode);
+            HashMap result=new HashMap();
+            String json = JSON.toJSONString(userInfo);
+            result.put("userInfo",json);
+            return ResultUtil.buidSuccess(result);
+        } catch (SystemException e) {
+            e.printStackTrace();
+            return ResultUtil.buidFail(e.getMessage(),e.getCode());
+        }
 
     }
 }

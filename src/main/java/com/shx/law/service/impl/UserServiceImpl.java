@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -53,23 +54,28 @@ public class UserServiceImpl implements UserService {
         return jobList;
     }
 
-    public void login(String phone, String verifyCode) {
-        //验证码校验
-        smsMessageService.checkVerifyCode(phone,verifyCode);
-        //验证用户是否存在
-        User user=checkUser(phone);
-        if(user==null){
-            throw new SystemException("该用户尚未注册","10011");
+    public Map login(String phone, String verifyCode) throws SystemException{
+        try {
+            //验证码校验
+            smsMessageService.checkVerifyCode(phone,verifyCode);
+            //验证用户是否存在
+            User user=checkUser(phone);
+            if(user==null){
+                throw new SystemException("该用户尚未注册","10011");
+            }
+            //返回用户信息
+            Map userInfo=userMapper.selectUserInfo(user.getId());
+            return userInfo;
+        } catch (SystemException e) {
+            e.printStackTrace();
+            throw e;
         }
-        //返回用户信息
-
-
     }
 
     private User checkUser(String phone) {
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
-        criteria.andLoginNameEqualTo(phone);
+        criteria.andPhoneEqualTo(phone);
         List<User> userList = userMapper.selectByExample(userExample);
         if(userList==null||userList.size()<=0){
             return null;
@@ -96,12 +102,13 @@ public class UserServiceImpl implements UserService {
         newUser.setPhone(userRequest.getPhone());
         newUser.setSex(Integer.valueOf(userRequest.getSex()));
         newUser.setUserType(userRequest.getUserType());
+        newUser.setLicenseType(Integer.valueOf(userRequest.getLicenseType()));
         userMapper.insertSelective(newUser);
     }
 
     public void getVerifyCode(String phone) {
-        smsMessageService.sendAuthCode(phone, "北京市安全生产监督管理局", "SMS_16580048",
-                "危化品安全检查智能化查询系统");
+        smsMessageService.sendAuthCode(phone, "互联司机", "SMS_16580048",
+                "司机端");
     }
 
     public void checkRegist(String phone, String verifyCode) {

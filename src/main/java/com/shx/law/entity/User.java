@@ -37,6 +37,8 @@ public class User {
 
     private String phone;
 
+    private Integer licenseType;
+
     private Integer sex;
 
     private String userType;
@@ -175,6 +177,14 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone == null ? null : phone.trim();
+    }
+
+    public Integer getLicenseType() {
+        return licenseType;
+    }
+
+    public void setLicenseType(Integer licenseType) {
+        this.licenseType = licenseType;
     }
 
     public Integer getSex() {

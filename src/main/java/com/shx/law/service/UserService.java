@@ -1,15 +1,13 @@
 package com.shx.law.service;
 
-import com.github.pagehelper.PageInfo;
 import com.shx.law.Exception.SystemException;
 import com.shx.law.entity.Company;
 import com.shx.law.entity.Department;
 import com.shx.law.entity.Job;
-import com.shx.law.entity.Law;
-import com.shx.law.vo.request.LawRequest;
 import com.shx.law.vo.request.UserRequest;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
     /**
@@ -36,7 +34,7 @@ public interface UserService {
      * @param phone
      * @param verifyCode
      */
-     void login(String phone,String verifyCode);
+     Map login(String phone, String verifyCode) throws SystemException;
 
     /**
      * 注册

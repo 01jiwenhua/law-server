@@ -3,6 +3,8 @@ package com.shx.law.mapper;
 import com.shx.law.entity.User;
 import com.shx.law.entity.UserExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
@@ -27,4 +29,5 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+    Map selectUserInfo(@Param("userId") Integer userId);
 }

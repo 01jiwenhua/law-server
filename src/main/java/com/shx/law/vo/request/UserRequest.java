@@ -1,18 +1,35 @@
 package com.shx.law.vo.request;
 
 public class UserRequest {
+    //登录名同手机号
     private String loginName;
     private String loginPassword;
+    //昵称
     private String nickName;
+    //真实姓名
     private String realName;
+    //部门id
     private String departmentId;
+    //地区id
     private String regionId;
     private String email;
+    //证件号
     private String idNo;
+    //职位id
     private String jobId;
     private String phone;
     private String sex;
     private String userType;
+    //证件类型
+    private String licenseType;
+
+    public String getLicenseType() {
+        return licenseType;
+    }
+
+    public void setLicenseType(String licenseType) {
+        this.licenseType = licenseType;
+    }
 
     public String getPhone() {
         return phone;
