@@ -2,14 +2,16 @@ package com.shx.law.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.shx.law.entity.BasicData;
+import com.shx.law.entity.BasicDataExample;
 import com.shx.law.entity.Law;
+import com.shx.law.mapper.BasicDataMapper;
 import com.shx.law.mapper.LawMapper;
 import com.shx.law.service.LawService;
 import com.shx.law.vo.request.LawRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,6 +21,8 @@ import java.util.List;
 public class LawServiceImpl implements LawService {
     @Autowired
     private LawMapper lawMapper;
+    @Autowired
+    private BasicDataMapper basicDataMapper;
 
     public PageInfo<Law> getLawList(LawRequest request) {
         PageHelper.startPage(request.getPage(), request.getPageSize());
@@ -48,5 +52,13 @@ public class LawServiceImpl implements LawService {
         PageInfo<Law> PageInfo = new PageInfo<Law>(lawList);
 
         return PageInfo;
+    }
+
+    public List<BasicData> getLawLevel(String typeCode) {
+        BasicDataExample example = new BasicDataExample();
+        BasicDataExample.Criteria criteria = example.createCriteria();
+        criteria.andCategoryCodeEqualTo(typeCode);
+        List<BasicData> basicDataList = basicDataMapper.selectByExample(example);
+        return basicDataList;
     }
 }
