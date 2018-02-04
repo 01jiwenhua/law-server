@@ -144,4 +144,28 @@ public class UserAction {
         }
 
     }
+
+    /**
+     * 获取用户信息
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/getUserInfo")
+    public @ResponseBody Response getUserInfo(HttpServletRequest httpServletRequest) {
+        try {
+            String request=httpServletRequest.getParameter("data");
+            JSONObject requestObject=JSON.parseObject(request);
+            Integer userId=requestObject.getInteger("userId");
+
+            Map userInfo=userService.getUserInfo(userId);
+            HashMap result=new HashMap();
+            String json = JSON.toJSONString(userInfo);
+            result.put("userInfo",json);
+            return ResultUtil.buidSuccess(result);
+        } catch (SystemException e) {
+            e.printStackTrace();
+            return ResultUtil.buidFail(e.getMessage(),e.getCode());
+        }
+
+    }
 }
