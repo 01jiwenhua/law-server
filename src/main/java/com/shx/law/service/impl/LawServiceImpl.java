@@ -119,6 +119,9 @@ public class LawServiceImpl implements LawService {
         for (Favorite favorite : favorites) {
             lawIdList.add(favorite.getLawId());
         }
+        if(lawIdList==null||lawIdList.size()<=0){
+            return resultList;
+        }
         if (typeCode.equals("wxhxp")) {
             ChemicalsExample chemicalsExample = new ChemicalsExample();
             chemicalsExample.createCriteria().andIdIn(lawIdList);
