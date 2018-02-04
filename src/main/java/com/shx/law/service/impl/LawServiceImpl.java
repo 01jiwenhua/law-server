@@ -11,6 +11,7 @@ import com.shx.law.vo.request.LawRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -84,13 +85,24 @@ public class LawServiceImpl implements LawService {
         }
     }
 
-    public List getFavorite(String typeCode, String userId) {
-        if(typeCode.equals("wxhxp")){
-            //@TODO
-        }else{
-
+    /**
+     * 获取收藏列表
+     * @param typeCode
+     * @param userId
+     * @return
+     */
+    public List getFavoriteList(String typeCode, String userId) {
+        FavoriteExample favoriteExample = new FavoriteExample();
+        favoriteExample.createCriteria().andTypeEqualTo(typeCode).andUserIdEqualTo(Integer.parseInt(userId));
+        List<Favorite> favorites = favoriteMapper.selectByExample(favoriteExample);
+        List<Integer> lawIdList = new ArrayList<Integer>();
+        for (Favorite favorite : favorites) {
+            lawIdList.add(favorite.getLawId());
         }
-        return null;
+        LawExample lawExample = new LawExample();
+        lawExample.createCriteria().andIdIn(lawIdList);
+        List<Law> lawList = lawMapper.selectByExample(lawExample);
+        return lawList;
     }
 
 

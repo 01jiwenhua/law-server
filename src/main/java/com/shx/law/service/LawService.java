@@ -15,6 +15,13 @@ public interface LawService {
     PageInfo<Law> getLawList(LawRequest request);
     List<BasicData> getLawLevel(String typeCode);
     void addFavorite(String typeCode,String lawId,String userId);
-    List getFavorite(String typeCode,String userId);
+
+    /**
+     * 获取收藏列表
+     * @param typeCode
+     * @param userId
+     * @return
+     */
+    List getFavoriteList(String typeCode,String userId);
 
 }

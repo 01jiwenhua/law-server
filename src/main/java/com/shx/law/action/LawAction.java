@@ -78,4 +78,23 @@ public class LawAction {
 
     }
 
+    /**
+     * 获取收藏列表
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/getFavoriteList")
+    public @ResponseBody Response getFavoriteList(HttpServletRequest httpServletRequest) {
+        String request=httpServletRequest.getParameter("data");
+        JSONObject jsonObject=JSON.parseObject(request);
+        String typeCode=jsonObject.getString("typeCode");
+        String userId=jsonObject.getString("userId");
+        List<Law> lawList = lawService.getFavoriteList(typeCode,userId);
+        HashMap result=new HashMap();
+        String json = JSON.toJSONString(lawList);
+        result.put("favoriteList",json);
+        return ResultUtil.buidSuccess(result);
+
+    }
+
 }
