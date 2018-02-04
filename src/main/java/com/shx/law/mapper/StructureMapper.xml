@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shx.law.mapper.StructureMapper">
+  <resultMap id="BaseResultMap" type="com.shx.law.entity.Structure">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="structure_name" jdbcType="VARCHAR" property="structureName" />
+    <result column="pre_name_level_one" jdbcType="VARCHAR" property="preNameLevelOne" />
+    <result column="pre_name_level_two" jdbcType="VARCHAR" property="preNameLevelTwo" />
+    <result column="pre_name_level_three" jdbcType="VARCHAR" property="preNameLevelThree" />
+    <result column="property_number" jdbcType="VARCHAR" property="propertyNumber" />
+    <result column="choice_level" jdbcType="VARCHAR" property="choiceLevel" />
+    <result column="class_level_two" jdbcType="VARCHAR" property="classLevelTwo" />
+    <result column="class_level_one" jdbcType="VARCHAR" property="classLevelOne" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, structure_name, pre_name_level_one, pre_name_level_two, pre_name_level_three, 
+    property_number, choice_level, class_level_two, class_level_one, type
+  </sql>
+  <select id="selectByExample" parameterType="com.shx.law.entity.StructureExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_structure
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_structure
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_structure
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shx.law.entity.StructureExample">
+    delete from t_structure
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shx.law.entity.Structure">
+    insert into t_structure (id, structure_name, pre_name_level_one, 
+      pre_name_level_two, pre_name_level_three, property_number, 
+      choice_level, class_level_two, class_level_one, 
+      type)
+    values (#{id,jdbcType=INTEGER}, #{structureName,jdbcType=VARCHAR}, #{preNameLevelOne,jdbcType=VARCHAR}, 
+      #{preNameLevelTwo,jdbcType=VARCHAR}, #{preNameLevelThree,jdbcType=VARCHAR}, #{propertyNumber,jdbcType=VARCHAR}, 
+      #{choiceLevel,jdbcType=VARCHAR}, #{classLevelTwo,jdbcType=VARCHAR}, #{classLevelOne,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shx.law.entity.Structure">
+    insert into t_structure
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="structureName != null">
+        structure_name,
+      </if>
+      <if test="preNameLevelOne != null">
+        pre_name_level_one,
+      </if>
+      <if test="preNameLevelTwo != null">
+        pre_name_level_two,
+      </if>
+      <if test="preNameLevelThree != null">
+        pre_name_level_three,
+      </if>
+      <if test="propertyNumber != null">
+        property_number,
+      </if>
+      <if test="choiceLevel != null">
+        choice_level,
+      </if>
+      <if test="classLevelTwo != null">
+        class_level_two,
+      </if>
+      <if test="classLevelOne != null">
+        class_level_one,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="structureName != null">
+        #{structureName,jdbcType=VARCHAR},
+      </if>
+      <if test="preNameLevelOne != null">
+        #{preNameLevelOne,jdbcType=VARCHAR},
+      </if>
+      <if test="preNameLevelTwo != null">
+        #{preNameLevelTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="preNameLevelThree != null">
+        #{preNameLevelThree,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyNumber != null">
+        #{propertyNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="choiceLevel != null">
+        #{choiceLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="classLevelTwo != null">
+        #{classLevelTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="classLevelOne != null">
+        #{classLevelOne,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shx.law.entity.StructureExample" resultType="java.lang.Long">
+    select count(*) from t_structure
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_structure
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.structureName != null">
+        structure_name = #{record.structureName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.preNameLevelOne != null">
+        pre_name_level_one = #{record.preNameLevelOne,jdbcType=VARCHAR},
+      </if>
+      <if test="record.preNameLevelTwo != null">
+        pre_name_level_two = #{record.preNameLevelTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.preNameLevelThree != null">
+        pre_name_level_three = #{record.preNameLevelThree,jdbcType=VARCHAR},
+      </if>
+      <if test="record.propertyNumber != null">
+        property_number = #{record.propertyNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.choiceLevel != null">
+        choice_level = #{record.choiceLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classLevelTwo != null">
+        class_level_two = #{record.classLevelTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classLevelOne != null">
+        class_level_one = #{record.classLevelOne,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_structure
+    set id = #{record.id,jdbcType=INTEGER},
+      structure_name = #{record.structureName,jdbcType=VARCHAR},
+      pre_name_level_one = #{record.preNameLevelOne,jdbcType=VARCHAR},
+      pre_name_level_two = #{record.preNameLevelTwo,jdbcType=VARCHAR},
+      pre_name_level_three = #{record.preNameLevelThree,jdbcType=VARCHAR},
+      property_number = #{record.propertyNumber,jdbcType=VARCHAR},
+      choice_level = #{record.choiceLevel,jdbcType=VARCHAR},
+      class_level_two = #{record.classLevelTwo,jdbcType=VARCHAR},
+      class_level_one = #{record.classLevelOne,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shx.law.entity.Structure">
+    update t_structure
+    <set>
+      <if test="structureName != null">
+        structure_name = #{structureName,jdbcType=VARCHAR},
+      </if>
+      <if test="preNameLevelOne != null">
+        pre_name_level_one = #{preNameLevelOne,jdbcType=VARCHAR},
+      </if>
+      <if test="preNameLevelTwo != null">
+        pre_name_level_two = #{preNameLevelTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="preNameLevelThree != null">
+        pre_name_level_three = #{preNameLevelThree,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyNumber != null">
+        property_number = #{propertyNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="choiceLevel != null">
+        choice_level = #{choiceLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="classLevelTwo != null">
+        class_level_two = #{classLevelTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="classLevelOne != null">
+        class_level_one = #{classLevelOne,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shx.law.entity.Structure">
+    update t_structure
+    set structure_name = #{structureName,jdbcType=VARCHAR},
+      pre_name_level_one = #{preNameLevelOne,jdbcType=VARCHAR},
+      pre_name_level_two = #{preNameLevelTwo,jdbcType=VARCHAR},
+      pre_name_level_three = #{preNameLevelThree,jdbcType=VARCHAR},
+      property_number = #{propertyNumber,jdbcType=VARCHAR},
+      choice_level = #{choiceLevel,jdbcType=VARCHAR},
+      class_level_two = #{classLevelTwo,jdbcType=VARCHAR},
+      class_level_one = #{classLevelOne,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <!--通过二级分类查询-->
+  <select id="selectByClassLevelOne" resultType="map">
+    SELECT
+        class_level_two name,
+        'class_level_two' level,
+    FROM t_structure
+    WHERE class_level_one = #{name}
+  </select>
+
+  <!--通过二级分类查询-->
+  <select id="selectByClassLevelTwo" resultType="map">
+      SELECT
+          pre_name_level_three name,
+          'pre_name_level_three' level
+      FROM
+          t_structure
+      WHERE
+          class_level_two = #{name}
+      AND pre_name_level_three IS NOT NULL
+      UNION
+      SELECT
+          pre_name_level_two name,
+          'pre_name_level_two' level
+      FROM
+          t_structure
+      WHERE
+          class_level_two = #{name}
+      AND pre_name_level_three IS NULL
+      AND pre_name_level_two IS NOT NULL
+      UNION
+      SELECT
+          pre_name_level_one name,
+          'pre_name_level_one' level
+      FROM
+          t_structure
+      WHERE
+          class_level_two = #{name}
+      AND pre_name_level_three IS NULL
+      AND pre_name_level_two IS NULL
+      AND pre_name_level_one IS NULL
+      UNION
+      SELECT
+          structure_name name,
+          'structure_name' level
+      FROM
+          t_structure
+      WHERE
+          class_level_two = #{name}
+      AND pre_name_level_three IS NULL
+      AND pre_name_level_two IS NULL
+      AND pre_name_level_one IS NULL
+  </select>
+  <!--通过三级父建筑物名称查询-->
+  <select id="selectByPreNameLevelThree" resultType="map">
+    SELECT
+        pre_name_level_two name,
+        'pre_name_level_two' level
+    FROM
+        t_structure
+    WHERE
+        pre_name_level_three = #{name}
+    AND pre_name_level_two IS NOT NULL
+    UNION
+    SELECT
+        pre_name_level_one name,
+        'pre_name_level_one' level
+    FROM
+        t_structure
+    WHERE
+        pre_name_level_three = #{name}
+    AND pre_name_level_two IS NULL
+    AND pre_name_level_one IS NOT NULL
+    UNION
+    SELECT
+        structure_name name,
+        'structure_name' level
+    FROM
+        t_structure
+    WHERE
+        pre_name_level_three = #{name}
+    AND pre_name_level_two IS NULL
+    AND pre_name_level_one IS NULL
+  </select>
+  <!--通过二级父建筑物名称查询-->
+  <select id="selectByPreNameLevelTwo" resultType="map">
+    SELECT
+        pre_name_level_one name,
+        'pre_name_level_one' level
+    FROM
+        t_structure
+    WHERE
+        pre_name_level_two = #{name}
+    AND pre_name_level_one IS NOT NULL
+    UNION
+    SELECT
+        structure_name name,
+        'structure_name' level
+    FROM
+        t_structure
+    WHERE
+        pre_name_level_two = #{name}
+    AND pre_name_level_one IS NULL
+  </select>
+  <!--通过一级父建筑物名称查询-->
+  <select id="selectByPreNameLevelOne" resultType="map">
+    SELECT
+        structure_name name,
+        'structure_name' level
+    FROM
+        t_structure
+    WHERE
+        pre_name_level_one = #{name}
+  </select>
+
+</mapper>

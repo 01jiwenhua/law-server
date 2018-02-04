@@ -23,10 +23,10 @@ public class ChemicalsServiceImpl implements ChemicalsService {
     @Autowired
     private ChemicalsMapper chemicalsMapper;
 
-    public PageInfo<Chemicals> getKnownChemicals(KnownRequest request) {
+    public PageInfo<Map<String,Object>> getKnownChemicals(KnownRequest request) {
         PageHelper.startPage(request.getPage(), request.getPageSize());
-        List<Chemicals> list = chemicalsMapper.selectByParams(request);
-        PageInfo<Chemicals> PageInfo = new PageInfo<Chemicals>(list);
+        List<Map<String,Object>> list = chemicalsMapper.selectByParams(request);
+        PageInfo<Map<String,Object>> PageInfo = new PageInfo<Map<String,Object>>(list);
 
         return PageInfo;
     }

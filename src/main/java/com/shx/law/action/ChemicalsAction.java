@@ -36,7 +36,7 @@ public class ChemicalsAction {
     Response knownlist(HttpServletRequest httpServletRequest) {
         String request = httpServletRequest.getParameter("data");
         KnownRequest knownRequest = JSON.parseObject(request, KnownRequest.class);
-        PageInfo<Chemicals> pageInfo = chemicalsService.getKnownChemicals(knownRequest);
+        PageInfo<Map<String,Object>> pageInfo = chemicalsService.getKnownChemicals(knownRequest);
         HashMap result = new HashMap();
         String json = JSON.toJSONString(pageInfo.getList());
         result.put("chemicalsList", json);

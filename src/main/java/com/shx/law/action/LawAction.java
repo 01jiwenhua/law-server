@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xuan on 2017/12/23.
@@ -36,7 +37,7 @@ public class LawAction {
     public @ResponseBody Response list(HttpServletRequest httpServletRequest) {
         String request=httpServletRequest.getParameter("data");
         LawRequest lawRequest=JSON.parseObject(request,LawRequest.class);
-        PageInfo<Law> pageInfo= lawService.getLawList(lawRequest);
+        PageInfo<Map<String, Object>> pageInfo= lawService.getLawList(lawRequest);
         HashMap result=new HashMap();
         String json = JSON.toJSONString(pageInfo.getList());
         result.put("lawList",json);

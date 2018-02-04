@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xuan on 2017/12/23.
@@ -29,7 +30,7 @@ public class LawServiceImpl implements LawService {
     @Autowired
     private FavoriteMapper favoriteMapper;
 
-    public PageInfo<Law> getLawList(LawRequest request) {
+    public PageInfo<Map<String, Object>> getLawList(LawRequest request) {
         PageHelper.startPage(request.getPage(), request.getPageSize());
 //        List<String> levelList = new ArrayList<String>();
 //        if ("law".equals(request.getLevel())) {
@@ -53,8 +54,8 @@ public class LawServiceImpl implements LawService {
 //            }
 //        }
 
-        List<Law> lawList = lawMapper.selectByParams(request);
-        PageInfo<Law> PageInfo = new PageInfo<Law>(lawList);
+        List<Map<String, Object>> lawList = lawMapper.selectByParams(request);
+        PageInfo<Map<String, Object>> PageInfo = new PageInfo<Map<String, Object>>(lawList);
 
         return PageInfo;
     }

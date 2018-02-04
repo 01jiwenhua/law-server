@@ -427,8 +427,9 @@
       abate_time = #{abateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectByParams" resultMap="BaseResultMap">
-    select  *
+  <select id="selectByParams" resultMap="map">
+    select  *,
+    (select 1 from t_favorite where user_id = #{userId} and law_id = l.id) is_favorite
     from t_law l
     <where>
       <if test="lawRequest.typeCode != null">

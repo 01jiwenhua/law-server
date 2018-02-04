@@ -7,12 +7,13 @@ import com.shx.law.entity.Law;
 import com.shx.law.vo.request.LawRequest;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xuan on 2017/12/23.
  */
 public interface LawService {
-    PageInfo<Law> getLawList(LawRequest request);
+    PageInfo<Map<String, Object>> getLawList(LawRequest request);
     List<BasicData> getLawLevel(String typeCode);
     void addFavorite(String typeCode,String lawId,String userId);
 

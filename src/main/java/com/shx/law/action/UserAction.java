@@ -2,12 +2,12 @@ package com.shx.law.action;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.github.pagehelper.PageInfo;
 import com.shx.law.Exception.SystemException;
-import com.shx.law.entity.*;
+import com.shx.law.entity.Company;
+import com.shx.law.entity.Department;
+import com.shx.law.entity.Job;
 import com.shx.law.service.UserService;
 import com.shx.law.utils.ResultUtil;
-import com.shx.law.vo.request.LawRequest;
 import com.shx.law.vo.request.UserRequest;
 import com.shx.law.vo.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
