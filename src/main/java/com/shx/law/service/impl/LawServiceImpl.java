@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.shx.law.entity.*;
 import com.shx.law.mapper.BasicDataMapper;
+import com.shx.law.mapper.ChemicalsMapper;
 import com.shx.law.mapper.FavoriteMapper;
 import com.shx.law.mapper.LawMapper;
 import com.shx.law.service.LawService;
@@ -21,6 +22,8 @@ import java.util.List;
 public class LawServiceImpl implements LawService {
     @Autowired
     private LawMapper lawMapper;
+    @Autowired
+    private ChemicalsMapper chemicalsMapper;
     @Autowired
     private BasicDataMapper basicDataMapper;
     @Autowired
@@ -92,6 +95,7 @@ public class LawServiceImpl implements LawService {
      * @return
      */
     public List getFavoriteList(String typeCode, String userId) {
+        List resultList = new ArrayList();
         FavoriteExample favoriteExample = new FavoriteExample();
         favoriteExample.createCriteria().andTypeEqualTo(typeCode).andUserIdEqualTo(Integer.parseInt(userId));
         List<Favorite> favorites = favoriteMapper.selectByExample(favoriteExample);
@@ -99,10 +103,16 @@ public class LawServiceImpl implements LawService {
         for (Favorite favorite : favorites) {
             lawIdList.add(favorite.getLawId());
         }
-        LawExample lawExample = new LawExample();
-        lawExample.createCriteria().andIdIn(lawIdList);
-        List<Law> lawList = lawMapper.selectByExample(lawExample);
-        return lawList;
+        if(typeCode.equals("wxhxp")){
+            ChemicalsExample chemicalsExample = new ChemicalsExample();
+            chemicalsExample.createCriteria().andIdIn(lawIdList);
+            resultList = chemicalsMapper.selectByExample(chemicalsExample);
+        }else{
+            LawExample lawExample = new LawExample();
+            lawExample.createCriteria().andIdIn(lawIdList);
+            resultList = lawMapper.selectByExample(lawExample);
+        }
+        return resultList;
     }
 
 
