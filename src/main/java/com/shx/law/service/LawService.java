@@ -17,6 +17,15 @@ public interface LawService {
     void addFavorite(String typeCode,String lawId,String userId);
 
     /**
+     * 取消收藏
+     *
+     * @param typeCode
+     * @param lawId
+     * @param userId
+     */
+    void cancelFavorite(String typeCode, String lawId, String userId);
+
+    /**
      * 获取收藏列表
      * @param typeCode
      * @param userId

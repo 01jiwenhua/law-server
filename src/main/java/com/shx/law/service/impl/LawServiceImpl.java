@@ -68,19 +68,19 @@ public class LawServiceImpl implements LawService {
     }
 
     public void addFavorite(String typeCode, String lawId, String userId) {
-        FavoriteExample example=new FavoriteExample();
-        FavoriteExample.Criteria criteria=example.createCriteria();
+        FavoriteExample example = new FavoriteExample();
+        FavoriteExample.Criteria criteria = example.createCriteria();
         criteria.andTypeEqualTo(typeCode).andLawIdEqualTo(Integer.valueOf(lawId)).andUserIdEqualTo(Integer.valueOf(userId));
-        List<Favorite> list=favoriteMapper.selectByExample(example);
-        if(list!=null&&list.size()>0){
-            Favorite favorite=list.get(0);
-            if(favorite.getStatus()==-1){
+        List<Favorite> list = favoriteMapper.selectByExample(example);
+        if (list != null && list.size() > 0) {
+            Favorite favorite = list.get(0);
+            if (favorite.getStatus() == -1) {
                 favorite.setStatus(1);
                 favoriteMapper.updateByPrimaryKeySelective(favorite);
                 return;
             }
-        }else{
-            Favorite favorite=new Favorite();
+        } else {
+            Favorite favorite = new Favorite();
             favorite.setStatus(1);
             favorite.setLawId(Integer.valueOf(lawId));
             favorite.setType(typeCode);
@@ -89,7 +89,23 @@ public class LawServiceImpl implements LawService {
     }
 
     /**
+     * 取消收藏
+     * @param typeCode
+     * @param lawId
+     * @param userId
+     */
+    public void cancelFavorite(String typeCode, String lawId, String userId) {
+        FavoriteExample example = new FavoriteExample();
+        FavoriteExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(Integer.parseInt(userId)).andTypeEqualTo(typeCode).andLawIdEqualTo(Integer.parseInt(lawId));
+        Favorite favorite = new Favorite();
+        favorite.setStatus(0);
+        favoriteMapper.updateByExampleSelective(favorite, example);
+    }
+
+    /**
      * 获取收藏列表
+     *
      * @param typeCode
      * @param userId
      * @return
@@ -103,17 +119,15 @@ public class LawServiceImpl implements LawService {
         for (Favorite favorite : favorites) {
             lawIdList.add(favorite.getLawId());
         }
-        if(typeCode.equals("wxhxp")){
+        if (typeCode.equals("wxhxp")) {
             ChemicalsExample chemicalsExample = new ChemicalsExample();
             chemicalsExample.createCriteria().andIdIn(lawIdList);
             resultList = chemicalsMapper.selectByExample(chemicalsExample);
-        }else{
+        } else {
             LawExample lawExample = new LawExample();
             lawExample.createCriteria().andIdIn(lawIdList);
             resultList = lawMapper.selectByExample(lawExample);
         }
         return resultList;
     }
-
-
 }

@@ -75,7 +75,23 @@ public class LawAction {
         lawService.addFavorite(lawType,lawId,userId);
         HashMap result=new HashMap();
         return ResultUtil.buidSuccess(result);
+    }
 
+    /**
+     * 取消收藏
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/cancelFavorite")
+    public @ResponseBody Response cancelFavorite(HttpServletRequest httpServletRequest) {
+        String request=httpServletRequest.getParameter("data");
+        JSONObject jsonObject=JSON.parseObject(request);
+        String lawType=jsonObject.getString("typeCode");
+        String lawId=jsonObject.getString("lawId");
+        String userId=jsonObject.getString("userId");
+        lawService.cancelFavorite(lawType,lawId,userId);
+        HashMap result=new HashMap();
+        return ResultUtil.buidSuccess(result);
     }
 
     /**
