@@ -26,6 +26,12 @@ import java.util.List;
 public class LawAction {
     @Autowired
     private LawService lawService;
+
+    /**
+     * 法律法规等三个功能获取列表（搜索功能也是这个接口）
+     * @param httpServletRequest
+     * @return
+     */
     @RequestMapping("/list")
     public @ResponseBody Response list(HttpServletRequest httpServletRequest) {
         String request=httpServletRequest.getParameter("data");
@@ -36,6 +42,12 @@ public class LawAction {
         result.put("lawList",json);
         return ResultUtil.buidSuccess(pageInfo.getPageNum(),pageInfo.getPageSize(),result);
     }
+
+    /**
+     * 获取法律法规级别列表
+     * @param httpServletRequest
+     * @return
+     */
     @RequestMapping("/getLevelList")
     public @ResponseBody Response getLevelList(HttpServletRequest httpServletRequest) {
         String request=httpServletRequest.getParameter("data");
@@ -47,6 +59,12 @@ public class LawAction {
         result.put("levelList",json);
         return ResultUtil.buidSuccess(result);
     }
+
+    /**
+     * 添加到收藏
+     * @param httpServletRequest
+     * @return
+     */
     @RequestMapping("/addFavorite")
     public @ResponseBody Response addFavorite(HttpServletRequest httpServletRequest) {
         String request=httpServletRequest.getParameter("data");
