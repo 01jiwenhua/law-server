@@ -47,4 +47,17 @@ public class LawAction {
         result.put("levelList",json);
         return ResultUtil.buidSuccess(result);
     }
+    @RequestMapping("/addFavorite")
+    public @ResponseBody Response addFavorite(HttpServletRequest httpServletRequest) {
+        String request=httpServletRequest.getParameter("data");
+        JSONObject jsonObject=JSON.parseObject(request);
+        String lawType=jsonObject.getString("typeCode");
+        String lawId=jsonObject.getString("lawId");
+        String userId=jsonObject.getString("userId");
+        lawService.addFavorite(lawType,lawId,userId);
+        HashMap result=new HashMap();
+        return ResultUtil.buidSuccess(result);
+
+    }
+
 }

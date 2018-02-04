@@ -2,10 +2,9 @@ package com.shx.law.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.shx.law.entity.BasicData;
-import com.shx.law.entity.BasicDataExample;
-import com.shx.law.entity.Law;
+import com.shx.law.entity.*;
 import com.shx.law.mapper.BasicDataMapper;
+import com.shx.law.mapper.FavoriteMapper;
 import com.shx.law.mapper.LawMapper;
 import com.shx.law.service.LawService;
 import com.shx.law.vo.request.LawRequest;
@@ -23,6 +22,8 @@ public class LawServiceImpl implements LawService {
     private LawMapper lawMapper;
     @Autowired
     private BasicDataMapper basicDataMapper;
+    @Autowired
+    private FavoriteMapper favoriteMapper;
 
     public PageInfo<Law> getLawList(LawRequest request) {
         PageHelper.startPage(request.getPage(), request.getPageSize());
@@ -61,4 +62,36 @@ public class LawServiceImpl implements LawService {
         List<BasicData> basicDataList = basicDataMapper.selectByExample(example);
         return basicDataList;
     }
+
+    public void addFavorite(String typeCode, String lawId, String userId) {
+        FavoriteExample example=new FavoriteExample();
+        FavoriteExample.Criteria criteria=example.createCriteria();
+        criteria.andTypeEqualTo(typeCode).andLawIdEqualTo(Integer.valueOf(lawId)).andUserIdEqualTo(Integer.valueOf(userId));
+        List<Favorite> list=favoriteMapper.selectByExample(example);
+        if(list!=null&&list.size()>0){
+            Favorite favorite=list.get(0);
+            if(favorite.getStatus()==-1){
+                favorite.setStatus(1);
+                favoriteMapper.updateByPrimaryKeySelective(favorite);
+                return;
+            }
+        }else{
+            Favorite favorite=new Favorite();
+            favorite.setStatus(1);
+            favorite.setLawId(Integer.valueOf(lawId));
+            favorite.setType(typeCode);
+            favoriteMapper.insertSelective(favorite);
+        }
+    }
+
+    public List getFavorite(String typeCode, String userId) {
+        if(typeCode.equals("wxhxp")){
+            //@TODO
+        }else{
+
+        }
+        return null;
+    }
+
+
 }
