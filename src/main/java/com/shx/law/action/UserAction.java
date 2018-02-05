@@ -2,12 +2,12 @@ package com.shx.law.action;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.github.pagehelper.PageInfo;
 import com.shx.law.Exception.SystemException;
-import com.shx.law.entity.*;
+import com.shx.law.entity.Company;
+import com.shx.law.entity.Department;
+import com.shx.law.entity.Job;
 import com.shx.law.service.UserService;
 import com.shx.law.utils.ResultUtil;
-import com.shx.law.vo.request.LawRequest;
 import com.shx.law.vo.request.UserRequest;
 import com.shx.law.vo.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,6 +134,30 @@ public class UserAction {
             String phone=requestObject.getString("phone");
             String verifyCode=requestObject.getString("verifyCode");
             Map userInfo=userService.login(phone,verifyCode);
+            HashMap result=new HashMap();
+            String json = JSON.toJSONString(userInfo);
+            result.put("userInfo",json);
+            return ResultUtil.buidSuccess(result);
+        } catch (SystemException e) {
+            e.printStackTrace();
+            return ResultUtil.buidFail(e.getMessage(),e.getCode());
+        }
+
+    }
+
+    /**
+     * 获取用户信息
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/getUserInfo")
+    public @ResponseBody Response getUserInfo(HttpServletRequest httpServletRequest) {
+        try {
+            String request=httpServletRequest.getParameter("data");
+            JSONObject requestObject=JSON.parseObject(request);
+            Integer userId=requestObject.getInteger("userId");
+
+            Map userInfo=userService.getUserInfo(userId);
             HashMap result=new HashMap();
             String json = JSON.toJSONString(userInfo);
             result.put("userInfo",json);

@@ -63,9 +63,7 @@ public class UserServiceImpl implements UserService {
             if(user==null){
                 throw new SystemException("该用户尚未注册","10011");
             }
-            //返回用户信息
-            Map userInfo=userMapper.selectUserInfo(user.getId());
-            return userInfo;
+            return    getUserInfo(user.getId());
         } catch (SystemException e) {
             e.printStackTrace();
             throw e;
@@ -107,8 +105,8 @@ public class UserServiceImpl implements UserService {
     }
 
     public void getVerifyCode(String phone) {
-        smsMessageService.sendAuthCode(phone, "互联司机", "SMS_16580048",
-                "司机端");
+        smsMessageService.sendAuthCode(phone, "身份验证", "SMS_16580048",
+                "危化监管综合查询系统");
     }
 
     public void checkRegist(String phone, String verifyCode) {
@@ -117,6 +115,12 @@ public class UserServiceImpl implements UserService {
             throw new SystemException("该用户已注册请直接登录","10014");
         }
         smsMessageService.checkVerifyCode(phone,verifyCode);
+    }
+
+    public Map getUserInfo(Integer userId) {
+        //返回用户信息
+        Map userInfo=userMapper.selectUserInfo(userId);
+        return userInfo;
     }
 
 }

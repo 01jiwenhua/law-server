@@ -40,5 +40,5 @@ public interface ChemicalsMapper {
 
 
     List<Chemicals> selectByParams(@Param("request") KnownRequest request);
-    Map<String,Object> selectDetails(@Param("id") String id);
+    Map<String,Object> selectDetails(@Param("id") String id,@Param("userId") String userId,@Param("typeCode") String typeCode);
 }

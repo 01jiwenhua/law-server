@@ -13,5 +13,5 @@ import java.util.Map;
 public interface ChemicalsService {
     PageInfo<Chemicals> getKnownChemicals(KnownRequest request);
     PageInfo<Chemicals> getUnKnownChemicals();
-    List<Map<String,Object>> getChemicalsDetails(String id);
+    Map<String,Object> getChemicalsDetails(String id,String userId,String typeCode);
 }

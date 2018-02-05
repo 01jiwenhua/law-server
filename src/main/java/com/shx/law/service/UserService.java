@@ -54,4 +54,5 @@ public interface UserService {
      * @param verifyCode
      */
     void checkRegist(String phone,String verifyCode) throws SystemException;
+    Map getUserInfo(Integer userId);
 }

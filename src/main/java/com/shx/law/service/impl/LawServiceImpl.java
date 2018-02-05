@@ -2,17 +2,19 @@ package com.shx.law.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.shx.law.entity.BasicData;
-import com.shx.law.entity.BasicDataExample;
-import com.shx.law.entity.Law;
+import com.shx.law.entity.*;
 import com.shx.law.mapper.BasicDataMapper;
+import com.shx.law.mapper.ChemicalsMapper;
+import com.shx.law.mapper.FavoriteMapper;
 import com.shx.law.mapper.LawMapper;
 import com.shx.law.service.LawService;
 import com.shx.law.vo.request.LawRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xuan on 2017/12/23.
@@ -22,9 +24,13 @@ public class LawServiceImpl implements LawService {
     @Autowired
     private LawMapper lawMapper;
     @Autowired
+    private ChemicalsMapper chemicalsMapper;
+    @Autowired
     private BasicDataMapper basicDataMapper;
+    @Autowired
+    private FavoriteMapper favoriteMapper;
 
-    public PageInfo<Law> getLawList(LawRequest request) {
+    public PageInfo<Map<String, Object>> getLawList(LawRequest request) {
         PageHelper.startPage(request.getPage(), request.getPageSize());
 //        List<String> levelList = new ArrayList<String>();
 //        if ("law".equals(request.getLevel())) {
@@ -48,8 +54,8 @@ public class LawServiceImpl implements LawService {
 //            }
 //        }
 
-        List<Law> lawList = lawMapper.selectByParams(request);
-        PageInfo<Law> PageInfo = new PageInfo<Law>(lawList);
+        List<Map<String, Object>> lawList = lawMapper.selectByParams(request);
+        PageInfo<Map<String, Object>> PageInfo = new PageInfo<Map<String, Object>>(lawList);
 
         return PageInfo;
     }
@@ -60,5 +66,74 @@ public class LawServiceImpl implements LawService {
         criteria.andCategoryCodeEqualTo(typeCode);
         List<BasicData> basicDataList = basicDataMapper.selectByExample(example);
         return basicDataList;
+    }
+
+    public void addFavorite(String typeCode, String lawId, String userId) {
+        FavoriteExample example = new FavoriteExample();
+        FavoriteExample.Criteria criteria = example.createCriteria();
+        criteria.andTypeEqualTo(typeCode).andLawIdEqualTo(Integer.valueOf(lawId)).andUserIdEqualTo(Integer.valueOf(userId));
+        List<Favorite> list = favoriteMapper.selectByExample(example);
+        if (list != null && list.size() > 0) {
+            Favorite favorite = list.get(0);
+            //重新收藏
+            if (favorite.getStatus() != 1) {
+                favorite.setStatus(1);
+                favoriteMapper.updateByPrimaryKeySelective(favorite);
+                return;
+            }
+        } else {
+            Favorite favorite = new Favorite();
+            favorite.setStatus(1);
+            favorite.setUserId(Integer.valueOf(userId));
+            favorite.setLawId(Integer.valueOf(lawId));
+            favorite.setType(typeCode);
+            favoriteMapper.insertSelective(favorite);
+        }
+    }
+
+    /**
+     * 取消收藏
+     * @param typeCode
+     * @param lawId
+     * @param userId
+     */
+    public void cancelFavorite(String typeCode, String lawId, String userId) {
+        FavoriteExample example = new FavoriteExample();
+        FavoriteExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(Integer.parseInt(userId)).andTypeEqualTo(typeCode).andLawIdEqualTo(Integer.parseInt(lawId));
+        Favorite favorite = new Favorite();
+        favorite.setStatus(-1);
+        favoriteMapper.updateByExampleSelective(favorite, example);
+    }
+
+    /**
+     * 获取收藏列表
+     *
+     * @param typeCode
+     * @param userId
+     * @return
+     */
+    public List getFavoriteList(String typeCode, String userId) {
+        List resultList = new ArrayList();
+        FavoriteExample favoriteExample = new FavoriteExample();
+        favoriteExample.createCriteria().andTypeEqualTo(typeCode).andUserIdEqualTo(Integer.parseInt(userId)).andStatusEqualTo(1);
+        List<Favorite> favorites = favoriteMapper.selectByExample(favoriteExample);
+        List<Integer> lawIdList = new ArrayList<Integer>();
+        for (Favorite favorite : favorites) {
+            lawIdList.add(favorite.getLawId());
+        }
+        if(lawIdList==null||lawIdList.size()<=0){
+            return resultList;
+        }
+        if (typeCode.equals("wxhxp")) {
+            ChemicalsExample chemicalsExample = new ChemicalsExample();
+            chemicalsExample.createCriteria().andIdIn(lawIdList);
+            resultList = chemicalsMapper.selectByExample(chemicalsExample);
+        } else {
+            LawExample lawExample = new LawExample();
+            lawExample.createCriteria().andIdIn(lawIdList);
+            resultList = lawMapper.selectByExample(lawExample);
+        }
+        return resultList;
     }
 }

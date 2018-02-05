@@ -3,6 +3,7 @@ package com.shx.law.mapper;
 import com.shx.law.entity.Law;
 import com.shx.law.entity.LawExample;
 import java.util.List;
+import java.util.Map;
 
 import com.shx.law.vo.request.LawRequest;
 import org.apache.ibatis.annotations.Param;
@@ -35,5 +36,5 @@ public interface LawMapper {
     int updateByPrimaryKeyWithBLOBs(Law record);
 
     int updateByPrimaryKey(Law record);
-    List<Law> selectByParams(@Param("lawRequest") LawRequest lawRequest);
+    List<Map<String, Object>> selectByParams(@Param("lawRequest") LawRequest lawRequest);
 }

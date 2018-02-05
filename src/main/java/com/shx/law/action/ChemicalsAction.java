@@ -48,7 +48,10 @@ public class ChemicalsAction {
     Response ChemicalsDetails(HttpServletRequest httpServletRequest) {
         String request = httpServletRequest.getParameter("data");
         JSONObject object = JSON.parseObject(request);
-        List<Map<String, Object>> list = chemicalsService.getChemicalsDetails(object.getString("id"));
+        String  id=object.getString("id");
+        String userId=object.getString("userId");
+        String typeCode=object.getString("typeCode");
+        Map<String,Object> list = chemicalsService.getChemicalsDetails(id,userId,typeCode);
         HashMap result = new HashMap();
         String json = JSON.toJSONString(list);
         result.put("chemicalsDetails", json);

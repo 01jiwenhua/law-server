@@ -1532,8 +1532,9 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="selectByParams" parameterType="com.shx.law.vo.request.KnownRequest" resultMap="BaseResultMap">
-    SELECT c.id,c.name_cn,c.name_en,c.cas,c.molecular_formula from t_chemicals c
+  <select id="selectByParams" parameterType="com.shx.law.vo.request.KnownRequest"  resultMap="ResultMapWithBLOBs" >
+    SELECT c.id,c.name_cn,c.name_en,c.cas,c.molecular_formula
+    from t_chemicals c
     WHERE  1=1
     <if test="request.name != null">
 
@@ -1608,6 +1609,17 @@
   </select>
   <select id="selectDetails" resultType="java.util.Map">
     SELECT
+     	(
+		SELECT
+			1
+		FROM
+			t_favorite f
+		WHERE
+			f.user_id = #{userId}
+		AND f.law_id = c.id
+		AND f.type=#{typeCode}
+		and f.`status`=1
+	) is_favorite,
     c.smell AS 01气味,
     c.saturated AS 01饱和蒸气压／温度,
     c.taste AS 01味道,
@@ -1657,6 +1669,6 @@
 
     FROM
     t_chemicals c
-    WHERE id=${id}
+    WHERE id=#{id}
   </select>
 </mapper>

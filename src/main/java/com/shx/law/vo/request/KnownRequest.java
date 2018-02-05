@@ -23,6 +23,15 @@ public class KnownRequest {
     private String respiratory;
     private String gastro_urinary;
     private String skin;
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getStatus() {
         return status;

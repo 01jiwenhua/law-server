@@ -13,8 +13,10 @@ public class LawRequest {
     private String typeName;
     private String typeCode;
     private String description;
+    private String userId;
     private Integer page;
     private Integer pageSize;
+
 
     public String getTypeCode() {
         return typeCode;
@@ -89,5 +91,13 @@ public class LawRequest {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
