@@ -36,6 +36,7 @@ public class SMSService {
 	public String sendSMS(String extend, String SignName, String templateCode,
 			String recNumber, String code, String product) throws ApiException {
 		String smsParam = String.format("{code:'%s',product:'%s'}", code, product);
+//		String smsParam = String.format("{code:'%s'}", code);
 		TaobaoClient client = new DefaultTaobaoClient(serverUrl, appkey,
 				appSecret);
 		AlibabaAliqinFcSmsNumSendRequest req = new AlibabaAliqinFcSmsNumSendRequest();
