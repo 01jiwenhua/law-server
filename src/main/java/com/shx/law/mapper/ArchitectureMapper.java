@@ -35,5 +35,5 @@ public interface ArchitectureMapper {
      * @param architectureRequest
      * @return
      */
-//    List<Architecture> selectByRequest(ArchitectureRequest architectureRequest);
+    List<Architecture> selectByRequest(ArchitectureRequest architectureRequest);
 }

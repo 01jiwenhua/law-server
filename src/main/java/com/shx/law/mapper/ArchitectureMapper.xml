@@ -241,21 +241,21 @@
     where id = #{id,jdbcType=SMALLINT}
   </update>
 
-  <!--<select id="selectByRequest" resultType="BaseResultMap">-->
-    <!--select-->
-    <!--<include refid="Base_Column_List" />-->
-    <!--from t_architecture-->
-    <!--<where>-->
-      <!--<if test="standard != null">-->
-        <!--and parent_code = #{parentCode,jdbcType=VARCHAR},-->
-      <!--</if>-->
-      <!--<if test="name != null">-->
-        <!--and name = #{name,jdbcType=VARCHAR},-->
-      <!--</if>-->
-      <!--<if test="standard != null">-->
-        <!--and standard = #{standard,jdbcType=VARCHAR},-->
-      <!--</if>-->
-    <!--</where>-->
+  <select id="selectByRequest" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_architecture
+    <where>
+      <if test="standard != null">
+        and parent_code = #{parentCode,jdbcType=VARCHAR}
+      </if>
+      <if test="name != null">
+        and name = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="standard != null">
+        and standard = #{standard,jdbcType=VARCHAR}
+      </if>
+    </where>
 
-  <!--</select>-->
+  </select>
 </mapper>

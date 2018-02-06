@@ -52,8 +52,7 @@ public class DistanceServiceImpl implements DistanceService {
 //        }
 //        List<Architecture> architectureList = architectureMapper.selectByExample(architectureExample);
 //        return architectureList;
-//        return architectureMapper.selectByRequest(architectureRequest);
-        return null;
+        return architectureMapper.selectByRequest(architectureRequest);
     }
 
     /**
