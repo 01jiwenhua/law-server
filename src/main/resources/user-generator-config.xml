@@ -43,7 +43,7 @@
 
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
  
-		<table tableName="t_favorite" domainObjectName="Favorite"></table>
+		<table tableName="t_message" domainObjectName="Message"></table>
 		 
 	</context>
 </generatorConfiguration>
