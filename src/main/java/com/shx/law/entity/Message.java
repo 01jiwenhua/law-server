@@ -19,6 +19,8 @@ public class Message {
 
     private String publishDepartment;
 
+    private Integer status;
+
     public Integer getId() {
         return id;
     }
@@ -81,5 +83,13 @@ public class Message {
 
     public void setPublishDepartment(String publishDepartment) {
         this.publishDepartment = publishDepartment == null ? null : publishDepartment.trim();
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

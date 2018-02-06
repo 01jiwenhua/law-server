@@ -105,7 +105,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void getVerifyCode(String phone) {
-        smsMessageService.sendAuthCode(phone, "身份验证", "SMS_16580048",
+        smsMessageService.sendAuthCode(phone, "安全检查智能查询系统", "SMS_123799105",
                 "危化监管综合查询系统");
     }
 
