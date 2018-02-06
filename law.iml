@@ -80,8 +80,8 @@
     </orderEntry>
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:4.1.2" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9.4" level="project" />
-    <orderEntry type="module" module-name="sms" />
-    <orderEntry type="library" name="Maven: zhongche.sms:taobao-sdk:1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.aliyun:aliyun-java-sdk-dysmsapi:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.aliyun:aliyun-java-sdk-core:3.2.3" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:2.14.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-mongodb:1.5.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.8.4.RELEASE" level="project" />

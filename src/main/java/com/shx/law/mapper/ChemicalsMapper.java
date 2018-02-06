@@ -39,6 +39,6 @@ public interface ChemicalsMapper {
     int updateByPrimaryKey(Chemicals record);
 
 
-    List<Map<String, Object>> selectByParams(@Param("request") KnownRequest request);
-    Map<String,Object> selectDetails(@Param("id") String id);
+    List<Chemicals> selectByParams(@Param("request") KnownRequest request);
+    Map<String,Object> selectDetails(@Param("id") String id,@Param("userId") String userId,@Param("typeCode") String typeCode);
 }

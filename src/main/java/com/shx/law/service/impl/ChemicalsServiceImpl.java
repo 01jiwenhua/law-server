@@ -23,10 +23,10 @@ public class ChemicalsServiceImpl implements ChemicalsService {
     @Autowired
     private ChemicalsMapper chemicalsMapper;
 
-    public PageInfo<Map<String,Object>> getKnownChemicals(KnownRequest request) {
+    public PageInfo<Chemicals> getKnownChemicals(KnownRequest request) {
         PageHelper.startPage(request.getPage(), request.getPageSize());
-        List<Map<String,Object>> list = chemicalsMapper.selectByParams(request);
-        PageInfo<Map<String,Object>> PageInfo = new PageInfo<Map<String,Object>>(list);
+        List<Chemicals> list = chemicalsMapper.selectByParams(request);
+        PageInfo<Chemicals> PageInfo = new PageInfo<Chemicals>(list);
 
         return PageInfo;
     }
@@ -35,8 +35,10 @@ public class ChemicalsServiceImpl implements ChemicalsService {
         return null;
     }
 
-    public List<Map<String,Object>> getChemicalsDetails(String id) {
-        Map<String, Object> map = chemicalsMapper.selectDetails(id);
+    public Map<String,Object> getChemicalsDetails(String id,String userId,String typeCode) {
+        Map<String ,Object> result=new HashMap<String, Object>();
+        Map<String, Object> map = chemicalsMapper.selectDetails(id,userId,typeCode);
+        result.put("is_favorite",map.get("is_favorite"));
         List<Map<String, Object>> resultList = new ArrayList<Map<String, Object>>();
         Map<String, Object> lhtxMap = new HashMap<String, Object>();
         lhtxMap.put("title","理化特性");
@@ -143,7 +145,8 @@ public class ChemicalsServiceImpl implements ChemicalsService {
 
         clfaMap.put("list",clfaList);
         resultList.add(clfaMap);
-        return resultList;
+        result.put("details",resultList);
+        return result;
     }
 
 }

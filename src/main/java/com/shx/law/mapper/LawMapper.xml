@@ -427,9 +427,19 @@
       abate_time = #{abateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectByParams" resultMap="map">
-    select  *,
-    (select 1 from t_favorite where user_id = #{userId} and law_id = l.id) is_favorite
+  <select id="selectByParams" resultType="java.util.Map">
+    select
+    l.id,
+    l.law_name lawName,
+    l.issue_no issueNo,
+    l.description,
+    l.effective_time effectiveTime,
+    l.file_path filePath,
+    l.levle_code levleCode,
+    l.publish_org publishOrg,
+    l.publish_time publishTime,
+    l.type_code typeCode,
+    (select 1 from t_favorite where user_id = #{lawRequest.userId} and law_id = l.id and status=1) is_favorite
     from t_law l
     <where>
       <if test="lawRequest.typeCode != null">

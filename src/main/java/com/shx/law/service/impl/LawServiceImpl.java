@@ -75,7 +75,8 @@ public class LawServiceImpl implements LawService {
         List<Favorite> list = favoriteMapper.selectByExample(example);
         if (list != null && list.size() > 0) {
             Favorite favorite = list.get(0);
-            if (favorite.getStatus() == -1) {
+            //重新收藏
+            if (favorite.getStatus() != 1) {
                 favorite.setStatus(1);
                 favoriteMapper.updateByPrimaryKeySelective(favorite);
                 return;
@@ -83,6 +84,7 @@ public class LawServiceImpl implements LawService {
         } else {
             Favorite favorite = new Favorite();
             favorite.setStatus(1);
+            favorite.setUserId(Integer.valueOf(userId));
             favorite.setLawId(Integer.valueOf(lawId));
             favorite.setType(typeCode);
             favoriteMapper.insertSelective(favorite);
@@ -100,7 +102,7 @@ public class LawServiceImpl implements LawService {
         FavoriteExample.Criteria criteria = example.createCriteria();
         criteria.andUserIdEqualTo(Integer.parseInt(userId)).andTypeEqualTo(typeCode).andLawIdEqualTo(Integer.parseInt(lawId));
         Favorite favorite = new Favorite();
-        favorite.setStatus(0);
+        favorite.setStatus(-1);
         favoriteMapper.updateByExampleSelective(favorite, example);
     }
 
@@ -114,7 +116,7 @@ public class LawServiceImpl implements LawService {
     public List getFavoriteList(String typeCode, String userId) {
         List resultList = new ArrayList();
         FavoriteExample favoriteExample = new FavoriteExample();
-        favoriteExample.createCriteria().andTypeEqualTo(typeCode).andUserIdEqualTo(Integer.parseInt(userId));
+        favoriteExample.createCriteria().andTypeEqualTo(typeCode).andUserIdEqualTo(Integer.parseInt(userId)).andStatusEqualTo(1);
         List<Favorite> favorites = favoriteMapper.selectByExample(favoriteExample);
         List<Integer> lawIdList = new ArrayList<Integer>();
         for (Favorite favorite : favorites) {

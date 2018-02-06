@@ -17,6 +17,7 @@ public class LawRequest {
     private Integer page;
     private Integer pageSize;
 
+
     public String getTypeCode() {
         return typeCode;
     }

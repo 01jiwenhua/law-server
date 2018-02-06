@@ -11,7 +11,7 @@ import java.util.Map;
  * Created by xuan on 2017/12/24.
  */
 public interface ChemicalsService {
-    PageInfo<Map<String,Object>> getKnownChemicals(KnownRequest request);
+    PageInfo<Chemicals> getKnownChemicals(KnownRequest request);
     PageInfo<Chemicals> getUnKnownChemicals();
-    List<Map<String,Object>> getChemicalsDetails(String id);
+    Map<String,Object> getChemicalsDetails(String id,String userId,String typeCode);
 }

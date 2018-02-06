@@ -6,6 +6,8 @@ import com.shx.law.Exception.SystemException;
 import com.shx.law.entity.Company;
 import com.shx.law.entity.Department;
 import com.shx.law.entity.Job;
+import com.shx.law.entity.Message;
+import com.shx.law.service.MessageService;
 import com.shx.law.service.UserService;
 import com.shx.law.utils.ResultUtil;
 import com.shx.law.vo.request.UserRequest;
@@ -25,7 +27,8 @@ import java.util.Map;
 public class UserAction {
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private MessageService messageService;
     /**
      * 获取公司列表
      * @return
@@ -161,6 +164,54 @@ public class UserAction {
             HashMap result=new HashMap();
             String json = JSON.toJSONString(userInfo);
             result.put("userInfo",json);
+            return ResultUtil.buidSuccess(result);
+        } catch (SystemException e) {
+            e.printStackTrace();
+            return ResultUtil.buidFail(e.getMessage(),e.getCode());
+        }
+
+    }
+
+
+    /**
+     * 获取消息列表
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/getMessage")
+    public @ResponseBody Response getMessage(HttpServletRequest httpServletRequest) {
+        try {
+            String request=httpServletRequest.getParameter("data");
+            JSONObject requestObject=JSON.parseObject(request);
+            String type=requestObject.getString("type");
+
+            List<Message> messageList=messageService.getMessage(type);
+            HashMap result=new HashMap();
+            String json = JSON.toJSONString(messageList);
+            result.put("messageList",json);
+            return ResultUtil.buidSuccess(result);
+        } catch (SystemException e) {
+            e.printStackTrace();
+            return ResultUtil.buidFail(e.getMessage(),e.getCode());
+        }
+
+    }
+    /**
+     * 获取消息列表
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/getNewVerion")
+    public @ResponseBody Response getNewVerion(HttpServletRequest httpServletRequest) {
+        try {
+            String request=httpServletRequest.getParameter("data");
+            JSONObject requestObject=JSON.parseObject(request);
+            String code=requestObject.getString("versionCode");
+
+//            List<Message> messageList=userService.getMessage(type);
+            HashMap result=new HashMap();
+            String json = JSON.toJSONString("");
+            result.put("messageList",json);
             return ResultUtil.buidSuccess(result);
         } catch (SystemException e) {
             e.printStackTrace();
