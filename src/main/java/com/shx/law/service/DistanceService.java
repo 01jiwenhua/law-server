@@ -1,6 +1,8 @@
 package com.shx.law.service;
 
+import com.shx.law.entity.Architecture;
 import com.shx.law.entity.Distance;
+import com.shx.law.vo.request.ArchitectureRequest;
 
 import java.util.List;
 import java.util.Map;
@@ -14,12 +16,12 @@ import java.util.Map;
 public interface DistanceService {
 
     /**
-     * 选择建筑物
+     * 获取建筑物
      *
-     * @param type
+     * @param architectureRequest
      * @return
      */
-    List<Map<String, Object>> getStructure(String type, String name);
+    List<Architecture> getArchitecture(ArchitectureRequest architectureRequest);
 
     /**
      * 查询安全距离

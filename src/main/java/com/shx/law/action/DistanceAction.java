@@ -2,12 +2,11 @@ package com.shx.law.action;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.github.pagehelper.PageInfo;
+import com.shx.law.entity.Architecture;
 import com.shx.law.entity.Distance;
-import com.shx.law.entity.Law;
 import com.shx.law.service.DistanceService;
 import com.shx.law.utils.ResultUtil;
-import com.shx.law.vo.request.LawRequest;
+import com.shx.law.vo.request.ArchitectureRequest;
 import com.shx.law.vo.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,17 +36,15 @@ public class DistanceAction {
      * @param httpServletRequest
      * @return
      */
-    @RequestMapping("/getStructure")
+    @RequestMapping("/getArchitecture")
     public @ResponseBody
-    Response getStructure(HttpServletRequest httpServletRequest) {
+    Response getArchitecture(HttpServletRequest httpServletRequest) {
         String request = httpServletRequest.getParameter("data");
-        JSONObject requestJson = JSON.parseObject(request);
-        String type = requestJson.getString("type");
-        String name = requestJson.getString("name");
-        List<Map<String, Object>> resultList = distanceService.getStructure(type, name);
+        ArchitectureRequest architectureRequest=JSON.parseObject(request,ArchitectureRequest.class);
+        List<Architecture> resultList = distanceService.getArchitecture(architectureRequest);
         HashMap result = new HashMap();
         String json = JSON.toJSONString(resultList);
-        result.put("structure", json);
+        result.put("architecture", json);
         return ResultUtil.buidSuccess(result);
     }
 
