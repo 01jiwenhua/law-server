@@ -1,6 +1,7 @@
 package com.shx.law.service.impl;
 
 import com.shx.law.entity.Architecture;
+import com.shx.law.entity.ArchitectureExample;
 import com.shx.law.entity.Distance;
 import com.shx.law.entity.DistanceExample;
 import com.shx.law.mapper.ArchitectureMapper;
@@ -8,6 +9,7 @@ import com.shx.law.mapper.DistanceMapper;
 import com.shx.law.mapper.StructureMapper;
 import com.shx.law.service.DistanceService;
 import com.shx.law.vo.request.ArchitectureRequest;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -32,27 +34,27 @@ public class DistanceServiceImpl implements DistanceService {
     private ArchitectureMapper architectureMapper;
 
     public List<Architecture> getArchitecture(ArchitectureRequest architectureRequest) {
-//        ArchitectureExample architectureExample = new ArchitectureExample();
-//        ArchitectureExample.Criteria criteria = architectureExample.createCriteria();
-//        String architectureName = architectureRequest.getName();
-//        if (StringUtils.isNoneBlank(architectureName)) {
-//            criteria.andNameEqualTo(architectureName).andParentCodeEqualTo("0");
-//            List<Architecture> architectureList = architectureMapper.selectByExample(architectureExample);
-//            String parentCode = architectureList.get(0).getCode();
-//            architectureExample.clear();
-//            architectureExample.createCriteria().andParentCodeEqualTo(parentCode);
-//        }
-//        String architectureStandard = architectureRequest.getStandard();
-//        if (StringUtils.isNoneBlank(architectureStandard)) {
-//            criteria.andStandardEqualTo(architectureStandard);
-//        }
-//        String architectureParentCode = architectureRequest.getParentCode();
-//        if (StringUtils.isNotBlank(architectureParentCode)) {
-//            criteria.andParentCodeEqualTo(architectureParentCode);
-//        }
-//        List<Architecture> architectureList = architectureMapper.selectByExample(architectureExample);
-//        return architectureList;
-        return architectureMapper.selectByRequest(architectureRequest);
+        ArchitectureExample architectureExample = new ArchitectureExample();
+        ArchitectureExample.Criteria criteria = architectureExample.createCriteria();
+        String architectureName = architectureRequest.getName();
+        if (StringUtils.isNoneBlank(architectureName)) {
+            criteria.andNameEqualTo(architectureName).andParentCodeEqualTo("0");
+            List<Architecture> architectureList = architectureMapper.selectByExample(architectureExample);
+            String parentCode = architectureList.get(0).getCode();
+            architectureExample.clear();
+            architectureExample.createCriteria().andParentCodeEqualTo(parentCode);
+        }
+        String architectureStandard = architectureRequest.getStandard();
+        if (StringUtils.isNoneBlank(architectureStandard)) {
+            criteria.andStandardEqualTo(architectureStandard);
+        }
+        String architectureParentCode = architectureRequest.getParentCode();
+        if (StringUtils.isNotBlank(architectureParentCode)) {
+            criteria.andParentCodeEqualTo(architectureParentCode);
+        }
+        List<Architecture> architectureList = architectureMapper.selectByExample(architectureExample);
+        return architectureList;
+//        return architectureMapper.selectByRequest(architectureRequest);
     }
 
     /**
