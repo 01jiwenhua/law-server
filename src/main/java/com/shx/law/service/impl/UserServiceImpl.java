@@ -2,10 +2,7 @@ package com.shx.law.service.impl;
 
 import com.shx.law.Exception.SystemException;
 import com.shx.law.entity.*;
-import com.shx.law.mapper.CompanyMapper;
-import com.shx.law.mapper.DepartmentMapper;
-import com.shx.law.mapper.JobMapper;
-import com.shx.law.mapper.UserMapper;
+import com.shx.law.mapper.*;
 import com.shx.law.service.SmsMessageService;
 import com.shx.law.service.UserService;
 import com.shx.law.vo.request.UserRequest;
@@ -28,6 +25,8 @@ public class UserServiceImpl implements UserService {
     private JobMapper jobMapper;
     @Autowired
     private SmsMessageService smsMessageService;
+    @Autowired
+    private VersionManagerMapper versionManagerMapper;
 
     public List<Company> getCompanyList() {
         CompanyExample example = new CompanyExample();
@@ -54,16 +53,16 @@ public class UserServiceImpl implements UserService {
         return jobList;
     }
 
-    public Map login(String phone, String verifyCode) throws SystemException{
+    public Map login(String phone, String verifyCode) throws SystemException {
         try {
             //验证码校验
-//            smsMessageService.checkVerifyCode(phone,verifyCode);
+            smsMessageService.checkVerifyCode(phone, verifyCode);
             //验证用户是否存在
-            User user=checkUser(phone);
-            if(user==null){
-                throw new SystemException("该用户尚未注册","10011");
+            User user = checkUser(phone);
+            if (user == null) {
+                throw new SystemException("该用户尚未注册", "10011");
             }
-            return    getUserInfo(user.getId());
+            return getUserInfo(user.getId());
         } catch (SystemException e) {
             e.printStackTrace();
             throw e;
@@ -75,17 +74,17 @@ public class UserServiceImpl implements UserService {
         UserExample.Criteria criteria = userExample.createCriteria();
         criteria.andPhoneEqualTo(phone);
         List<User> userList = userMapper.selectByExample(userExample);
-        if(userList==null||userList.size()<=0){
+        if (userList == null || userList.size() <= 0) {
             return null;
         }
         return userList.get(0);
     }
 
     public void regist(UserRequest userRequest) {
-        User newUser=new User();
+        User newUser = new User();
         newUser.setLoginName(userRequest.getLoginName());
         newUser.setLoginPassword("123456");
-        newUser.setNickName(userRequest.getNickName()==null?userRequest.getNickName():userRequest.getRealName());
+        newUser.setNickName(userRequest.getNickName() == null ? userRequest.getNickName() : userRequest.getRealName());
         newUser.setRealName(userRequest.getRealName());
         newUser.setDepartmentId(Integer.valueOf(userRequest.getDepartmentId()));
         newUser.setRegionId(Integer.valueOf(userRequest.getRegionId()));
@@ -110,17 +109,32 @@ public class UserServiceImpl implements UserService {
     }
 
     public void checkRegist(String phone, String verifyCode) {
-        User user=checkUser(phone);
-        if(user!=null){
-            throw new SystemException("该用户已注册请直接登录","10014");
+        User user = checkUser(phone);
+        if (user != null) {
+            throw new SystemException("该用户已注册请直接登录", "10014");
         }
-        smsMessageService.checkVerifyCode(phone,verifyCode);
+        smsMessageService.checkVerifyCode(phone, verifyCode);
     }
 
     public Map getUserInfo(Integer userId) {
         //返回用户信息
-        Map userInfo=userMapper.selectUserInfo(userId);
+        Map userInfo = userMapper.selectUserInfo(userId);
         return userInfo;
+    }
+
+    public VersionManager getNewVersion(String versionCode) {
+        VersionManagerExample example = new VersionManagerExample();
+        VersionManagerExample.Criteria criteria = example.createCriteria();
+        List<VersionManager> versionManagers = versionManagerMapper.selectByExample(example);
+        if (versionManagers.size() <= 0) {
+            return null;
+        }
+        VersionManager versionManager = versionManagers.get(versionManagers.size());
+        if (versionManager.getVersionCode() > Integer.valueOf(versionCode)) {
+            return versionManager;
+        } else {
+            return null;
+        }
     }
 
 }

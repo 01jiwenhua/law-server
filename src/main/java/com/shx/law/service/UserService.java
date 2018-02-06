@@ -4,6 +4,7 @@ import com.shx.law.Exception.SystemException;
 import com.shx.law.entity.Company;
 import com.shx.law.entity.Department;
 import com.shx.law.entity.Job;
+import com.shx.law.entity.VersionManager;
 import com.shx.law.vo.request.UserRequest;
 
 import java.util.List;
@@ -61,5 +62,6 @@ public interface UserService {
      * @return
      */
     Map getUserInfo(Integer userId);
+    VersionManager getNewVersion(String versionCode);
 
 }

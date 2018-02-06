@@ -3,10 +3,7 @@ package com.shx.law.action;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.shx.law.Exception.SystemException;
-import com.shx.law.entity.Company;
-import com.shx.law.entity.Department;
-import com.shx.law.entity.Job;
-import com.shx.law.entity.Message;
+import com.shx.law.entity.*;
 import com.shx.law.service.MessageService;
 import com.shx.law.service.UserService;
 import com.shx.law.utils.ResultUtil;
@@ -208,7 +205,10 @@ public class UserAction {
             JSONObject requestObject=JSON.parseObject(request);
             String code=requestObject.getString("versionCode");
 
-//            List<Message> messageList=userService.getMessage(type);
+            VersionManager versionManager=userService.getNewVersion(code);
+            if(versionManager==null){
+                return ResultUtil.buidFail("当前已经是最新版本","10005");
+            }
             HashMap result=new HashMap();
             String json = JSON.toJSONString("");
             result.put("messageList",json);

@@ -112,10 +112,10 @@ public class SmsMessageServiceImpl implements SmsMessageService {
 	}
 
 	public void checkVerifyCode(String phone, String verifycode) throws SystemException {
-//		String authCode = userSessionDao.getVerifyCode(phone);
-//		if (!authCode.equals(verifycode)) {
-//			throw new SystemException("验证码错误", "10012");
-//		}
+		String authCode = userSessionDao.getVerifyCode(phone);
+		if (!authCode.equals(verifycode)) {
+			throw new SystemException("验证码错误", "10012");
+		}
 	}
 
 	public static String getPhoneCode() {
