@@ -31,6 +31,8 @@ public class Law {
 
     private Date abateTime;
 
+    private String fileFrom;
+
     private String content;
 
     public Integer getId() {
@@ -143,6 +145,14 @@ public class Law {
 
     public void setAbateTime(Date abateTime) {
         this.abateTime = abateTime;
+    }
+
+    public String getFileFrom() {
+        return fileFrom;
+    }
+
+    public void setFileFrom(String fileFrom) {
+        this.fileFrom = fileFrom == null ? null : fileFrom.trim();
     }
 
     public String getContent() {

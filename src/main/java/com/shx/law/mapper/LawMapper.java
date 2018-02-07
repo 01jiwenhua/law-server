@@ -36,5 +36,6 @@ public interface LawMapper {
     int updateByPrimaryKeyWithBLOBs(Law record);
 
     int updateByPrimaryKey(Law record);
+
     List<Map<String, Object>> selectByParams(@Param("lawRequest") LawRequest lawRequest);
 }
