@@ -473,4 +473,23 @@
     </where>
 
   </select>
+
+  <select id="selectNewLaw" resultType="java.util.Map">
+    select
+    l.id,
+    l.law_name lawName,
+    l.issue_no issueNo,
+    l.description,
+    l.effective_time effectiveTime,
+    l.file_path filePath,
+    l.levle_code levleCode,
+    l.publish_org publishOrg,
+    l.publish_time publishTime,
+    l.type_code typeCode,
+    l.file_from fileFrom,
+    (select 1 from t_favorite where user_id = #{userId} and law_id = l.id and status=1) is_favorite
+    from t_law l
+    ORDER BY publish_time desc
+    LIMIT 5
+  </select>
 </mapper>

@@ -114,4 +114,22 @@ public class LawAction {
 
     }
 
+    /**
+     * 获取最近查询列表
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/getNewLawList")
+    public @ResponseBody Response getNewLawList(HttpServletRequest httpServletRequest) {
+        String request=httpServletRequest.getParameter("data");
+        JSONObject jsonObject=JSON.parseObject(request);
+        String userId=jsonObject.getString("userId");
+        List<Law> lawList = lawService.getNewLawList(userId);
+        HashMap result=new HashMap();
+        String json = JSON.toJSONString(lawList);
+        result.put("newList",json);
+        return ResultUtil.buidSuccess(result);
+
+    }
+
 }

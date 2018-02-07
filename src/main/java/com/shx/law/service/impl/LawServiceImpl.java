@@ -136,4 +136,9 @@ public class LawServiceImpl implements LawService {
         }
         return resultList;
     }
+
+    public List<Law> getNewLawList(String userId) {
+        List<Law> list=lawMapper.selectNewLaw(userId);
+        return list;
+    }
 }
