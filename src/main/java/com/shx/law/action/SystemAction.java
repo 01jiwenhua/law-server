@@ -33,6 +33,24 @@ public class SystemAction {
     private SystemService systemService;
 
     /**
+     * 保存意见建议
+     *
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/saveAdvice")
+    public @ResponseBody
+    Response saveAdvice(HttpServletRequest httpServletRequest) {
+        String request = httpServletRequest.getParameter("data");
+        JSONObject requestJson = JSON.parseObject(request);
+        String content = requestJson.getString("content");
+        Integer userId = requestJson.getInteger("userId");
+        systemService.saveAdvice(userId, content);
+        HashMap result=new HashMap();
+        return ResultUtil.buidSuccess(result);
+    }
+
+    /**
      * 城市列表
      *
      * @param httpServletRequest
