@@ -68,6 +68,7 @@ public class DistanceServiceImpl implements DistanceService {
     public Distance getDistance(Integer deviceInId, Integer structureOutId) {
         DistanceExample distanceExample = new DistanceExample();
         distanceExample.createCriteria().andDeviceInIdEqualTo(deviceInId).andStructureOutIdEqualTo(structureOutId);
+        distanceExample.or().andDeviceInIdEqualTo(structureOutId).andStructureOutIdEqualTo(deviceInId);
         List<Distance> distanceList = distanceMapper.selectByExample(distanceExample);
         if (!CollectionUtils.isEmpty(distanceList)) {
             return distanceList.get(0);

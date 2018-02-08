@@ -16,6 +16,7 @@
     <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
     <result column="effective_time" jdbcType="TIMESTAMP" property="effectiveTime" />
     <result column="abate_time" jdbcType="TIMESTAMP" property="abateTime" />
+    <result column="file_from" jdbcType="VARCHAR" property="fileFrom" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.shx.law.entity.Law">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
@@ -80,7 +81,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, law_name, issue_no, type_code, publish_org, levle_code, file_path, create_time, 
-    update_time, description, status, publish_time, effective_time, abate_time
+    update_time, description, status, publish_time, effective_time, abate_time, file_from
   </sql>
   <sql id="Blob_Column_List">
     content
@@ -138,14 +139,14 @@
       type_code, publish_org, levle_code, 
       file_path, create_time, update_time, 
       description, status, publish_time, 
-      effective_time, abate_time, content
-      )
+      effective_time, abate_time, file_from, 
+      content)
     values (#{id,jdbcType=INTEGER}, #{lawName,jdbcType=VARCHAR}, #{issueNo,jdbcType=VARCHAR}, 
       #{typeCode,jdbcType=VARCHAR}, #{publishOrg,jdbcType=VARCHAR}, #{levleCode,jdbcType=VARCHAR}, 
       #{filePath,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{description,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{publishTime,jdbcType=TIMESTAMP}, 
-      #{effectiveTime,jdbcType=TIMESTAMP}, #{abateTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}
-      )
+      #{effectiveTime,jdbcType=TIMESTAMP}, #{abateTime,jdbcType=TIMESTAMP}, #{fileFrom,jdbcType=VARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.shx.law.entity.Law">
     insert into t_law
@@ -191,6 +192,9 @@
       </if>
       <if test="abateTime != null">
         abate_time,
+      </if>
+      <if test="fileFrom != null">
+        file_from,
       </if>
       <if test="content != null">
         content,
@@ -238,6 +242,9 @@
       </if>
       <if test="abateTime != null">
         #{abateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileFrom != null">
+        #{fileFrom,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         #{content,jdbcType=LONGVARCHAR},
@@ -295,6 +302,9 @@
       <if test="record.abateTime != null">
         abate_time = #{record.abateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.fileFrom != null">
+        file_from = #{record.fileFrom,jdbcType=VARCHAR},
+      </if>
       <if test="record.content != null">
         content = #{record.content,jdbcType=LONGVARCHAR},
       </if>
@@ -319,6 +329,7 @@
       publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
       effective_time = #{record.effectiveTime,jdbcType=TIMESTAMP},
       abate_time = #{record.abateTime,jdbcType=TIMESTAMP},
+      file_from = #{record.fileFrom,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -339,7 +350,8 @@
       status = #{record.status,jdbcType=INTEGER},
       publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
       effective_time = #{record.effectiveTime,jdbcType=TIMESTAMP},
-      abate_time = #{record.abateTime,jdbcType=TIMESTAMP}
+      abate_time = #{record.abateTime,jdbcType=TIMESTAMP},
+      file_from = #{record.fileFrom,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -386,6 +398,9 @@
       <if test="abateTime != null">
         abate_time = #{abateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="fileFrom != null">
+        file_from = #{fileFrom,jdbcType=VARCHAR},
+      </if>
       <if test="content != null">
         content = #{content,jdbcType=LONGVARCHAR},
       </if>
@@ -407,6 +422,7 @@
       publish_time = #{publishTime,jdbcType=TIMESTAMP},
       effective_time = #{effectiveTime,jdbcType=TIMESTAMP},
       abate_time = #{abateTime,jdbcType=TIMESTAMP},
+      file_from = #{fileFrom,jdbcType=VARCHAR},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -424,7 +440,8 @@
       status = #{status,jdbcType=INTEGER},
       publish_time = #{publishTime,jdbcType=TIMESTAMP},
       effective_time = #{effectiveTime,jdbcType=TIMESTAMP},
-      abate_time = #{abateTime,jdbcType=TIMESTAMP}
+      abate_time = #{abateTime,jdbcType=TIMESTAMP},
+      file_from = #{fileFrom,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByParams" resultType="java.util.Map">
@@ -439,20 +456,40 @@
     l.publish_org publishOrg,
     l.publish_time publishTime,
     l.type_code typeCode,
+    l.file_from fileFrom,
     (select 1 from t_favorite where user_id = #{lawRequest.userId} and law_id = l.id and status=1) is_favorite
     from t_law l
     <where>
       <if test="lawRequest.typeCode != null">
-      l.type_code = #{lawRequest.typeCode}
+        l.type_code = #{lawRequest.typeCode}
       </if>
       <if test="lawRequest.level != null">
-      and l.levle_code= #{lawRequest.level}
+        and l.levle_code= #{lawRequest.level}
       </if>
       <if test="lawRequest.name != null">
-      AND (l.law_name LIKE concat(concat('%',#{lawRequest.name}),'%')
-      OR l.description LIKE concat(concat('%',#{lawRequest.name}),'%'))
+        AND (l.law_name LIKE concat(concat('%',#{lawRequest.name}),'%')
+        OR l.description LIKE concat(concat('%',#{lawRequest.name}),'%'))
       </if>
     </where>
 
+  </select>
+
+  <select id="selectNewLaw" resultType="java.util.Map">
+    select
+    l.id,
+    l.law_name lawName,
+    l.issue_no issueNo,
+    l.description,
+    l.effective_time effectiveTime,
+    l.file_path filePath,
+    l.levle_code levleCode,
+    l.publish_org publishOrg,
+    l.publish_time publishTime,
+    l.type_code typeCode,
+    l.file_from fileFrom,
+    (select 1 from t_favorite where user_id = #{userId} and law_id = l.id and status=1) is_favorite
+    from t_law l
+    ORDER BY publish_time desc
+    LIMIT 5
   </select>
 </mapper>

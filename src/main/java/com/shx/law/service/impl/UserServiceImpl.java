@@ -84,31 +84,30 @@ public class UserServiceImpl implements UserService {
         String phone = userRequest.getPhone();
         User oldUser = checkUser(phone);
         boolean isInsert = null == oldUser;
-
-        User user = new User();
-        user.setLoginName(userRequest.getLoginName());
-        user.setNickName(userRequest.getNickName() == null ? userRequest.getNickName() : userRequest.getRealName());
-        user.setRealName(userRequest.getRealName());
-        user.setDepartmentId(Integer.valueOf(userRequest.getDepartmentId()));
-        user.setRegionId(Integer.valueOf(userRequest.getRegionId()));
-        user.setUpdateTime(new Date());
-        user.setEmail(userRequest.getEmail());
-        user.setIdNo(userRequest.getIdNo());
-        user.setJobId(Integer.valueOf(userRequest.getJobId()));
-        user.setSex(Integer.valueOf(userRequest.getSex()));
-        user.setUserType(userRequest.getUserType());
-        user.setLicenseType(Integer.valueOf(userRequest.getLicenseType()));
+        User newUser = new User();
+        newUser.setLoginName(userRequest.getLoginName());
+        newUser.setNickName(userRequest.getNickName() == null ? userRequest.getNickName() : userRequest.getRealName());
+        newUser.setRealName(userRequest.getRealName());
+        newUser.setDepartmentId(Integer.valueOf(userRequest.getDepartmentId()));
+        newUser.setRegionId(Integer.valueOf(userRequest.getRegionId()));
+        newUser.setUpdateTime(new Date());
+        newUser.setEmail(userRequest.getEmail());
+        newUser.setIdNo(userRequest.getIdNo());
+        newUser.setJobId(Integer.valueOf(userRequest.getJobId()));
+        newUser.setSex(Integer.valueOf(userRequest.getSex()));
+        newUser.setUserType(userRequest.getUserType());
+        newUser.setLicenseType(Integer.valueOf(userRequest.getLicenseType()));
         if (isInsert) {
-            user.setPhone(phone);
-            user.setLoginPassword("123456");
-            user.setCreateUser(1);
-            user.setUpdateUser(1);
-            user.setStatus(0);
-            user.setCreateTime(new Date());
-            userMapper.insertSelective(user);
+            newUser.setPhone(phone);
+            newUser.setLoginPassword("123456");
+            newUser.setCreateUser(1);
+            newUser.setUpdateUser(1);
+            newUser.setStatus(0);
+            newUser.setCreateTime(new Date());
+            userMapper.insertSelective(newUser);
         } else {
-            user.setId(oldUser.getId());
-            userMapper.updateByPrimaryKeySelective(user);
+            newUser.setId(oldUser.getId());
+            userMapper.updateByPrimaryKeySelective(newUser);
         }
     }
 

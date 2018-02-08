@@ -1,22 +1,27 @@
 package com.shx.law.service;
 
+import com.shx.law.entity.Region;
+
 import java.util.List;
-import java.util.Map;
 
 /**
- * 系统相关
+ * 绯荤粺鐩稿叧
  *
  * @author zmh
- * @create 2018-02-07 15:24
+ * @create 2018-02-07 21:54
  **/
 public interface SystemService {
     /**
-     * 获取城市列表
-     *
+     * 鑾峰彇鍩庡競鍒楄〃
      * @param parentCode
      * @return
      */
-    List<Map<String, Object>> getRegionList(String parentCode);
+    List<Region> getRegionList(String parentCode);
+
+    /**
+     * 淇濆瓨鎰忚寤鸿
+     * @param userId
+     * @param content
+     */
+    void saveAdvice(Integer userId, String content);
 }
-
-

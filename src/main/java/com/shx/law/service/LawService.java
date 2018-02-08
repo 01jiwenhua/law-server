@@ -33,5 +33,7 @@ public interface LawService {
      * @return
      */
     List getFavoriteList(String typeCode,String userId);
+    //获取最近更新记录
+    List<Law> getNewLawList(String userId);
 
 }

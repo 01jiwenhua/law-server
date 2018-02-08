@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.shx.law.entity.Architecture;
 import com.shx.law.entity.Distance;
+import com.shx.law.entity.Region;
 import com.shx.law.service.DistanceService;
 import com.shx.law.service.SystemService;
 import com.shx.law.utils.ResultUtil;
@@ -32,23 +33,39 @@ public class SystemAction {
     private SystemService systemService;
 
     /**
-     * 获取城市列表
+     * 保存意见建议
      *
      * @param httpServletRequest
      * @return
      */
-    @RequestMapping("/getRegion")
+    @RequestMapping("/saveAdvice")
     public @ResponseBody
-    Response getRegion(HttpServletRequest httpServletRequest) {
+    Response saveAdvice(HttpServletRequest httpServletRequest) {
         String request = httpServletRequest.getParameter("data");
         JSONObject requestJson = JSON.parseObject(request);
-        String parentCode = requestJson.getString("parentCode");
-        List<Map<String, Object>> regionList = systemService.getRegionList(parentCode);
-        HashMap result = new HashMap();
-        String json = JSON.toJSONString(regionList);
-        result.put("region", json);
+        String content = requestJson.getString("content");
+        Integer userId = requestJson.getInteger("userId");
+        systemService.saveAdvice(userId, content);
+        HashMap result=new HashMap();
         return ResultUtil.buidSuccess(result);
     }
 
-
+    /**
+     * 城市列表
+     *
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/getRegionList")
+    public @ResponseBody
+    Response getRegionList(HttpServletRequest httpServletRequest) {
+        String request = httpServletRequest.getParameter("data");
+        JSONObject requestJson = JSON.parseObject(request);
+        String parentCode = requestJson.getString("parentCode");
+        List<Region> resultList = systemService.getRegionList(parentCode);
+        HashMap result = new HashMap();
+        String json = JSON.toJSONString(resultList);
+        result.put("regiion", json);
+        return ResultUtil.buidSuccess(result);
+    }
 }
