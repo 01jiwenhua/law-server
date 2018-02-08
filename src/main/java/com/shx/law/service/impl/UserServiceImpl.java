@@ -8,6 +8,8 @@ import com.shx.law.service.UserService;
 import com.shx.law.vo.request.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
@@ -27,7 +29,6 @@ public class UserServiceImpl implements UserService {
     private SmsMessageService smsMessageService;
     @Autowired
     private VersionManagerMapper versionManagerMapper;
-
     public List<Company> getCompanyList() {
         CompanyExample example = new CompanyExample();
         CompanyExample.Criteria criteria = example.createCriteria();
@@ -143,6 +144,19 @@ public class UserServiceImpl implements UserService {
         } else {
             return null;
         }
+    }
+
+    public String changeAvatar(int userId, MultiValueMap<String, MultipartFile> files) {
+//        User user = userMapper.selectByPrimaryKey(userId);
+//        if (null == user) {
+//            throw new SystemException("用户不存在", "10009");
+//        }
+//
+//        Map<String, String> uploadPath = fileUploadService.uploadFile(files);
+//        user.setIcon(uploadPath.get("avatorImage"));
+//        userMapper.updateByPrimaryKey(user);
+//        return user.getIcon();
+        return null;
     }
 
 }

@@ -6,6 +6,8 @@ import com.shx.law.entity.Department;
 import com.shx.law.entity.Job;
 import com.shx.law.entity.VersionManager;
 import com.shx.law.vo.request.UserRequest;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
@@ -63,5 +65,11 @@ public interface UserService {
      */
     Map getUserInfo(Integer userId);
     VersionManager getNewVersion(String versionCode);
+    /**
+     * 更换头像
+     *
+     */
+    public String changeAvatar(int userId, MultiValueMap<String, MultipartFile> files) ;
+
 
 }

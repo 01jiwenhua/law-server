@@ -11,8 +11,11 @@ import com.shx.law.vo.request.UserRequest;
 import com.shx.law.vo.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -218,5 +221,19 @@ public class UserAction {
             return ResultUtil.buidFail(e.getMessage(),e.getCode());
         }
 
+    }
+    public void changeAvatar(HttpServletRequest httpServletRequest) {
+
+        MultipartRequest multipartRequest = (MultipartRequest) httpServletRequest;
+        MultiValueMap<String, MultipartFile> files = multipartRequest.getMultiFileMap();
+
+        try {
+            String avatorPath = userService.changeAvatar(userId, files);
+            Map<String, String> result = Maps.newHashMap();
+            result.put("avator", avatorPath);
+            SUCCESS(actionContext, result);
+        } catch (ServiceRuntimeException ue) {
+            FAIL(actionContext, ue);
+        }
     }
 }
