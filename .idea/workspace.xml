@@ -7,21 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="9fa81d5e-71ba-49d9-b38c-d41189a8956c" name="Default" comment="用户注册">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shx/law/action/LawAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/shx/law/action/LawAction.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shx/law/action/UserAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/shx/law/action/UserAction.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shx/law/service/LawService.java" afterPath="$PROJECT_DIR$/src/main/java/com/shx/law/service/LawService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/LawServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/LawServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/UserServiceImpl.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/shx/law/mapper/LawMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/shx/law/mapper/LawMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" />
-      <change beforePath="$PROJECT_DIR$/target/classes/user-generator-config.xml" afterPath="$PROJECT_DIR$/target/classes/user-generator-config.xml" />
-      <change beforePath="$PROJECT_DIR$/target/law/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/law/META-INF/MANIFEST.MF" />
       <change beforePath="$PROJECT_DIR$/target/law/WEB-INF/classes/com/shx/law/mapper/LawMapper.xml" afterPath="$PROJECT_DIR$/target/law/WEB-INF/classes/com/shx/law/mapper/LawMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/target/law/WEB-INF/classes/jdbc.properties" afterPath="$PROJECT_DIR$/target/law/WEB-INF/classes/jdbc.properties" />
-      <change beforePath="$PROJECT_DIR$/target/law/WEB-INF/classes/user-generator-config.xml" afterPath="$PROJECT_DIR$/target/law/WEB-INF/classes/user-generator-config.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/sms/target/" />
@@ -48,28 +39,8 @@
       <file leaf-file-name="jdbc.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="32" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user-generator-config.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/user-generator-config.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="46" column="9" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LawMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="26" />
+            <state relative-caret-position="506">
+              <caret line="22" column="6" lean-forward="false" selection-start-line="22" selection-start-column="6" selection-end-line="24" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -78,31 +49,31 @@
       <file leaf-file-name="LawMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="489" column="48" lean-forward="false" selection-start-line="489" selection-start-column="48" selection-end-line="489" selection-end-column="48" />
+            <state relative-caret-position="10810">
+              <caret line="470" column="72" lean-forward="false" selection-start-line="470" selection-start-column="72" selection-end-line="470" selection-end-column="72" />
               <folding>
-                <marker date="1518025288783" expanded="true" signature="5112:5260" ph="select , fro... " />
-                <marker date="1518025288783" expanded="true" signature="5346:5401" ph="delete from t_law... " />
-                <marker date="1518025288783" expanded="true" signature="5496:5513" ph="delete from t_law... " />
-                <marker date="1518025288783" expanded="true" signature="5684:6466" ph="insert into t_law... " />
-                <marker date="1518025288783" expanded="true" signature="9288:9314" ph="select count... t_law" />
-                <marker date="1518025288783" expanded="true" signature="11507:12426" ph="update t_law... " />
-                <marker date="1518025288783" expanded="true" signature="12597:13460" ph="update t_law... " />
-                <marker date="1518025288783" expanded="true" signature="13662:15241" ph="update t_law... " />
-                <marker date="1518025288783" expanded="true" signature="15341:16151" ph="update t_law... " />
-                <marker date="1518025288783" expanded="true" signature="16242:17003" ph="update t_law... " />
-                <marker date="1518025288783" expanded="true" signature="17371:17463" ph="select 1 fro... t_favorite" />
-                <marker date="1518025288783" expanded="true" signature="17997:18444" ph="select l.id,... t_law" />
-                <marker date="1518025288783" expanded="true" signature="18290:18371" ph="select 1 fro... t_favorite" />
+                <marker date="1518105264547" expanded="true" signature="5112:5260" ph="select , fro... " />
+                <marker date="1518105264547" expanded="true" signature="5346:5401" ph="delete from t_law... " />
+                <marker date="1518105264547" expanded="true" signature="5496:5513" ph="delete from t_law... " />
+                <marker date="1518105264547" expanded="true" signature="5684:6466" ph="insert into t_law... " />
+                <marker date="1518105264547" expanded="true" signature="9288:9314" ph="select count... t_law" />
+                <marker date="1518105264547" expanded="true" signature="11507:12426" ph="update t_law... " />
+                <marker date="1518105264547" expanded="true" signature="12597:13460" ph="update t_law... " />
+                <marker date="1518105264547" expanded="true" signature="13662:15241" ph="update t_law... " />
+                <marker date="1518105264547" expanded="true" signature="15341:16151" ph="update t_law... " />
+                <marker date="1518105264547" expanded="true" signature="16242:17003" ph="update t_law... " />
+                <marker date="1518105264547" expanded="true" signature="17371:17463" ph="select 1 fro... t_favorite" />
+                <marker date="1518105264547" expanded="true" signature="18067:18514" ph="select l.id,... t_law" />
+                <marker date="1518105264547" expanded="true" signature="18360:18441" ph="select 1 fro... t_favorite" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LawAction.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LawAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/action/LawAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
+            <state relative-caret-position="2392">
               <caret line="121" column="35" lean-forward="false" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="35" />
               <folding>
                 <marker date="1518025340154" expanded="true" signature="1259:1538" ph="{...}" />
@@ -111,35 +82,51 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="UserAction.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/action/UserAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="200" column="33" lean-forward="false" selection-start-line="200" selection-start-column="21" selection-end-line="200" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VersionManagerMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/mapper/VersionManagerMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="SystemServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/SystemServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="759">
+              <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LawService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/LawService.java">
+      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="36" column="41" lean-forward="false" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="41" />
-              <folding>
-                <marker date="1518025180610" expanded="true" signature="522:777" ph="/**...*/" />
-              </folding>
+            <state relative-caret-position="2806">
+              <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LawServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/LawServiceImpl.java">
+      <file leaf-file-name="SystemAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/action/SystemAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="141" column="20" lean-forward="false" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
+            <state relative-caret-position="667">
+              <caret line="47" column="27" lean-forward="false" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -148,18 +135,18 @@
       <file leaf-file-name="DistanceAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/action/DistanceAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="62" column="74" lean-forward="false" selection-start-line="61" selection-start-column="7" selection-end-line="62" selection-end-column="74" />
+            <state relative-caret-position="598">
+              <caret line="42" column="78" lean-forward="false" selection-start-line="42" selection-start-column="78" selection-end-line="42" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DistanceServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/DistanceServiceImpl.java">
+      <file leaf-file-name="ArchitectureRequest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/vo/request/ArchitectureRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="99" column="1" lean-forward="false" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
+            <state relative-caret-position="575">
+              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -183,6 +170,7 @@
       <find>selectBy</find>
       <find>driven</find>
       <find>checkVerifyCode</find>
+      <find>versionManagerMapper</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -237,15 +225,15 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/SmsMessageServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shx/law/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shx/law/action/UserAction.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/resources/user-generator-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shx/law/service/LawService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/LawServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/shx/law/action/LawAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shx/law/action/UserAction.java" />
         <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
       </list>
     </option>
@@ -326,8 +314,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -400,7 +388,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -412,6 +400,7 @@
     <property name="GO_FMT" value="false" />
     <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/org/springframework/data/spring-data-mongodb/1.5.4.RELEASE/spring-data-mongodb-1.5.4.RELEASE.jar!/" />
     <property name="extract.method.default.visibility" value="private" />
+    <property name="SearchEverywhereHistoryKey" value="jdb&#9;FILE&#9;file://D:/workSpace/law-server/src/main/resources/jdbc.properties" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -421,119 +410,6 @@
       <recent name="D:\lawsvn\law-server\src\main\java\com\shx\law\mongo\entity" />
       <recent name="D:\lawsvn\law-server\src\main\java\com\shx\law\mongo" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/shx/law/entity/Advice.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/shx/law/entity/AdviceExample.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/shx/law/mapper/AdviceMapper.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/shx/law/mapper/AdviceMapper.xml</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -764,7 +640,9 @@
       <workItem from="1517534661256" duration="15267000" />
       <workItem from="1517796169484" duration="188000" />
       <workItem from="1517796950054" duration="18963000" />
-      <workItem from="1518014905956" duration="11346000" />
+      <workItem from="1518014905956" duration="11377000" />
+      <workItem from="1518104189864" duration="6539000" />
+      <workItem from="1518142178158" duration="51000" />
     </task>
     <task id="LOCAL-00001" summary="用户注册">
       <created>1517363759799</created>
@@ -808,11 +686,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518021512178</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="用户注册">
+      <created>1518030789855</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1518030789855</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102766000" />
+    <option name="totallyTimeSpent" value="109387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -832,13 +717,12 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39976415" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33254716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33254716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26341203" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -851,6 +735,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -901,9 +786,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="法律法规" />
     <MESSAGE value="第一次结版" />
-    <MESSAGE value="用户注册" />
     <MESSAGE value="法律法规添加跳转" />
-    <option name="LAST_COMMIT_MESSAGE" value="法律法规添加跳转" />
+    <MESSAGE value="用户注册" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户注册" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -915,31 +800,15 @@
           <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="23" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sms/src/test/java/com/shx/law/AppTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/entity/UserExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="122" column="56" lean-forward="true" selection-start-line="122" selection-start-column="56" selection-end-line="122" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/entity/ChemicalsWithBLOBs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/entity/Law.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,11 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1657">
           <caret line="151" column="1" lean-forward="true" selection-start-line="151" selection-start-column="1" selection-end-line="151" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1008#1019#0" expanded="false" />
-            <element signature="e#1282#1298#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1137,23 +1001,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1288">
           <caret line="64" column="40" lean-forward="false" selection-start-line="64" selection-start-column="40" selection-end-line="64" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/mapper/VersionManagerMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2806">
-          <caret line="141" column="34" lean-forward="false" selection-start-line="141" selection-start-column="34" selection-end-line="141" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1161,15 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="32" column="27" lean-forward="false" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/action/UserAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4324">
-          <caret line="205" column="60" lean-forward="false" selection-start-line="205" selection-start-column="60" selection-end-line="205" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1177,9 +1015,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1187,95 +1022,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
           <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/user-generator-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
+        <state relative-caret-position="1058">
           <caret line="46" column="9" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/action/DistanceAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="62" column="74" lean-forward="false" selection-start-line="61" selection-start-column="7" selection-end-line="62" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/DistanceServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
+        <state relative-caret-position="1932">
           <caret line="99" column="1" lean-forward="false" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/LawServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
+        <state relative-caret-position="2921">
           <caret line="141" column="20" lean-forward="false" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/LawService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
+        <state relative-caret-position="667">
           <caret line="36" column="41" lean-forward="false" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="41" />
-          <folding>
-            <marker date="1518025180610" expanded="true" signature="522:777" ph="/**...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="489" column="48" lean-forward="false" selection-start-line="489" selection-start-column="48" selection-end-line="489" selection-end-column="48" />
-          <folding>
-            <marker date="1518025288783" expanded="true" signature="5112:5260" ph="select , fro... " />
-            <marker date="1518025288783" expanded="true" signature="5346:5401" ph="delete from t_law... " />
-            <marker date="1518025288783" expanded="true" signature="5496:5513" ph="delete from t_law... " />
-            <marker date="1518025288783" expanded="true" signature="5684:6466" ph="insert into t_law... " />
-            <marker date="1518025288783" expanded="true" signature="9288:9314" ph="select count... t_law" />
-            <marker date="1518025288783" expanded="true" signature="11507:12426" ph="update t_law... " />
-            <marker date="1518025288783" expanded="true" signature="12597:13460" ph="update t_law... " />
-            <marker date="1518025288783" expanded="true" signature="13662:15241" ph="update t_law... " />
-            <marker date="1518025288783" expanded="true" signature="15341:16151" ph="update t_law... " />
-            <marker date="1518025288783" expanded="true" signature="16242:17003" ph="update t_law... " />
-            <marker date="1518025288783" expanded="true" signature="17371:17463" ph="select 1 fro... t_favorite" />
-            <marker date="1518025288783" expanded="true" signature="17997:18444" ph="select l.id,... t_law" />
-            <marker date="1518025288783" expanded="true" signature="18290:18371" ph="select 1 fro... t_favorite" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/SystemServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="32" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
+        <state relative-caret-position="782">
           <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="26" />
           <folding />
         </state>
@@ -1283,11 +1064,104 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/action/LawAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="2392">
           <caret line="121" column="35" lean-forward="false" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="35" />
           <folding>
             <marker date="1518025340154" expanded="true" signature="1259:1538" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/action/DistanceAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="42" column="78" lean-forward="false" selection-start-line="42" selection-start-column="78" selection-end-line="42" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/vo/request/ArchitectureRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/mapper/LawMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10810">
+          <caret line="470" column="72" lean-forward="false" selection-start-line="470" selection-start-column="72" selection-end-line="470" selection-end-column="72" />
+          <folding>
+            <marker date="1518105264547" expanded="true" signature="5112:5260" ph="select , fro... " />
+            <marker date="1518105264547" expanded="true" signature="5346:5401" ph="delete from t_law... " />
+            <marker date="1518105264547" expanded="true" signature="5496:5513" ph="delete from t_law... " />
+            <marker date="1518105264547" expanded="true" signature="5684:6466" ph="insert into t_law... " />
+            <marker date="1518105264547" expanded="true" signature="9288:9314" ph="select count... t_law" />
+            <marker date="1518105264547" expanded="true" signature="11507:12426" ph="update t_law... " />
+            <marker date="1518105264547" expanded="true" signature="12597:13460" ph="update t_law... " />
+            <marker date="1518105264547" expanded="true" signature="13662:15241" ph="update t_law... " />
+            <marker date="1518105264547" expanded="true" signature="15341:16151" ph="update t_law... " />
+            <marker date="1518105264547" expanded="true" signature="16242:17003" ph="update t_law... " />
+            <marker date="1518105264547" expanded="true" signature="17371:17463" ph="select 1 fro... t_favorite" />
+            <marker date="1518105264547" expanded="true" signature="18067:18514" ph="select l.id,... t_law" />
+            <marker date="1518105264547" expanded="true" signature="18360:18441" ph="select 1 fro... t_favorite" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/mapper/VersionManagerMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.0.2.RELEASE/spring-web-4.0.2.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2806">
+          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" column="6" lean-forward="false" selection-start-line="22" selection-start-column="6" selection-end-line="24" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/action/SystemAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="47" column="27" lean-forward="false" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/service/impl/SystemServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shx/law/action/UserAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="200" column="33" lean-forward="false" selection-start-line="200" selection-start-column="21" selection-end-line="200" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>

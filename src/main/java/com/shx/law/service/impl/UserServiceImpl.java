@@ -137,7 +137,7 @@ public class UserServiceImpl implements UserService {
         if (versionManagers.size() <= 0) {
             return null;
         }
-        VersionManager versionManager = versionManagers.get(versionManagers.size());
+        VersionManager versionManager = versionManagers.get(versionManagers.size()-1);
         if (versionManager.getVersionCode() > Integer.valueOf(versionCode)) {
             return versionManager;
         } else {
