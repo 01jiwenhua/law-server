@@ -112,8 +112,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void getVerifyCode(String phone) {
-        smsMessageService.sendAuthCode(phone, "安全检查智能查询系统", "SMS_123799105",
-                "危化监管综合查询系统");
+        smsMessageService.sendAuthCode(phone, "安全检查智能查询系统", "SMS_123799105", "危化监管综合查询系统");
     }
 
     public void checkRegist(String phone, String verifyCode) {
@@ -137,7 +136,7 @@ public class UserServiceImpl implements UserService {
         if (versionManagers.size() <= 0) {
             return null;
         }
-        VersionManager versionManager = versionManagers.get(versionManagers.size()-1);
+        VersionManager versionManager = versionManagers.get(versionManagers.size() - 1);
         if (versionManager.getVersionCode() > Integer.valueOf(versionCode)) {
             return versionManager;
         } else {
@@ -145,4 +144,14 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     * 更换手机号
+     *
+     * @param phone
+     * @param verifyCode
+     * @throws SystemException
+     */
+    public void changePhone(String phone, String verifyCode) throws SystemException {
+        smsMessageService.checkVerifyCode(phone, verifyCode);
+    }
 }

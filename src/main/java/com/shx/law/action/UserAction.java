@@ -219,4 +219,27 @@ public class UserAction {
         }
 
     }
+
+
+    /**
+     * 更换手机号
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/changePhone")
+    public @ResponseBody Response changePhone(HttpServletRequest httpServletRequest) {
+        try {
+            String request=httpServletRequest.getParameter("data");
+            JSONObject requestObject=JSON.parseObject(request);
+            String phone=requestObject.getString("phone");
+            String verifyCode=requestObject.getString("verifyCode");
+            userService.changePhone(phone,verifyCode);
+            HashMap result=new HashMap();
+            return ResultUtil.buidSuccess(result);
+        } catch (SystemException e) {
+            e.printStackTrace();
+            return ResultUtil.buidFail(e.getMessage(),e.getCode());
+        }
+
+    }
 }

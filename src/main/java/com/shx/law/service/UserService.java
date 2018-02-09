@@ -13,55 +13,71 @@ import java.util.Map;
 public interface UserService {
     /**
      * 获取公司列表
+     *
      * @return
      */
-     List<Company> getCompanyList();
+    List<Company> getCompanyList();
 
     /**
      * 获取部门列表
+     *
      * @param companyId
      * @return
      */
-     List<Department> getDepartmentList(String companyId);
+    List<Department> getDepartmentList(String companyId);
 
     /**
      * 获取职位列表
+     *
      * @return
      */
-     List<Job> getJobList();
+    List<Job> getJobList();
 
     /**
      * 登录
+     *
      * @param phone
      * @param verifyCode
      */
-     Map login(String phone, String verifyCode) throws SystemException;
+    Map login(String phone, String verifyCode) throws SystemException;
 
     /**
      * 注册
+     *
      * @param userRequest
      */
-     void regist(UserRequest userRequest);
+    void regist(UserRequest userRequest);
 
     /**
      * 获取验证码
+     *
      * @param phone
      */
-     void getVerifyCode(String phone);
+    void getVerifyCode(String phone);
 
     /**
      * 验证注册验证码是否正确
+     *
      * @param phone
      * @param verifyCode
      */
-    void checkRegist(String phone,String verifyCode) throws SystemException;
+    void checkRegist(String phone, String verifyCode) throws SystemException;
 
     /**
      * 获取用户信息
+     *
      * @param userId
      * @return
      */
     Map getUserInfo(Integer userId);
+
     VersionManager getNewVersion(String versionCode);
 
+    /**
+     * 更换手机号
+     *
+     * @param phone
+     * @param verifyCode
+     */
+    void changePhone(String phone, String verifyCode);
 }

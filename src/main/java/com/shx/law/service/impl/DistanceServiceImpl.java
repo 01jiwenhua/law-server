@@ -42,7 +42,8 @@ public class DistanceServiceImpl implements DistanceService {
             List<Architecture> architectureList = architectureMapper.selectByExample(architectureExample);
             String parentCode = architectureList.get(0).getCode();
             architectureExample.clear();
-            architectureExample.createCriteria().andParentCodeEqualTo(parentCode);
+            criteria = architectureExample.createCriteria();
+            criteria.andParentCodeEqualTo(parentCode);
         }
         String architectureStandard = architectureRequest.getStandard();
         if (StringUtils.isNoneBlank(architectureStandard)) {
