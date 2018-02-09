@@ -7,6 +7,7 @@ import com.shx.law.entity.Job;
 import com.shx.law.entity.VersionManager;
 import com.shx.law.vo.request.UserRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -80,4 +81,12 @@ public interface UserService {
      * @param verifyCode
      */
     void changePhone(String phone, String verifyCode);
+
+    /**
+     * 上传头像
+     * @param userId
+     * @param request
+     * @return
+     */
+    String uploadAvatar(Integer userId, HttpServletRequest request);
 }

@@ -5,10 +5,14 @@ import com.shx.law.entity.*;
 import com.shx.law.mapper.*;
 import com.shx.law.service.SmsMessageService;
 import com.shx.law.service.UserService;
+import com.shx.law.utils.ImageUtil;
 import com.shx.law.vo.request.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -153,5 +157,18 @@ public class UserServiceImpl implements UserService {
      */
     public void changePhone(String phone, String verifyCode) throws SystemException {
         smsMessageService.checkVerifyCode(phone, verifyCode);
+    }
+
+    public String uploadAvatar(Integer userId, HttpServletRequest request) {
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        MultipartFile multipartFile = multipartRequest.getFile("avatar");
+        String avatarPath = ImageUtil.GenerateImage(multipartFile, request);
+
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andIdEqualTo(userId);
+        User user = new User();
+        user.setHeadIcon(avatarPath);
+        userMapper.updateByExampleSelective(user, userExample);
+        return avatarPath;
     }
 }

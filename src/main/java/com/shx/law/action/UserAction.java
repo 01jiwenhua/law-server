@@ -258,6 +258,11 @@ public class UserAction {
         }
     }
 
+    /**
+     * 上传头像
+     * @param httpServletRequest
+     * @return
+     */
     @RequestMapping("/uploadAvatar")
     public @ResponseBody
     Response uploadAvatar(HttpServletRequest httpServletRequest) {
@@ -265,9 +270,12 @@ public class UserAction {
             String request = httpServletRequest.getParameter("data");
             JSONObject requestObject = JSON.parseObject(request);
             Integer userId = requestObject.getInteger("userId");
-            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)httpServletRequest;
-
+            String path = userService.uploadAvatar(userId, httpServletRequest);
+            Map<String, Object> pathMap = new HashMap<String, Object>();
+            pathMap.put("path", path);
             HashMap result = new HashMap();
+            String json = JSON.toJSONString(pathMap);
+            result.put("avatar", json);
             return ResultUtil.buidSuccess(result);
         } catch (SystemException e) {
             e.printStackTrace();
