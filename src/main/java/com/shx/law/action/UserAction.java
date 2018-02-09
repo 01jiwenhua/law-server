@@ -194,12 +194,12 @@ public class UserAction {
 
     }
     /**
-     * 获取消息列表
+     * 获取
      * @param httpServletRequest
      * @return
      */
-    @RequestMapping("/getNewVerion")
-    public @ResponseBody Response getNewVerion(HttpServletRequest httpServletRequest) {
+    @RequestMapping("/getNewVersion")
+    public @ResponseBody Response getNewVersion(HttpServletRequest httpServletRequest) {
         try {
             String request=httpServletRequest.getParameter("data");
             JSONObject requestObject=JSON.parseObject(request);
@@ -210,8 +210,8 @@ public class UserAction {
                 return ResultUtil.buidFail("当前已经是最新版本","10005");
             }
             HashMap result=new HashMap();
-            String json = JSON.toJSONString("");
-            result.put("messageList",json);
+            String json = JSON.toJSONString(versionManager);
+            result.put("versionInfo",json);
             return ResultUtil.buidSuccess(result);
         } catch (SystemException e) {
             e.printStackTrace();
