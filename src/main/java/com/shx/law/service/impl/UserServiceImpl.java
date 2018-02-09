@@ -155,20 +155,28 @@ public class UserServiceImpl implements UserService {
      * @param verifyCode
      * @throws SystemException
      */
-    public void changePhone(String phone, String verifyCode) throws SystemException {
+    public void changePhone(String userId, String phone, String verifyCode)  throws SystemException {
         smsMessageService.checkVerifyCode(phone, verifyCode);
+        User user = checkUser(phone);
+        if (user != null) {
+            throw new SystemException("该手机号不可用", "10015");
+        }
+        User newUser=userMapper.selectByPrimaryKey(Integer.valueOf(userId));
+        newUser.setPhone(phone);
+        userMapper.updateByPrimaryKeySelective(newUser);
     }
+
 
     public String uploadAvatar(Integer userId, HttpServletRequest request) {
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
         MultipartFile multipartFile = multipartRequest.getFile("avatar");
         String avatarPath = ImageUtil.GenerateImage(multipartFile, request);
 
-        UserExample userExample = new UserExample();
-        userExample.createCriteria().andIdEqualTo(userId);
-        User user = new User();
+//        UserExample userExample = new UserExample();
+//        userExample.createCriteria().andIdEqualTo(userId);
+        User user = userMapper.selectByPrimaryKey(userId);
         user.setHeadIcon(avatarPath);
-        userMapper.updateByExampleSelective(user, userExample);
+        userMapper.updateByPrimaryKeySelective(user);
         return avatarPath;
     }
 }

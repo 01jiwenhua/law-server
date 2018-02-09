@@ -248,8 +248,9 @@ public class UserAction {
             String request = httpServletRequest.getParameter("data");
             JSONObject requestObject = JSON.parseObject(request);
             String phone = requestObject.getString("phone");
+            String userId=requestObject.getString("userId");
             String verifyCode = requestObject.getString("verifyCode");
-            userService.changePhone(phone, verifyCode);
+            userService.changePhone(userId,phone, verifyCode);
             HashMap result = new HashMap();
             return ResultUtil.buidSuccess(result);
         } catch (SystemException e) {

@@ -80,7 +80,7 @@ public interface UserService {
      * @param phone
      * @param verifyCode
      */
-    void changePhone(String phone, String verifyCode);
+    void changePhone(String userId,String phone, String verifyCode);
 
     /**
      * 上传头像
