@@ -131,12 +131,12 @@ public class ImageUtil {
 		return file;
 	}
 
-	public static String GenerateImage(MultipartFile multipartFile, HttpServletRequest request){
+	public static String GenerateImage( MultipartFile multipartFile, HttpServletRequest request, String userName){
 		try {
 			String realPath = request.getSession().getServletContext().getRealPath("") + File.separator + "appData"
 					+ File.separator;
 			String fileName = multipartFile.getOriginalFilename();
-			GenerateImage(multipartFile.getInputStream(), realPath + fileName);
+			GenerateImage(multipartFile.getInputStream(), realPath + fileName + userName);
 			return getImageUrl(request, fileName);
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -170,7 +170,7 @@ public class UserServiceImpl implements UserService {
     public String uploadAvatar(Integer userId, HttpServletRequest request) {
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
         MultipartFile multipartFile = multipartRequest.getFile("avatar");
-        String avatarPath = ImageUtil.GenerateImage(multipartFile, request);
+        String avatarPath = ImageUtil.GenerateImage(multipartFile, request ,userId);
 
 //        UserExample userExample = new UserExample();
 //        userExample.createCriteria().andIdEqualTo(userId);
