@@ -46,7 +46,7 @@ public class ImageUtil {
 		String requestUrl = request.getRequestURL().toString();
 		String projectName = request.getContextPath();
 		String dataUrl = requestUrl.substring(0, requestUrl.lastIndexOf(projectName) + projectName.length());
-		return dataUrl + File.separator+"appData" + File.separator + imageName;
+		return File.separator+"appData" + File.separator + imageName;
 	}
 
 	public static String GetImageStr(String imgFilePath) {// 将图片文件转化为字节数组字符串，并对其进行Base64编码处理
@@ -98,7 +98,7 @@ public class ImageUtil {
 	/**
 	 * 把 inputstream 复制 为 file_name
 	 *
-	 * @param file_name
+	 * @param
 	 * @param is
 	 * @return
 	 */
@@ -136,8 +136,8 @@ public class ImageUtil {
 			String realPath = request.getSession().getServletContext().getRealPath("") + File.separator + "appData"
 					+ File.separator;
 			String fileName = multipartFile.getOriginalFilename();
-			GenerateImage(multipartFile.getInputStream(), realPath + fileName + userName);
-			return getImageUrl(request, fileName);
+			GenerateImage(multipartFile.getInputStream(), realPath + userName+fileName  );
+			return getImageUrl(request, userName+fileName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
