@@ -3,6 +3,8 @@ package com.shx.law.mapper;
 import com.shx.law.entity.Region;
 import com.shx.law.entity.RegionExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface RegionMapper {
@@ -27,4 +29,11 @@ public interface RegionMapper {
     int updateByPrimaryKeySelective(Region record);
 
     int updateByPrimaryKey(Region record);
+
+    /**
+     * 查询城市列表
+     * @param parentCode
+     * @return
+     */
+    List<Map<String, Object>> selectByParentCode(@Param("parentCode") String parentCode);
 }

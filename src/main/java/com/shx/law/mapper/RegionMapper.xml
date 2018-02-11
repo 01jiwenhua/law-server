@@ -272,4 +272,8 @@
       latitude = #{latitude,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectByParentCode" resultType="map">
+    SELECT name,code FROM `t_region` where parent_code = #{parentCode}
+  </select>
 </mapper>

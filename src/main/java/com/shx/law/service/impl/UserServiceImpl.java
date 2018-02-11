@@ -5,12 +5,14 @@ import com.shx.law.entity.*;
 import com.shx.law.mapper.*;
 import com.shx.law.service.SmsMessageService;
 import com.shx.law.service.UserService;
+import com.shx.law.utils.ImageUtil;
 import com.shx.law.vo.request.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +31,7 @@ public class UserServiceImpl implements UserService {
     private SmsMessageService smsMessageService;
     @Autowired
     private VersionManagerMapper versionManagerMapper;
+
     public List<Company> getCompanyList() {
         CompanyExample example = new CompanyExample();
         CompanyExample.Criteria criteria = example.createCriteria();
@@ -113,8 +116,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void getVerifyCode(String phone) {
-        smsMessageService.sendAuthCode(phone, "安全检查智能查询系统", "SMS_123799105",
-                "危化监管综合查询系统");
+        smsMessageService.sendAuthCode(phone, "安全检查智能查询系统", "SMS_123799105", "危化监管综合查询系统");
     }
 
     public void checkRegist(String phone, String verifyCode) {
@@ -138,7 +140,7 @@ public class UserServiceImpl implements UserService {
         if (versionManagers.size() <= 0) {
             return null;
         }
-        VersionManager versionManager = versionManagers.get(versionManagers.size());
+        VersionManager versionManager = versionManagers.get(versionManagers.size() - 1);
         if (versionManager.getVersionCode() > Integer.valueOf(versionCode)) {
             return versionManager;
         } else {
@@ -146,17 +148,35 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public String changeAvatar(int userId, MultiValueMap<String, MultipartFile> files) {
-//        User user = userMapper.selectByPrimaryKey(userId);
-//        if (null == user) {
-//            throw new SystemException("用户不存在", "10009");
-//        }
-//
-//        Map<String, String> uploadPath = fileUploadService.uploadFile(files);
-//        user.setIcon(uploadPath.get("avatorImage"));
-//        userMapper.updateByPrimaryKey(user);
-//        return user.getIcon();
-        return null;
+    /**
+     * 更换手机号
+     *
+     * @param phone
+     * @param verifyCode
+     * @throws SystemException
+     */
+    public void changePhone(String userId, String phone, String verifyCode)  throws SystemException {
+        smsMessageService.checkVerifyCode(phone, verifyCode);
+        User user = checkUser(phone);
+        if (user != null) {
+            throw new SystemException("该手机号不可用", "10015");
+        }
+        User newUser=userMapper.selectByPrimaryKey(Integer.valueOf(userId));
+        newUser.setPhone(phone);
+        userMapper.updateByPrimaryKeySelective(newUser);
     }
 
+
+    public String uploadAvatar(Integer userId, HttpServletRequest request) {
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        MultipartFile multipartFile = multipartRequest.getFile("avatar");
+        String avatarPath = ImageUtil.GenerateImage(multipartFile, request ,String.valueOf(userId));
+
+//        UserExample userExample = new UserExample();
+//        userExample.createCriteria().andIdEqualTo(userId);
+        User user = userMapper.selectByPrimaryKey(userId);
+        user.setHeadIcon(avatarPath);
+        userMapper.updateByPrimaryKeySelective(user);
+        return avatarPath;
+    }
 }
