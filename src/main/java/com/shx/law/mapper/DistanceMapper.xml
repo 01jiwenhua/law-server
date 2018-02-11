@@ -293,4 +293,23 @@
       </if>
     AND s1.type = #{type}
   </select>
+  <!--距离查询-->
+  <select id="selectDistance" resultType="java.util.Map">
+    SELECT
+    d.id,
+    d.device_in_id deviceInId,
+    d.structure_out_id structureOutId,
+    d.distance,
+    d.instruction,
+    d.standard,
+    d.table_no tableNo,
+    n.id noteId,
+    n.content noteContent
+    FROM
+    t_distance d
+    JOIN t_architecture a1 ON d.device_in_id = a1.id
+    JOIN t_architecture a2 ON d.structure_out_id = a2.id
+    JOIN t_note n ON n.id = d.note_id
+    WHERE device_in_id=#{deviceInId} AND structure_out_id=#{structureOutId}
+  </select>
 </mapper>

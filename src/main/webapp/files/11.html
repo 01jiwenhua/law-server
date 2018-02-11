@@ -1,88 +1,350 @@
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>�ޱ����ĵ�</title>
-</head>
+	<title>详情</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=100%, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no"  />
+	<meta name="apple-mobile-web-app-title" content="">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" >
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+	<style>
+		@charset "utf-8";
+		/*1 重定义浏览器默认样式*/
+		*{word-wrap:break-word}
+		html,body,h1,h2,h3,h4,h5,h6,hr,p,iframe,dl,dt,dd,ul,ol,li,pre,form,button,input,textarea,th,td,fieldset{margin:0;padding:0}
+		ul,ol,dl{list-style-type:none}
+		html,body{*position:static}
+		html{font-family: sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-font-smoothing: antialiased;font-smoothing: antialiased;}
+		address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal}
+		input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit}
+		input,button{overflow: visible;vertical-align:middle;outline:none}
+		body,button,input,select,textarea{font-size:12px;-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased}
+		input,select,textarea{color:#555;background-color:#fff;}
+		h1,h2,h3,h4,h5,h6{font-size:100%}
+		table{border-collapse: collapse;}
+		a,area{outline:none;blr:expression(this.onFocus=this.blur())}
+		a{text-decoration:none;cursor: pointer}
+		a:hover{text-decoration:underline;outline:none}
+		a.ie6:hover{zoom:1}
+		a:focus{outline:none}
+		a:hover,a:active{outline:none}:focus{outline:none}
+		sub,sup{vertical-align:baseline}
+		/*img*/
+		img{border:0;vertical-align:middle}
+		a img,img{-ms-interpolation-mode:bicubic;}
+		a{display: block;}
+		/*HTML5 reset*/
+		header,footer,section,aside,details,menu,article,section,nav,address,hgroup,figure,figcaption,legend{display:block;margin:0;padding:0}time{display:inline}
+		audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+		audio:not([controls]){display:none}
+		legend{width:100%;margin-bottom:20px;font-size:21px;line-height:40px;border:0;border-bottom:1px solid #e5e5e5}
+		legend small{font-size:15px;color:#999}
+		svg:not(:root) {overflow: hidden}
+		fieldset {border-width:0;padding: 0.35em 0.625em 0.75em;margin: 0 2px;border: 1px solid #c0c0c0}
+		input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button {height: auto}
+		input[type="search"] {-webkit-appearance: textfield; /* 1 */-moz-box-sizing: content-box;-webkit-box-sizing: content-box; /* 2 */box-sizing: content-box}
+		input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration {-webkit-appearance: none}
+		:before,:after {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+		input[type=search]::-webkit-search-cancel-button,
+		input[type=search]::-webkit-search-decoration {-webkit-appearance: none;}
+		article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display: block;}
+		h1,h2,h3,h4,h5,h6{font-weight: normal;font-size: 100%;}
+		html,input, textarea, button, a,input,select,optgroup,option,img,audio,canvas,video,p,span,div,ul,li,tr,td,th{
+			-webkit-tap-highlight-color:transparent;
+			-moz-tap-highlight-color:transparent;
+			-o-tap-highlight-color:transparent;
+			-ms-tap-highlight-color:transparent;
+			tap-highlight-color:transparent;
+		}
+		a:link {text-decoration: none;color: #000;}		/* 未访问的链接 */
+		a:visited {text-decoration: none;color: #000;}	/* 已访问的链接 */
+		a:hover {text-decoration: none;color: #000;}	/* 鼠标移动到链接上 */
+		a:active {text-decoration: none;color: #000;}	/* 选定的链接 */
+		html{-webkit-text-size-adjust: 100%;-webkit-overflow-scrolling : touch;}/*快速滚动和回弹的效果  加上效果好*/
+		html,body{width: 100%;height: 100%;max-width: 640px;margin: 0 auto;}
+		/*.class + a  class后面第一个a标签
+        .class - a  class前面面第一个a标签
+        .class ~ .a  class后面所有.a*/
+		span{display: inline-block;}
+		.color000{color: #000!important;}
+		.colorfff{color: #fff!important;}
+		.color999{color: #999!important;}
+		.colorf00{color: #db0000!important;}
+		.colorblue{color: #0081db!important;}
+		.none{display: none;}
+		.block{display: block;}
+		.inaline1{
+			display:-webkit-box ;
+			overflow:hidden;
+			text-overflow:ellipsis;
+			word-break:break-all;
+			-webkit-box-orient:vertical;
+			-webkit-line-clamp:1;
+		}
+		.inaline2{
+			display:-webkit-box !important;
+			overflow:hidden;
+			text-overflow:ellipsis;
+			word-break:break-all;
+			-webkit-box-orient:vertical;
+			-webkit-line-clamp:2;
+		}
+		/*清楚浮动*/
+		.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+		.clearfix{overflow:hidden;_zoom:1;}
 
+		.le_tit{width: 50%;float: left;}
+		.ri_tit{width: 50%;float: left;}
+		.titb{color: #A8A8A8;line-height: 0.38rem;font-size: 0.26rem;}
+		.tit_cen{text-align: center;width: 100%;margin: 0 auto;color: #676767;font-size: 0.28rem;}
+		.textb{color: #676767;font-size: 0.28rem;margin-top: 0.20rem;}
+	</style>
+	<script type="text/javascript">
+        function Rem() {
+            var docEl = document.documentElement,
+                oSize = docEl.clientWidth / 6.4;
+            if (oSize > 100) {
+                oSize = 100; //  限制rem值   640 / 6.4 =100
+            }
+            docEl.style.fontSize = oSize + 'px';
+        }
+        window.addEventListener('resize', Rem, false);
+        Rem();
+	</script>
+</head>
 <body>
-<div class="clearfix" style="margin:0 auto;">
-	<div style="font-size:0.30rem;margin:0.30rem 0 0.10rem 0;color:#1E2022;">
-		<h1 style="text-align:center;">
-			<span style="font-size:32px;font-family:SimSun;">ǰ ��</span>
-		</h1>
-		<p>
-			<span style="font-size:18px;">�ƽ�����Эͬ��չս��ʵʩ�����������������ල�֡������а�ȫ�����ල�����֡��������</span><br />
-		<p>
-				<span style="font-size:16px;"><span style="font-size:18px;">���������ල����ίԱ�ᡢ����а�ȫ�����ල�����֡��ӱ�ʡ���������ල�ֺͺӱ�ʡ��ȫ�����ල</span><br />
-</span><span style="font-size:16px;"><span style="font-size:18px;">�����ֹ�ͬ��֯�ƶ����ط���׼���ھ������������ã����跢����</span><br />
-</span><span style="font-size:18px;">DB11/T 1322����ȫ�����ȼ����������淶����Ϊ���ɲ���</span><span style="font-size:18px;">��</span>
-		</p>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">?</span><span style="font-size:18px;">?��1���֣�����</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">??��2���֣���ȫ����ͨ��Ҫ��</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">??��3���֣�����վ��</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">??��4���֣�ʯ�Ϳ⣻</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">??��5���֣�Σ�ջ�ѧƷ��Ӫ��ҵ��</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">??��6���֣�ʳƷ������ҵ��</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">??��7���֣�����������ҵ��</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">??��8���֣���֯��ҵ��</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">����</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">������ΪDB11/T 1322�ĵ�1���֡�</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">�����ְ���GB/T 1.1?2009�����Ĺ�����ݡ�</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">�������ɱ����а�ȫ�����ල�������������ڡ�</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">�������ɱ����а�ȫ�����ල��������֯ʵʩ��</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">��������ݵ�λ���������Ͷ�������ѧ�о�����</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">��������Ҫ����ˣ�����ɭ������������ޡ���ʿ������ͮ�������䡢κ��Ƽ��ʱ��ѡ���������</span>
-		</p>
-		<p class="Normal4" align="left">
-			<span style="font-size:18px;">�α�ѩ��л��歡����á�����Ǭ�����ǲ���</span>
-		</p>
+<div class="clearfix" style="width: 90%;margin: 0 auto;">
+	<div style="font-size: 0.30rem;margin: 0.30rem 0 0.10rem 0;color: #1E2022;">中华人民共和国安全生产法</div>
+	<div class="clearfix titb">
+		<div class="le_tit">令号</div>
+		<div class="ri_tit"></div>
 	</div>
-	<!--
-        <div class="tit_cen">
-            �����ƶ���ѧƷ����������<br />
-    ������Ժ���445�ţ�
-        </div>
-        <div class="tit_cen">
-            �л����񹲺͹�����Ժ��<br />
-    ��445��
-        </div>
-    -->
-	<div class="textb clearfix">
-		<div style="text-align:center;">
-			<br />
+	<div class="clearfix titb">
+		<div class="le_tit"><span style="margin-right: 10px;">颁布单位</span><span>一站式</span></div>
+		<div class="ri_tit"><span style="float: left;margin-right: 10px;">颁布时间</span><span>2018-2-8</span></div>
+	</div>
+	<div class="clearfix titb" style="border-bottom: 1px solid #A8A8A8;padding-bottom: 10px;">
+		<div class="le_tit"><span style="margin-right: 10px;">实施时间</span><span>2018-2-8</span></div>
+		<div class="ri_tit"><span style="float: left;margin-right: 10px;">废止时间</span><span>2018-2-8</span></div>
+	</div>
+	<!-- <div class="tit_cen" style="margin-top: 0.50rem;">
+		《易制毒化学品管理条例》<br />（国务院令第445号）
+	</div>
+	<div class="tit_cen">
+		中华人民共和国国务院令<br />第445号
+	</div> -->
+	<div class="clearfix" style="margin:0 auto;">
+		<div class="textb clearfix">
+			<div>
+				<p align="center" style="text-align:center;text-indent:24pt;background:white;">
+					<strong>目录</strong>
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第一章<span>&nbsp;</span>总则
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第二章<span>&nbsp;</span>行政处罚的种类和设定
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第三章<span>&nbsp;</span>行政处罚的实施机关
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第四章<span>&nbsp;</span>行政处罚的管辖和适用
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第五章<span>&nbsp;</span>行政处罚的决定
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第一节<span>&nbsp;</span>简易程序
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第二节<span>&nbsp;</span>一般程序
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第三节<span>&nbsp;</span>听证程序
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第六章<span>&nbsp;</span>行政处罚的执行
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第七章<span>&nbsp;</span>法律责任
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第八章<span>&nbsp;</span>附则
+				</p>
+				<p align="center" style="text-align:center;text-indent:24pt;background:white;">
+					<strong>第一章<span>&nbsp;</span>总则</strong>
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第一条<span>&nbsp;</span>　　为了规范行政处罚的设定和实施，保障和监督行政机关有效实施行政管理，维护公共利益和社会秩序，保护公民、法人或者其他组织的合法权益，根据宪法，制定本法。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第二条<span>&nbsp;</span>　　行政处罚的设定和实施，适用本法。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第三条<span>&nbsp;</span>　　公民、法人或者其他组织违反行政管理秩序的行为，应当给予行政处罚的，依照本法由法律、法规或者规章规定，并由行政机关依照本法规定的程序实施。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					没有法定依据或者不遵守法定程序的，行政处罚无效。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第四条<span>&nbsp;</span>　　行政处罚遵循公正、公开的原则。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					设定和实施行政处罚必须以事实为依据，与违法行为的事实、性质、情节以及社会危害程度相当。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					对违法行为给予行政处罚的规定必须公布；未经公布的，不得作为行政处罚的依据。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第五条<span>&nbsp;</span>　　实施行政处罚，纠正违法行为，应当坚持处罚与教育相结合，教育公民、法人或者其他组织自觉守法。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第六条<span>&nbsp;</span>　　公民、法人或者其他组织对行政机关所给予的行政处罚，享有陈述权、申辩权；对行政处罚不服的，有权依法申请行政复议或者提起行政诉讼。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					公民、法人或者其他组织因行政机关违法给予行政处罚受到损害的，有权依法提出赔偿要求。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第七条<span>&nbsp;</span>　　公民、法人或者其他组织因违法受到行政处罚，其违法行为对他人造成损害的，应当依法承担民事责任。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					违法行为构成犯罪，应当依法追究刑事责任，不得以行政处罚代替刑事处罚。
+				</p>
+				<p align="center" style="text-align:center;text-indent:24pt;background:white;">
+					<strong>第二章<span>&nbsp;</span>行政处罚的种类和设定</strong>
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第八条<span>&nbsp;</span>　　行政处罚的种类：
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					（一）警告；
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					（二）罚款；
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					（三）没收违法所得、没收非法财物；
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					（四）责令停产停业；
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					（五）暂扣或者吊销许可证、暂扣或者吊销执照；
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					（六）行政拘留；
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					（七）法律、行政法规规定的其他行政处罚。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第九条<span>&nbsp;</span>　　法律可以设定各种行政处罚。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					限制人身自由的行政处罚，只能由法律设定。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第十条<span>&nbsp;</span>　　行政法规可以设定除限制人身自由以外的行政处罚。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					法律对违法行为已经作出行政处罚规定，行政法规需要作出具体规定的，必须在法律规定的给予行政处罚的行为、种类和幅度的范围内规定。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第十一条<span>&nbsp;</span>　　地方性法规可以设定除限制人身自由、吊销企业营业执照以外的行政处罚。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					法律、行政法规对违法行为已经作出行政处罚规定，地方性法规需要作出具体规定的，必须在法律、行政法规规定的给予行政处罚的行为、种类和幅度的范围内规定。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第十二条<span>&nbsp;</span>　　国务院部、委员会制定的规章可以在法律、行政法规规定的给予行政处罚的行为、种类和幅度的范围内作出具体规定。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					尚未制定法律、行政法规的，前款规定的国务院部、委员会制定的规章对违反行政管理秩序的行为，可以设定警告或者一定数量罚款的行政处罚。罚款的限额由国务院规定。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					国务院可以授权具有行政处罚权的直属机构依照本条第一款、第二款的规定，规定行政处罚。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第十三条<span>&nbsp;</span>　　省、自治区、直辖市人民政府和省、自治区人民政府所在地的市人民政府以及经国务院批准的较大的市人民政府制定的规章可以在法律、法规规定的给予行政处罚的行为、种类和幅度的范围内作出具体规定。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					尚未制定法律、法规的，前款规定的人民政府制定的规章对违反行政管理秩序的行为，可以设定警告或者一定数量罚款的行政处罚。罚款的限额由省、自治区、直辖市人民代表大会常务委员会规定。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第十四条<span>&nbsp;</span>　　除本法第九条、第十条、第十一条、第十二条以及第十三条的规定外，其他规范性文件不得设定行政处罚。
+				</p>
+				<p align="center" style="text-align:center;text-indent:24pt;background:white;">
+					<strong>第三章<span>&nbsp;</span>行政处罚的实施机关</strong>
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第十五条<span>&nbsp;</span>　　行政处罚由具有行政处罚权的行政机关在法定职权范围内实施。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第十六条<span>&nbsp;</span>　　国务院或者经国务院授权的省、自治区、直辖市人民政府可以决定一个行政机关行使有关行政机关的行政处罚权，但限制人身自由的行政处罚权只能由公安机关行使。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第十七条<span>&nbsp;</span>　　法律、法规授权的具有管理公共事务职能的组织可以在法定授权范围内实施行政处罚。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第十八条<span>&nbsp;</span>　　行政机关依照法律、法规或者规章的规定，可以在其法定权限内委托符合本法第十九条规定条件的组织实施行政处罚。行政机关不得委托其他组织或者个人实施行政处罚。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					委托行政机关对受委托的组织实施行政处罚的行为应当负责监督，并对该行为的后果承担法律责任。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					受委托组织在委托范围内，以委托行政机关名义实施行政处罚；不得再委托其他任何组织或者个人实施行政处罚。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第十九条<span>&nbsp;</span>　　受委托组织必须符合以下条件：
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					（一）依法成立的管理公共事务的事业组织；
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					（二）具有熟悉有关法律、法规、规章和业务的工作人员；
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					（三）对违法行为需要进行技术检查或者技术鉴定的，应当有条件组织进行相应的技术检查或者技术鉴定。
+				</p>
+				<p align="center" style="text-align:center;text-indent:24pt;background:white;">
+					<strong>第四章<span>&nbsp;</span>行政处罚的管辖和适用</strong>
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第二十条<span>&nbsp;</span>　　行政处罚由违法行为发生地的县级以上地方人民政府具有行政处罚权的行政机关管辖。法律、行政法规另有规定的除外。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第二十一条<span>&nbsp;</span>　　对管辖发生争议的，报请共同的上一级行政机关指定管辖。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第二十二条<span>&nbsp;</span>　　违法行为构成犯罪的，行政机关必须将案件移送司法机关，依法追究刑事责任。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第二十三条<span>&nbsp;</span>　　行政机关实施行政处罚时，应当责令当事人改正或者限期改正违法行为。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第二十四条<span>&nbsp;</span>　　对当事人的同一个违法行为，不得给予两次以上罚款的行政处罚。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第二十五条<span>&nbsp;</span>　　不满十四周岁的人有违法行为的，不予行政处罚，责令监护人加以管教；已满十四周岁不满十八周岁的人有违法行为的，从轻或者减轻行政处罚。
+				</p>
+				<p style="text-indent:32.25pt;background:white;">
+					第二十六条<span>&nbsp;</span>　　精神病人在不能辨认或者不能控制自己行为时有违法行为的，不予行政处罚，但应当责令其监护人严加看管和治疗。间歇性精神病人在精神正常时有违法行为的，应当给予行政处罚。
+				</p>
+				<p class="MsoNormal">
+					<span>&nbsp;</span>
+				</p>
+			</div>
+			<div>
+			</div>
 		</div>
 	</div>
-</div>
 </body>
+<script type="text/javascript">
+
+</script>
 </html>

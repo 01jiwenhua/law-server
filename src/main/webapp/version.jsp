@@ -10,9 +10,7 @@ charset=UTF-8"
 </head>
 
 <body>
-<p class="MsoNormal" align="left">
-    标题：<span>1.0</span>版本功能介绍<span></span>
-</p>
+
 <p class="MsoNormal" align="left">
     首页展示了<span>APP</span>主要常用功能，包含：法律法规查询、标准规范查询、政策文件查询、危化品查询、防火间距计算、搜索、消息通知、最近查询记录八个模块，下面就每一模块内容和使用进行讲解。<span></span>
 </p>

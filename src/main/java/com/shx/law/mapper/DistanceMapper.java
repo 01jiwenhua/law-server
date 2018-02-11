@@ -47,4 +47,5 @@ public interface DistanceMapper {
      */
     List<Map<String, Object>> selectDistanceByType(@Param("deviceInName") String deviceInName, @Param("structureOutName")
             String structureOutName, @Param("type") String type);
+   Map<String, Object>  selectDistance(@Param("structureOutId")String structureOutId,@Param("deviceInId") String deviceInId);
 }

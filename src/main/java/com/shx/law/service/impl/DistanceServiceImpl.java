@@ -26,8 +26,8 @@ import java.util.Map;
 @Service("distanceService")
 public class DistanceServiceImpl implements DistanceService {
 
-    @Autowired
-    private StructureMapper structureMapper;
+//    @Autowired
+//    private StructureMapper structureMapper;
     @Autowired
     private DistanceMapper distanceMapper;
     @Autowired
@@ -66,15 +66,16 @@ public class DistanceServiceImpl implements DistanceService {
      * @param structureOutId
      * @return
      */
-    public Distance getDistance(Integer deviceInId, Integer structureOutId) {
-        DistanceExample distanceExample = new DistanceExample();
-        distanceExample.createCriteria().andDeviceInIdEqualTo(deviceInId).andStructureOutIdEqualTo(structureOutId);
-        distanceExample.or().andDeviceInIdEqualTo(structureOutId).andStructureOutIdEqualTo(deviceInId);
-        List<Distance> distanceList = distanceMapper.selectByExample(distanceExample);
-        if (!CollectionUtils.isEmpty(distanceList)) {
-            return distanceList.get(0);
-        }
-        return null;
+    public Map<String,Object> getDistance(Integer deviceInId, Integer structureOutId) {
+//        DistanceExample distanceExample = new DistanceExample();
+//        distanceExample.createCriteria().andDeviceInIdEqualTo(deviceInId).andStructureOutIdEqualTo(structureOutId);
+//        distanceExample.or().andDeviceInIdEqualTo(structureOutId).andStructureOutIdEqualTo(deviceInId);
+//        List<Distance> distanceList = distanceMapper.selectByExample(distanceExample);
+//        if (!CollectionUtils.isEmpty(distanceList)) {
+//            return distanceList.get(0);
+//        }
+//        return null;
+        return distanceMapper.selectDistance(String.valueOf(structureOutId),String.valueOf(deviceInId));
     }
 
     /**

@@ -30,7 +30,7 @@ public interface DistanceService {
      * @param structureOutId
      * @return
      */
-    Distance getDistance(Integer deviceInId, Integer structureOutId);
+    Map<String,Object> getDistance(Integer deviceInId, Integer structureOutId);
 
     /**
      * 模糊查询类型列表

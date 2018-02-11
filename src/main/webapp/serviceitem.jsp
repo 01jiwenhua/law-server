@@ -11,9 +11,7 @@ charset=UTF-8"
 
 <body>
 <p class="MsoNormal" align="left">
-<p class="MsoNormal" align="center" style="text-align:center;">
-    <b>服务协议<span></span></b>
-</p>
+
 <p class="MsoNormal" align="left">
     特别提示<span></span>
 </p>

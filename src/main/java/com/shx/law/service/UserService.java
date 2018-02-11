@@ -75,12 +75,6 @@ public interface UserService {
     Map getUserInfo(Integer userId);
 
     VersionManager getNewVersion(String versionCode);
-    /**
-     * 更换头像
-     *
-     */
-    public String changeAvatar(int userId, MultiValueMap<String, MultipartFile> files) ;
-
 
     /**
      * 更换手机号

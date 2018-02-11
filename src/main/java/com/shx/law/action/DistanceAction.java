@@ -61,7 +61,7 @@ public class DistanceAction {
         JSONObject requestJson = JSON.parseObject(request);
         Integer deviceInId = requestJson.getInteger("deviceInId");
         Integer structureOutId = requestJson.getInteger("structureOutId");
-        Distance distance = distanceService.getDistance(deviceInId, structureOutId);
+        Map<String,Object> distance = distanceService.getDistance(deviceInId, structureOutId);
         HashMap result = new HashMap();
         String json = JSON.toJSONString(distance);
         result.put("distance", json);
