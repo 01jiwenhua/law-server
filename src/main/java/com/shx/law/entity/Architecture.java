@@ -1,13 +1,13 @@
 package com.shx.law.entity;
 
 public class Architecture {
-    private Short id;
+    private String code;
+
+    private String id;
 
     private String name;
 
     private String fullName;
-
-    private String code;
 
     private String parentCode;
 
@@ -15,12 +15,20 @@ public class Architecture {
 
     private String standard;
 
-    public Short getId() {
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code == null ? null : code.trim();
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Short id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getName() {
@@ -37,14 +45,6 @@ public class Architecture {
 
     public void setFullName(String fullName) {
         this.fullName = fullName == null ? null : fullName.trim();
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
     }
 
     public String getParentCode() {

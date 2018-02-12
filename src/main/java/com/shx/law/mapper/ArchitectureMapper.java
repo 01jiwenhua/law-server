@@ -12,7 +12,7 @@ public interface ArchitectureMapper {
 
     int deleteByExample(ArchitectureExample example);
 
-    int deleteByPrimaryKey(Short id);
+    int deleteByPrimaryKey(String code);
 
     int insert(Architecture record);
 
@@ -20,7 +20,7 @@ public interface ArchitectureMapper {
 
     List<Architecture> selectByExample(ArchitectureExample example);
 
-    Architecture selectByPrimaryKey(Short id);
+    Architecture selectByPrimaryKey(String code);
 
     int updateByExampleSelective(@Param("record") Architecture record, @Param("example") ArchitectureExample example);
 
@@ -29,7 +29,6 @@ public interface ArchitectureMapper {
     int updateByPrimaryKeySelective(Architecture record);
 
     int updateByPrimaryKey(Architecture record);
-
     /**
      * 查询建筑物
      * @param architectureRequest

@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shx.law.mapper.ArchitectureMapper">
   <resultMap id="BaseResultMap" type="com.shx.law.entity.Architecture">
-    <id column="id" jdbcType="SMALLINT" property="id" />
+    <id column="code" jdbcType="VARCHAR" property="code" />
+    <result column="id" jdbcType="VARCHAR" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="full_name" jdbcType="VARCHAR" property="fullName" />
-    <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="parent_code" jdbcType="VARCHAR" property="parentCode" />
     <result column="level" jdbcType="TINYINT" property="level" />
     <result column="standard" jdbcType="VARCHAR" property="standard" />
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, full_name, code, parent_code, level, standard
+    code, id, name, full_name, parent_code, level, standard
   </sql>
   <select id="selectByExample" parameterType="com.shx.law.entity.ArchitectureExample" resultMap="BaseResultMap">
     select
@@ -85,15 +85,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_architecture
-    where id = #{id,jdbcType=SMALLINT}
+    where code = #{code,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from t_architecture
-    where id = #{id,jdbcType=SMALLINT}
+    where code = #{code,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.shx.law.entity.ArchitectureExample">
     delete from t_architecture
@@ -102,16 +102,19 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.shx.law.entity.Architecture">
-    insert into t_architecture (id, name, full_name, 
-      code, parent_code, level, 
+    insert into t_architecture (code, id, name, 
+      full_name, parent_code, level, 
       standard)
-    values (#{id,jdbcType=SMALLINT}, #{name,jdbcType=VARCHAR}, #{fullName,jdbcType=VARCHAR}, 
-      #{code,jdbcType=VARCHAR}, #{parentCode,jdbcType=VARCHAR}, #{level,jdbcType=TINYINT}, 
+    values (#{code,jdbcType=VARCHAR}, #{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{fullName,jdbcType=VARCHAR}, #{parentCode,jdbcType=VARCHAR}, #{level,jdbcType=TINYINT}, 
       #{standard,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.shx.law.entity.Architecture">
     insert into t_architecture
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        code,
+      </if>
       <if test="id != null">
         id,
       </if>
@@ -120,9 +123,6 @@
       </if>
       <if test="fullName != null">
         full_name,
-      </if>
-      <if test="code != null">
-        code,
       </if>
       <if test="parentCode != null">
         parent_code,
@@ -135,17 +135,17 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
       <if test="id != null">
-        #{id,jdbcType=SMALLINT},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="fullName != null">
         #{fullName,jdbcType=VARCHAR},
-      </if>
-      <if test="code != null">
-        #{code,jdbcType=VARCHAR},
       </if>
       <if test="parentCode != null">
         #{parentCode,jdbcType=VARCHAR},
@@ -167,17 +167,17 @@
   <update id="updateByExampleSelective" parameterType="map">
     update t_architecture
     <set>
+      <if test="record.code != null">
+        code = #{record.code,jdbcType=VARCHAR},
+      </if>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=SMALLINT},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.fullName != null">
         full_name = #{record.fullName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.code != null">
-        code = #{record.code,jdbcType=VARCHAR},
       </if>
       <if test="record.parentCode != null">
         parent_code = #{record.parentCode,jdbcType=VARCHAR},
@@ -195,10 +195,10 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update t_architecture
-    set id = #{record.id,jdbcType=SMALLINT},
+    set code = #{record.code,jdbcType=VARCHAR},
+      id = #{record.id,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
       full_name = #{record.fullName,jdbcType=VARCHAR},
-      code = #{record.code,jdbcType=VARCHAR},
       parent_code = #{record.parentCode,jdbcType=VARCHAR},
       level = #{record.level,jdbcType=TINYINT},
       standard = #{record.standard,jdbcType=VARCHAR}
@@ -209,14 +209,14 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.shx.law.entity.Architecture">
     update t_architecture
     <set>
+      <if test="id != null">
+        id = #{id,jdbcType=VARCHAR},
+      </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="fullName != null">
         full_name = #{fullName,jdbcType=VARCHAR},
-      </if>
-      <if test="code != null">
-        code = #{code,jdbcType=VARCHAR},
       </if>
       <if test="parentCode != null">
         parent_code = #{parentCode,jdbcType=VARCHAR},
@@ -228,19 +228,18 @@
         standard = #{standard,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=SMALLINT}
+    where code = #{code,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.shx.law.entity.Architecture">
     update t_architecture
-    set name = #{name,jdbcType=VARCHAR},
+    set id = #{id,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
       full_name = #{fullName,jdbcType=VARCHAR},
-      code = #{code,jdbcType=VARCHAR},
       parent_code = #{parentCode,jdbcType=VARCHAR},
       level = #{level,jdbcType=TINYINT},
       standard = #{standard,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=SMALLINT}
+    where code = #{code,jdbcType=VARCHAR}
   </update>
-
   <select id="selectByRequest" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

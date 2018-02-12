@@ -2,17 +2,13 @@ package com.shx.law.service.impl;
 
 import com.shx.law.entity.Architecture;
 import com.shx.law.entity.ArchitectureExample;
-import com.shx.law.entity.Distance;
-import com.shx.law.entity.DistanceExample;
 import com.shx.law.mapper.ArchitectureMapper;
 import com.shx.law.mapper.DistanceMapper;
-import com.shx.law.mapper.StructureMapper;
 import com.shx.law.service.DistanceService;
 import com.shx.law.vo.request.ArchitectureRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Map;
