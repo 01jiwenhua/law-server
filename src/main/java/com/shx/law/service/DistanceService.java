@@ -24,6 +24,12 @@ public interface DistanceService {
     List<Architecture> getArchitecture(ArchitectureRequest architectureRequest);
 
     /**
+     * 获取带下级列表的数据
+     * @param architectureRequest
+     * @return
+     */
+    List<Map<String,Object>> getArchitectureByParentCode(ArchitectureRequest architectureRequest);
+    /**
      * 查询安全距离
      *
      * @param deviceInId

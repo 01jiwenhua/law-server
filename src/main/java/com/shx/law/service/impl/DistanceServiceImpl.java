@@ -10,6 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +24,7 @@ import java.util.Map;
 @Service("distanceService")
 public class DistanceServiceImpl implements DistanceService {
 
-//    @Autowired
+    //    @Autowired
 //    private StructureMapper structureMapper;
     @Autowired
     private DistanceMapper distanceMapper;
@@ -54,6 +56,22 @@ public class DistanceServiceImpl implements DistanceService {
 //        return architectureMapper.selectByRequest(architectureRequest);
     }
 
+    public List<Map<String,Object>> getArchitectureByParentCode(ArchitectureRequest architectureRequest) {
+       List<Map<String,Object>> resultList=new ArrayList<Map<String, Object>>();
+        List<Architecture> architectureList = getArchitecture(architectureRequest);
+        for (Architecture architecture : architectureList) {
+            Map<String, Object> resultMap = new HashMap<String, Object>();
+            ArchitectureRequest newArchitecture=new ArchitectureRequest();
+            newArchitecture.setParentCode(architecture.getCode());
+            newArchitecture.setStandard(architecture.getStandard());
+            List<Architecture> childList=getArchitecture(newArchitecture);
+            resultMap.put("parent",architecture);
+            resultMap.put("child",childList);
+            resultList.add(resultMap);
+        }
+        return resultList;
+    }
+
     /**
      * /**
      * 获取安全距离
@@ -62,7 +80,7 @@ public class DistanceServiceImpl implements DistanceService {
      * @param structureOutId
      * @return
      */
-    public Map<String,Object> getDistance(Integer deviceInId, Integer structureOutId) {
+    public Map<String, Object> getDistance(Integer deviceInId, Integer structureOutId) {
 //        DistanceExample distanceExample = new DistanceExample();
 //        distanceExample.createCriteria().andDeviceInIdEqualTo(deviceInId).andStructureOutIdEqualTo(structureOutId);
 //        distanceExample.or().andDeviceInIdEqualTo(structureOutId).andStructureOutIdEqualTo(deviceInId);
@@ -71,7 +89,7 @@ public class DistanceServiceImpl implements DistanceService {
 //            return distanceList.get(0);
 //        }
 //        return null;
-        return distanceMapper.selectDistance(String.valueOf(structureOutId),String.valueOf(deviceInId));
+        return distanceMapper.selectDistance(String.valueOf(structureOutId), String.valueOf(deviceInId));
     }
 
     /**

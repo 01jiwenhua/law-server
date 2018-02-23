@@ -47,6 +47,17 @@ public class DistanceAction {
         result.put("architecture", json);
         return ResultUtil.buidSuccess(result);
     }
+    @RequestMapping("/getArchitecture/v2")
+    public @ResponseBody
+    Response getArchitectureV2(HttpServletRequest httpServletRequest) {
+        String request = httpServletRequest.getParameter("data");
+        ArchitectureRequest architectureRequest=JSON.parseObject(request,ArchitectureRequest.class);
+        List<Map<String,Object>> resultList = distanceService.getArchitectureByParentCode(architectureRequest);
+        HashMap result = new HashMap();
+        String json = JSON.toJSONString(resultList);
+        result.put("architecture", json);
+        return ResultUtil.buidSuccess(result);
+    }
 
     /**
      * 获取安全距离
