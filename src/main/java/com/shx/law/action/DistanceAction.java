@@ -58,7 +58,23 @@ public class DistanceAction {
         result.put("architecture", json);
         return ResultUtil.buidSuccess(result);
     }
-
+    /**
+     * 获取建筑物名称
+     *
+     * @param httpServletRequest
+     * @return
+     */
+    @RequestMapping("/getTabs")
+    public @ResponseBody
+    Response getTabs(HttpServletRequest httpServletRequest) {
+        String request = httpServletRequest.getParameter("data");
+        ArchitectureRequest architectureRequest=JSON.parseObject(request,ArchitectureRequest.class);
+        List<Architecture> resultList = distanceService.getTabsByStandard(architectureRequest);
+        HashMap result = new HashMap();
+        String json = JSON.toJSONString(resultList);
+        result.put("tabs", json);
+        return ResultUtil.buidSuccess(result);
+    }
     /**
      * 获取安全距离
      *

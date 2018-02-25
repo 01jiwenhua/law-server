@@ -24,11 +24,21 @@ public interface DistanceService {
     List<Architecture> getArchitecture(ArchitectureRequest architectureRequest);
 
     /**
-     * 获取带下级列表的数据
+     * 根据标准号获取顶级tab
+     *
      * @param architectureRequest
      * @return
      */
-    List<Map<String,Object>> getArchitectureByParentCode(ArchitectureRequest architectureRequest);
+    List<Architecture> getTabsByStandard(ArchitectureRequest architectureRequest);
+
+    /**
+     * 获取带下级列表的数据
+     *
+     * @param architectureRequest
+     * @return
+     */
+    List<Map<String, Object>> getArchitectureByParentCode(ArchitectureRequest architectureRequest);
+
     /**
      * 查询安全距离
      *
@@ -36,7 +46,7 @@ public interface DistanceService {
      * @param structureOutId
      * @return
      */
-    Map<String,Object> getDistance(Integer deviceInId, Integer structureOutId);
+    Map<String, Object> getDistance(Integer deviceInId, Integer structureOutId);
 
     /**
      * 模糊查询类型列表

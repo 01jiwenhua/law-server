@@ -24,8 +24,6 @@ import java.util.Map;
 @Service("distanceService")
 public class DistanceServiceImpl implements DistanceService {
 
-    //    @Autowired
-//    private StructureMapper structureMapper;
     @Autowired
     private DistanceMapper distanceMapper;
     @Autowired
@@ -53,7 +51,17 @@ public class DistanceServiceImpl implements DistanceService {
         }
         List<Architecture> architectureList = architectureMapper.selectByExample(architectureExample);
         return architectureList;
-//        return architectureMapper.selectByRequest(architectureRequest);
+    }
+
+    public List<Architecture> getTabsByStandard(ArchitectureRequest architectureRequest) {
+        ArchitectureExample architectureExample = new ArchitectureExample();
+        ArchitectureExample.Criteria criteria = architectureExample.createCriteria();
+        String architectureStandard = architectureRequest.getStandard();
+        if (StringUtils.isNoneBlank(architectureStandard)) {
+            criteria.andStandardEqualTo(architectureStandard).andLevelEqualTo(Byte.valueOf("1"));
+        }
+        List<Architecture> architectureList = architectureMapper.selectByExample(architectureExample);
+        return architectureList;
     }
 
     public List<Map<String,Object>> getArchitectureByParentCode(ArchitectureRequest architectureRequest) {
@@ -81,14 +89,6 @@ public class DistanceServiceImpl implements DistanceService {
      * @return
      */
     public Map<String, Object> getDistance(Integer deviceInId, Integer structureOutId) {
-//        DistanceExample distanceExample = new DistanceExample();
-//        distanceExample.createCriteria().andDeviceInIdEqualTo(deviceInId).andStructureOutIdEqualTo(structureOutId);
-//        distanceExample.or().andDeviceInIdEqualTo(structureOutId).andStructureOutIdEqualTo(deviceInId);
-//        List<Distance> distanceList = distanceMapper.selectByExample(distanceExample);
-//        if (!CollectionUtils.isEmpty(distanceList)) {
-//            return distanceList.get(0);
-//        }
-//        return null;
         return distanceMapper.selectDistance(String.valueOf(structureOutId), String.valueOf(deviceInId));
     }
 
