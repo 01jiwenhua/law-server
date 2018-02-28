@@ -457,6 +457,7 @@
     l.publish_time publishTime,
     l.type_code typeCode,
     l.file_from fileFrom,
+    l.status,
     (select 1 from t_favorite where user_id = #{lawRequest.userId} and law_id = l.id and status=1 LIMIT 1) is_favorite
     from t_law l
     <where>
@@ -488,6 +489,7 @@
     l.publish_time publishTime,
     l.type_code typeCode,
     l.file_from fileFrom,
+    l.status,
     (select 1 from t_favorite where user_id = #{userId} and law_id = l.id and status=1) is_favorite
     from t_law l
     ORDER BY publish_time desc

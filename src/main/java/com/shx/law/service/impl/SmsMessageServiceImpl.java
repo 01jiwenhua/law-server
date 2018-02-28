@@ -23,7 +23,7 @@ import java.util.Date;
 import java.util.List;
 @Service("smsMessageService")
 public class SmsMessageServiceImpl implements SmsMessageService {
-	private static final int CODE_EXP = 100;
+	private static final int CODE_EXP = 60;
 	@Autowired
 	private MongoTemplate mongoTemplate;
 	@Autowired
