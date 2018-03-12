@@ -310,7 +310,7 @@
     JOIN t_architecture a1 ON d.device_in_id = a1.id
     JOIN t_architecture a2 ON d.structure_out_id = a2.id
     JOIN t_note n ON n.id = d.note_id
-    WHERE device_in_id=#{deviceInId} AND structure_out_id=#{structureOutId}
+    WHERE 1=1 AND (device_in_id=#{deviceInId} AND structure_out_id=#{structureOutId}) OR (device_in_id=#{structureOutId} AND structure_out_id=#{deviceInId})
     LIMIT 1
   </select>
 </mapper>
