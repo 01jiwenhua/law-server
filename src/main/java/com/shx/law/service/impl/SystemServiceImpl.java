@@ -41,6 +41,7 @@ public class SystemServiceImpl implements SystemService {
      * @param userId
      * @param content
      */
+    @Override
     public void saveAdvice(Integer userId, String content) {
         Advice advice = new Advice();
         advice.setContent(content);

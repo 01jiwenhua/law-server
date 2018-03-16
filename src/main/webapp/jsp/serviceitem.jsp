@@ -5,14 +5,13 @@ charset=UTF-8"
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <style type="text/css">
         <!--
         p.MsoNormal {
-            margin:20px;
             color: #676767;
-            line-height:300%;
+            line-height:200%;
             text-align:justify;
             text-justify:inter-ideograph;
             font-size:1em;
@@ -23,7 +22,6 @@ charset=UTF-8"
     <style type="text/css">
         <!--
         h2 {
-            margin:20px;
             color: #3F3F3F;
             font-size:1.125em;
             font-family: "宋体"

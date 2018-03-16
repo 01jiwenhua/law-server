@@ -6,20 +6,18 @@ charset=UTF-8"
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <style type="text/css">
         <!--
         p.MsoNormal {
-            margin:20px;
             color: #676767;
-            line-height:300%;
+            line-height:200%;
             text-align:justify;
             text-justify:inter-ideograph;
             font-size:1em;
             font-family:"Calibri",sans-serif;
         }
         .STYLE1 {
-            margin:20px;
             color: #3F3F3F;
             font-size:1.125em;
             font-family: "宋体"}

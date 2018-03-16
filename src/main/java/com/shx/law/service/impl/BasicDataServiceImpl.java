@@ -26,7 +26,7 @@ public class BasicDataServiceImpl implements BasicDataService {
         map.put("jkwhList",jkwhList);
         return map;
     }
-
+    @Override
     public List<BasicData> getParamsDetails(String code) {
 //        BasicDataExample example=new BasicDataExample();
 //        BasicDataExample.Criteria criteria=example.createCriteria();
