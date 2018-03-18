@@ -29,7 +29,7 @@ public class LawServiceImpl implements LawService {
     private BasicDataMapper basicDataMapper;
     @Autowired
     private FavoriteMapper favoriteMapper;
-
+    @Override
     public PageInfo<Map<String, Object>> getLawList(LawRequest request) {
         PageHelper.startPage(request.getPage(), request.getPageSize());
 //        List<String> levelList = new ArrayList<String>();
@@ -59,7 +59,7 @@ public class LawServiceImpl implements LawService {
 
         return PageInfo;
     }
-
+    @Override
     public List<BasicData> getLawLevel(String typeCode) {
         BasicDataExample example = new BasicDataExample();
         BasicDataExample.Criteria criteria = example.createCriteria();
@@ -67,7 +67,7 @@ public class LawServiceImpl implements LawService {
         List<BasicData> basicDataList = basicDataMapper.selectByExample(example);
         return basicDataList;
     }
-
+    @Override
     public void addFavorite(String typeCode, String lawId, String userId) {
         FavoriteExample example = new FavoriteExample();
         FavoriteExample.Criteria criteria = example.createCriteria();
@@ -97,6 +97,7 @@ public class LawServiceImpl implements LawService {
      * @param lawId
      * @param userId
      */
+    @Override
     public void cancelFavorite(String typeCode, String lawId, String userId) {
         FavoriteExample example = new FavoriteExample();
         FavoriteExample.Criteria criteria = example.createCriteria();
@@ -113,6 +114,7 @@ public class LawServiceImpl implements LawService {
      * @param userId
      * @return
      */
+    @Override
     public List getFavoriteList(String typeCode, String userId) {
         List resultList = new ArrayList();
         FavoriteExample favoriteExample = new FavoriteExample();
@@ -136,7 +138,7 @@ public class LawServiceImpl implements LawService {
         }
         return resultList;
     }
-
+    @Override
     public List<Law> getNewLawList(String userId) {
         List<Law> list=lawMapper.selectNewLaw(userId);
         return list;

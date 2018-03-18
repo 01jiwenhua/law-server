@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
     private SmsMessageService smsMessageService;
     @Autowired
     private VersionManagerMapper versionManagerMapper;
-
+    @Override
     public List<Company> getCompanyList() {
         CompanyExample example = new CompanyExample();
         CompanyExample.Criteria criteria = example.createCriteria();
@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
         List<Company> companyList = companyMapper.selectByExample(example);
         return companyList;
     }
-
+    @Override
     public List<Department> getDepartmentList(String companyId) {
         DepartmentExample example = new DepartmentExample();
         DepartmentExample.Criteria criteria = example.createCriteria();
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
         List<Department> departMentList = departmentMapper.selectByExample(example);
         return departMentList;
     }
-
+    @Override
     public List<Job> getJobList() {
         JobExample jobExample = new JobExample();
         JobExample.Criteria criteria = jobExample.createCriteria();
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
         List<Job> jobList = jobMapper.selectByExample(jobExample);
         return jobList;
     }
-
+    @Override
     public Map login(String phone, String verifyCode) throws SystemException {
         try {
             //验证码校验
@@ -72,7 +72,6 @@ public class UserServiceImpl implements UserService {
             throw e;
         }
     }
-
     private User checkUser(String phone) {
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
@@ -83,7 +82,7 @@ public class UserServiceImpl implements UserService {
         }
         return userList.get(0);
     }
-
+    @Override
     public void regist(UserRequest userRequest) {
         String phone = userRequest.getPhone();
         User oldUser = checkUser(phone);
@@ -114,11 +113,11 @@ public class UserServiceImpl implements UserService {
             userMapper.updateByPrimaryKeySelective(newUser);
         }
     }
-
+    @Override
     public void getVerifyCode(String phone) {
         smsMessageService.sendAuthCode(phone, "安全检查智能查询系统", "SMS_123799105", "危化监管综合查询系统");
     }
-
+    @Override
     public void checkRegist(String phone, String verifyCode) {
         User user = checkUser(phone);
         if (user != null) {
@@ -126,13 +125,13 @@ public class UserServiceImpl implements UserService {
         }
         smsMessageService.checkVerifyCode(phone, verifyCode);
     }
-
+    @Override
     public Map getUserInfo(Integer userId) {
         //返回用户信息
         Map userInfo = userMapper.selectUserInfo(userId);
         return userInfo;
     }
-
+    @Override
     public VersionManager getNewVersion(String versionCode) {
         VersionManagerExample example = new VersionManagerExample();
         VersionManagerExample.Criteria criteria = example.createCriteria();
@@ -155,6 +154,7 @@ public class UserServiceImpl implements UserService {
      * @param verifyCode
      * @throws SystemException
      */
+    @Override
     public void changePhone(String userId, String phone, String verifyCode)  throws SystemException {
         smsMessageService.checkVerifyCode(phone, verifyCode);
         User user = checkUser(phone);
@@ -166,7 +166,7 @@ public class UserServiceImpl implements UserService {
         userMapper.updateByPrimaryKeySelective(newUser);
     }
 
-
+    @Override
     public String uploadAvatar(Integer userId, HttpServletRequest request) {
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
         MultipartFile multipartFile = multipartRequest.getFile("avatar");

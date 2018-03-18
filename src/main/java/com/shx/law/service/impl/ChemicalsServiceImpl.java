@@ -30,11 +30,11 @@ public class ChemicalsServiceImpl implements ChemicalsService {
 
         return PageInfo;
     }
-
+    @Override
     public PageInfo<Chemicals> getUnKnownChemicals() {
         return null;
     }
-
+    @Override
     public Map<String,Object> getChemicalsDetails(String id,String userId,String typeCode) {
         Map<String ,Object> result=new HashMap<String, Object>();
         Map<String, Object> map = chemicalsMapper.selectDetails(id,userId,typeCode);

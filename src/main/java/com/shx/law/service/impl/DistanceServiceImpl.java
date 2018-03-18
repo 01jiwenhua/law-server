@@ -29,6 +29,7 @@ public class DistanceServiceImpl implements DistanceService {
     @Autowired
     private ArchitectureMapper architectureMapper;
 
+    @Override
     public List<Architecture> getArchitecture(ArchitectureRequest architectureRequest) {
         ArchitectureExample architectureExample = new ArchitectureExample();
         ArchitectureExample.Criteria criteria = architectureExample.createCriteria();
@@ -49,13 +50,15 @@ public class DistanceServiceImpl implements DistanceService {
         if (StringUtils.isNotBlank(architectureParentCode)) {
             criteria.andParentCodeEqualTo(architectureParentCode);
         }
+        architectureExample.setOrderByClause("id");
         List<Architecture> architectureList = architectureMapper.selectByExample(architectureExample);
         return architectureList;
     }
-
+    @Override
     public List<Architecture> getTabsByStandard(ArchitectureRequest architectureRequest) {
         ArchitectureExample architectureExample = new ArchitectureExample();
         ArchitectureExample.Criteria criteria = architectureExample.createCriteria();
+        architectureExample.setOrderByClause("id");
         String architectureStandard = architectureRequest.getStandard();
         if (StringUtils.isNoneBlank(architectureStandard)) {
             criteria.andStandardEqualTo(architectureStandard).andLevelEqualTo(Byte.valueOf("1"));
@@ -64,6 +67,7 @@ public class DistanceServiceImpl implements DistanceService {
         return architectureList;
     }
 
+    @Override
     public List<Map<String,Object>> getArchitectureByParentCode(ArchitectureRequest architectureRequest) {
        List<Map<String,Object>> resultList=new ArrayList<Map<String, Object>>();
         List<Architecture> architectureList = getArchitecture(architectureRequest);
@@ -88,6 +92,7 @@ public class DistanceServiceImpl implements DistanceService {
      * @param structureOutId
      * @return
      */
+    @Override
     public Map<String, Object> getDistance(Integer deviceInId, Integer structureOutId) {
         return distanceMapper.selectDistance(String.valueOf(structureOutId), String.valueOf(deviceInId));
     }
@@ -99,6 +104,7 @@ public class DistanceServiceImpl implements DistanceService {
      * @param structureOutName
      * @return
      */
+    @Override
     public List<Map<String, Object>> getFuzzySearchTypeList(String deviceInName, String structureOutName) {
         return distanceMapper.selectDistanceByFuzzy(deviceInName, structureOutName);
     }
@@ -110,6 +116,7 @@ public class DistanceServiceImpl implements DistanceService {
      * @param structureOutName
      * @return
      */
+    @Override
     public List<Map<String, Object>> getFuzzySearchDetailList(String deviceInName, String structureOutName, String type) {
         return distanceMapper.selectDistanceByType(deviceInName, structureOutName, type);
     }

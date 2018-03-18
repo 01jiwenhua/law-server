@@ -110,7 +110,7 @@ public class SmsMessageServiceImpl implements SmsMessageService {
 
 
 	}
-
+	@Override
 	public void checkVerifyCode(String phone, String verifycode) throws SystemException {
 		String authCode = userSessionDao.getVerifyCode(phone);
 		if (!authCode.equals(verifycode)) {

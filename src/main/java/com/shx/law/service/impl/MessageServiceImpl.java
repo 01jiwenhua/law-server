@@ -12,6 +12,7 @@ import java.util.List;
 public class MessageServiceImpl implements MessageService {
     @Autowired
     private MessageMapper messageMapper;
+    @Override
     public List<Message> getMessage(String type) {
         MessageExample example=new MessageExample();
         MessageExample.Criteria criteria=example.createCriteria();
