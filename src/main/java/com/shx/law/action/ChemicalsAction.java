@@ -26,6 +26,8 @@ import java.util.Map;
 @Controller
 @RequestMapping("/chemicals")
 public class ChemicalsAction {
+
+
     @Autowired
     private ChemicalsService chemicalsService;
     @Autowired
