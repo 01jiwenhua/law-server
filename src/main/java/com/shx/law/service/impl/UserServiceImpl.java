@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
     public Map login(String phone, String verifyCode) throws SystemException {
         try {
             //验证码校验
-            smsMessageService.checkVerifyCode(phone, verifyCode);
+//            smsMessageService.checkVerifyCode(phone, verifyCode);
             //验证用户是否存在
             User user = checkUser(phone);
             if (user == null) {
@@ -164,6 +164,16 @@ public class UserServiceImpl implements UserService {
         User newUser=userMapper.selectByPrimaryKey(Integer.valueOf(userId));
         newUser.setPhone(phone);
         userMapper.updateByPrimaryKeySelective(newUser);
+    }
+
+    @Override
+    public void uploadAppId(String userId, String appId) {
+        User user=userMapper.selectByPrimaryKey(Integer.valueOf(userId));
+        if(user==null){
+            return;
+        }
+        user.setAppId(appId);
+        userMapper.updateByPrimaryKeySelective(user);
     }
 
     @Override

@@ -43,6 +43,12 @@ public class User {
 
     private String userType;
 
+    private String salt;
+
+    private Integer encryQty;
+
+    private String appId;
+
     public Integer getId() {
         return id;
     }
@@ -201,5 +207,29 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType == null ? null : userType.trim();
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt == null ? null : salt.trim();
+    }
+
+    public Integer getEncryQty() {
+        return encryQty;
+    }
+
+    public void setEncryQty(Integer encryQty) {
+        this.encryQty = encryQty;
+    }
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId == null ? null : appId.trim();
     }
 }

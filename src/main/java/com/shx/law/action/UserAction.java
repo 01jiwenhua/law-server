@@ -131,6 +131,22 @@ public class UserAction {
             return ResultUtil.buidFail(e.getMessage(), "10010");
         }
     }
+    @RequestMapping("/uploadAppid")
+    public @ResponseBody
+    Response uploadAppid(HttpServletRequest httpServletRequest) {
+        try {
+            String request = httpServletRequest.getParameter("data");
+            JSONObject requestObject = JSON.parseObject(request);
+            String userId = requestObject.getString("userId");
+            String appId = requestObject.getString("appId");
+            userService.uploadAppId(userId,appId);
+            HashMap result = new HashMap();
+            return ResultUtil.buidSuccess(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultUtil.buidFail(e.getMessage(), "10010");
+        }
+    }
 
     /**
      * 登录

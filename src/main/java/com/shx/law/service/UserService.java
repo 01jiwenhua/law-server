@@ -91,4 +91,11 @@ public interface UserService {
      * @return
      */
     String uploadAvatar(Integer userId, HttpServletRequest request);
+
+    /**
+     * 上传客户端个推
+     * @param userId
+     * @param appId
+     */
+    void uploadAppId(String userId, String appId);
 }
