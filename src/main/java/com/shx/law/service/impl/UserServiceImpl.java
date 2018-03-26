@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
     public Map login(String phone, String verifyCode) throws SystemException {
         try {
             //验证码校验
-//            smsMessageService.checkVerifyCode(phone, verifyCode);
+            smsMessageService.checkVerifyCode(phone, verifyCode);
             //验证用户是否存在
             User user = checkUser(phone);
             if (user == null) {
