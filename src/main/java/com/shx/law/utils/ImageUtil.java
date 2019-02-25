@@ -104,7 +104,7 @@ public class ImageUtil {
 	 */
 	public static File GenerateImage(InputStream is, String imgFilePath) {
 		File file = new File(imgFilePath);
-		File fileFolder = new File(imgFilePath.substring(0, imgFilePath.lastIndexOf("\\")));
+		File fileFolder = new File(imgFilePath.substring(0, imgFilePath.lastIndexOf(File.separator)));
 
 		OutputStream os = null;
 		try {

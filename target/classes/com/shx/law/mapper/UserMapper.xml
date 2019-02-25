@@ -504,6 +504,7 @@
     u.license_type,
     u.id_no,
     u.phone,
+    u.status,
     u.sex,
     c.`name`,
     c.id company_id,
